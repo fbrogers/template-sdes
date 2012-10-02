@@ -10,8 +10,8 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<?= $data->html_meta(); ?>
-	<?= $data->html_base(); ?>
+	<?= $data->html_site_meta(); ?>
+	<?= $data->html_site_base(); ?>
 	<title><?= $data->html_page_title().$data->html_site_title() ?> | UCF</title>
 
 	<!-- CUSTOM UCF MARKETING HEADER -->
@@ -24,26 +24,23 @@
 	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_main.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_print.css" type="text/css" media="print" />
 	<link rel="shortcut icon" href="http://assets.sdes.ucf.edu/images/favicon_black.png" type="text/css" />
-	<?= $data->html_css(); ?>
+	<?= $data->html_site_css(); ?>
 	<!-- /STYLES -->
 
 	<!-- JAVASCRIPT -->
-	<?= $data->html_js(); ?>
-	<?= $data->html_js_raw(); ?>
-	<!-- /JAVASCRIPT -->
-
-	<!-- IFRAME FIX -->
+	<?= $data->html_site_js(); ?>
+	<?= $data->html_site_js_raw(); ?>
 	<script type="text/javascript">
 	$(document).ready(function(){
 		if(self != top){
 			top.location = self.location;
 		}
 	});
-	</script>	
-	<!-- /IFRAME FIX -->
+	</script>
+	<!-- /JAVASCRIPT -->
 
-	<?= $data->html_slider_code() ?>
-	<?= $data->generate_google_analytics_urchin() ?>	
+	<?= $data->html_billboard_includes() ?>
+	<?= $data->html_site_gaid() ?>	
 </head>
 
 <body>
