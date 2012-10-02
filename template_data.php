@@ -962,12 +962,19 @@ class TemplateData{
 		
 		//conditional
 		if($this->site_content_end_under != NULL){
-		
+
+			//canned top output
+			$output .= '<div class="content-main-top"></div>'."\n";
+			$output .= '<div class="content-main-body">'."\n";
+			$output .= '<div class="content-main">'."\n";
+
 			//set the title without any html
 			$output .= $this->site_content_end_under;
 			
-			//newline, for kicks
-			$output .= "\n";
+			//canned bottom output
+			$output .= '</div>'."\n";
+			$output .= '</div>'."\n";
+			$output .= '<div class="content-main-bottom"></div>'."\n";
 		}		
 		
 		//output html
