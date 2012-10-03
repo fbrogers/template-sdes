@@ -72,6 +72,7 @@ class TemplateData{
 	private $site_footer_ucf_icon;
 
 	//basic demographic fields
+	private $site_hours = array();
 	private $site_phone;
 	private $site_fax;
 	private $site_email;
@@ -476,8 +477,7 @@ class TemplateData{
 	}
 	
 	//set up the social networking presences for the site
-	public function site_social($collection){
-	
+	public function site_social($collection){	
 		//type check
 		if(!is_array($collection)){
 			throw new Exception('Site social must be passed as an array.');
@@ -497,6 +497,42 @@ class TemplateData{
 			//store
 			$this->site_social[$type] = $val;
 		}
+	}
+
+	//set the hours for each day of the week
+	public function site_hours($hours){
+		//type check
+		if(!is_array($hours)){
+			throw new Exception("Hours must be passed as a two-dimensional array.", 1);
+		}
+
+		//count check for days of the week
+		if(count($hours) != 7){
+			throw new Exception("Each day of the week must be represented in the hours array.", 1);
+		}
+
+		//loop each day of the week
+		for($i = 0; $i <= 6; $i++){
+
+			//check each day for two values
+			if(count($hours[$i]) != 2){
+				throw new Exception("Each day of the week must contain open and close time.", 1);
+			}
+
+			//if the values are not null (null is an acceptable value)
+			if($hours[$i][0] != NULL and $hours[$i][1] != NULL){
+				//check each value for valid timestamps
+				if(!preg_match("/^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $hours[$i][0])){
+					throw new Exception("Invalid open time.", 1);
+				}
+				if(!preg_match("/^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $hours[$i][1])){
+					throw new Exception("Invalid close time.", 1);
+				}
+			}
+		}
+
+		//save to interal property
+		$this->site_hours = $hours;
 	}
 
 
@@ -1182,6 +1218,13 @@ class TemplateData{
 			//start block code
 			$output .= '<table class="grid smaller">'."\n";
 
+			//if hours of operation are set
+			if($this->site_hours != NULL){
+				$output .= '<tr>'."\n";
+				$output .= '<th scope="row">Hours</th>'."\n";
+				$output .= '<td>'.$this->html_site_hours().'</td>'."\n";
+				$output .= '</tr>'."\n";
+			}
 			//if phone is set
 			if($this->site_phone != NULL){
 				$output .= '<tr>'."\n";
@@ -1273,6 +1316,91 @@ class TemplateData{
 		
 		//output html
 		return $output;	
+	}
+
+	//hours of operation
+	public function html_site_hours(){
+		//init
+		$output = NULL;
+		$collections = [];
+		$final = [];
+
+		//value-to-day conversion array
+		$names = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+		
+		//check for null, add to output
+		if(!empty($this->site_hours)){
+			
+			//loop through each day
+			foreach($this->site_hours as $day => $hours){
+
+				//if the day has hours set
+				if($hours[0] != NULL and $hours[1] != NULL){
+
+					//grab each piece of the time
+					$seconds_open = explode(':', $hours[0]);
+					$seconds_close = explode(':', $hours[1]);
+
+					//set the time stamp
+					$open_format = $seconds_open[1] == '00' ? 'ga' : 'g:ia';
+					$close_format = $seconds_close[1] == '00' ? 'ga' : 'g:ia';
+
+					//save the times out as clean times (8:00am)
+					$open = date($open_format, strtotime('1985-10-22 ' . $hours[0]));
+					$close = date($close_format, strtotime('1985-10-22 ' . $hours[1]));
+					$both = $open.' - '.$close;
+
+					//if this range exists, capture it
+					$collections[$both][] = $day;
+				}
+			}
+
+			//if there are results
+			if(!empty($collections)){
+
+				$blocks = NULL;
+				$block = NULL;
+
+				//separate them by sequential order
+				foreach($collections as $time => $days){
+
+					//for each day in the collection
+					foreach($days as $index => $day){
+
+						//set the current day to the current block
+						$block[] = $day;
+
+						//save and start a new block if the next day isn't sequential or is the last element
+						if($day == end($days) or (isset($days[$index + 1]) and $day + 1 != $days[$index + 1])){
+							$blocks[] = $block;
+							$block = NULL;
+						}
+					}
+
+					//save out blocks, reset
+					$collections[$time] = $blocks;
+					$blocks = NULL;
+				}
+
+				//echo time
+				foreach($collections as $time => $days){
+
+					foreach($days as $piece){
+
+						$temp[] = count($piece) == 1 ? $names[$piece[0]] : $names[$piece[0]].'-'.$names[end($piece)];
+					}
+
+					$final[] = implode(', ', $temp).': '.$time;
+					$temp = NULL;
+				}
+
+				//save to output string
+				$output .= implode("<br />\n", $final);
+			}
+		}
+		
+		//output html
+		return $output;
 	}
 }
 
