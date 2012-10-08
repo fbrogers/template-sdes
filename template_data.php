@@ -228,7 +228,7 @@ class TemplateData{
 
 		//ensure that the text can fit into the template
 		if(strlen($text) > $this->site_title_length){
-			throw new Exception('Site title must be less than 45 characters.');
+			throw new Exception('Site title must be less than {$this->site_title_length} characters.');
 		}
 
 		//set the internal reference
