@@ -3,9 +3,13 @@
 class TemplateData{
 	//general settings
 	private $template_include_path = 'C:\WebDFS\Websites\_phplib\\';
+	private $data_include_path;
 	private $template_icon_path = 'http://assets.sdes.ucf.edu/images/icons';
 	private $site_title_length = 45;
 	private $site_footer_column_limit = 8;
+
+	//site template
+	private $site_template;
 
 	//collection of custom meta tags
 	private $site_meta = array();
@@ -97,8 +101,15 @@ class TemplateData{
 	//object constructor
 	public function __construct(){
 	
-		//included functions
+		//included functions, formProcessor class
 		require_once realpath($this->template_include_path.'template_functions_generic.php');
+		require_once realpath($this->template_include_path.'forms.php');
+
+		//include path for data
+		$this->data_include_path = 'includes/';
+
+		//default template
+		$this->site_template = 'main';
 
 		//sets the default title to dummy text and href to self
 		$this->site_title = 'SITE_TITLE';
@@ -123,20 +134,6 @@ class TemplateData{
 		$this->site_footer(1, 'Site Hosted by SDES', $this->site_footer_col1_default);
 		$this->site_footer(2, 'UCF Today News', parse_rss_template());
 		$this->site_footer_ucf_icon = 'http://www.ucf.edu/';
-	}
-
-/*-------------------------------------------------------------------------------------------------------------------*/
-/*--- REQUIRED DATA COLLECTION METHODS ------------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------------------------------------------------*/
-
-	//load the required data file that sets many of these properties
-	public static function load_data(TemplateData $data){
-
-		//include data
-		require_once('includes/data.inc.php');
-
-		//return object
-		return $data;
 	}
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -182,6 +179,17 @@ class TemplateData{
 /*-------------------------------------------------------------------------------------------------------------------*/
 /*--- SITE DATA INPUT METHODS (MUTATORS / SETTERS) ------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------*/
+
+	//sets the page template
+	public function site_template($template){
+		//type check
+		if(!is_string($template)){
+			throw new Exception('Site template must be passed as a string.');
+		}
+
+		//add to the internal reference
+		$this->site_template = $template;
+	}
 
 	//set the custom meta tags into the array
 	public function site_meta($name, $content){
@@ -368,7 +376,7 @@ class TemplateData{
 		if($hasBillboard){
 			
 			//load billboard.inc
-			$this->site_billboard = file_get_contents('includes/billboard.inc');
+			$this->site_billboard = file_get_contents($this->get_data_include_path().'billboard.inc');
 
 			//throw exception if unable to load file
 			if(!$this->site_billboard){
@@ -540,9 +548,21 @@ class TemplateData{
 /*--- SIMPLE DATA OUTPUT METHODS (ACCESSORS / GETTERS) --------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------*/
 
+	public function get_template_include_path(){
+		return $this->template_include_path;
+	}
+
+	public function get_data_include_path(){
+		return $this->data_include_path;
+	}
+
 	public function get_site_include_path(){
 		return $this->site_include_path;
-	}	
+	}
+
+	public function get_site_template(){
+		return $this->site_template;
+	}
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 /*--- HTML SITE DATA OUTPUT METHODS (ACCESSORS / GETTERS) -----------------------------------------------------------*/
@@ -1008,6 +1028,7 @@ class TemplateData{
 			$output .= $this->site_content_end_under;
 			
 			//canned bottom output
+			$output .= '<div class="hr-clear"></div>'."\n";
 			$output .= '</div>'."\n";
 			$output .= '</div>'."\n";
 			$output .= '<div class="content-main-bottom"></div>'."\n";
@@ -1512,6 +1533,43 @@ class TemplatePage{
 		];
 		
 		return $array;	
+	}
+}
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+/*--- CLASS: TemplateFrame ------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------*/
+
+class TemplateFrame{
+
+	//settings for templates
+	private $template_path = 'C:\WebDFS\Websites\_phplib\templates\\';
+
+	//constructor
+	public function __construct(TemplateData $data){
+
+		//check to see if template is specified
+		if($data->get_site_template() == NULL){
+			throw new Exception("Template is not set.", 1);
+		}
+
+		//load the template
+		switch($data->get_site_template()){
+			case 'main':
+				require_once $this->get_template_path().'sdes_main.php';
+				break;
+			case 'admin':
+				require_once $this->get_template_path().'sdes_admin.php';
+				break;
+			default:
+				require_once $this->get_template_path().'sdes_main.php';
+				break;
+		}
+	}
+
+	//get template path
+	public function get_template_path(){
+		return $this->template_path;
 	}
 }
 ?>

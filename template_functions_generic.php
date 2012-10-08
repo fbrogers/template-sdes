@@ -31,34 +31,29 @@
 		return $output;
 	}
 
-	//load template
-	function load_template($template, $data){
-	
-		//include the template
-		switch($template){
-			case 'main':
-				require_once 'C:\WebDFS\Websites\_phplib\templates\sdes_main.php';
-				break;
-			case 'admin':
-				require_once 'C:\WebDFS\Websites\_phplib\templates\sdes_admin.php';
-				break;
-			default:
-				require_once 'C:\WebDFS\Websites\_phplib\templates\sdes_main.php';
-				break;
-		}
-	}	
+	//grab the hours from a directory output and put them into template format
+	function load_hours_from_directory($hours){
 
-	//load any class
-	function load_class($class){
-	
-		//include the template
-		switch($class){
-			case 'forms':
-				require_once 'C:\WebDFS\Websites\_phplib\forms.php';
-				break;
+		//check input size
+		if(count($hours) != 7){
+			return false;
 		}
+
+		//form the array
+		$output = [
+			0 => [$hours[0]['open'], $hours[0]['close']],
+			1 => [$hours[1]['open'], $hours[1]['close']],
+			2 => [$hours[2]['open'], $hours[2]['close']],
+			3 => [$hours[3]['open'], $hours[3]['close']],
+			4 => [$hours[4]['open'], $hours[4]['close']],
+			5 => [$hours[5]['open'], $hours[5]['close']],
+			6 => [$hours[6]['open'], $hours[6]['close']],
+		];
+
+		//return the preformatted array
+		return $output;
 	}
-	
+
 	//render the links beside the title/h1
 	function contentMainLinks($links){
 		$output = NULL;
