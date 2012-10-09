@@ -10,6 +10,13 @@ A set of functions, templates, and classes to standardize and simplify the colle
 
 ##Changelog
 
+2012-10-09
+
+	* Added more helper functions to move directory information to the TemplateData object
+	* Completed a full example file of data.inc.php
+	* Rewrote site_billboard() to be a little simpler
+	* Changed site_demographics to site_directory_basics to be less ambiguous
+
 2012-10-08
 
 	* Added TemplateFrame class so that template-loading functionality could exist within an OOP context
