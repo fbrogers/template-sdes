@@ -16,6 +16,7 @@ A set of functions, templates, and classes to standardize and simplify the colle
 	* Completed a full example file of data.inc.php
 	* Rewrote site_billboard() to be a little simpler
 	* Changed site_demographics to site_directory_basics to be less ambiguous
+	* Added example for page use
 
 2012-10-08
 

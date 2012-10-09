@@ -260,7 +260,7 @@ class TemplateData{
 		}
 
 		//checks to ensure that the text contains no HTML except breaks and images
-		$text = strip_tags(trim($text));
+		$text = strip_tags(trim($href));
 
 		//set the internal reference
 		$this->site_title_href = $href;
@@ -274,7 +274,7 @@ class TemplateData{
 		}
 
 		//checks to ensure that the text contains no HTML except breaks and images
-		$text = strip_tags(trim($text));
+		$text = strip_tags(trim($href));
 
 		//set the internal reference
 		$this->site_subtitle_href = $href;
@@ -353,7 +353,7 @@ class TemplateData{
 		}
 		
 		//loop array elements
-		foreach($elements as $href => $text){
+		foreach($elements as $text => $href){
 		
 			//policy enforcement
 			if(substr($href, 0, 4) == 'http' or substr($href, 0, 3) == 'www'){
@@ -361,7 +361,7 @@ class TemplateData{
 			}
 		
 			//save to 
-			$this->site_navigation[$href] = strip_tags($text);
+			$this->site_navigation[strip_tags($text)] = $href;
 		}
 	}
 	
@@ -833,7 +833,7 @@ class TemplateData{
 			$output .= '<ul id="nav-under">'."\n";
 		
 			//loop through navigation array
-			foreach($this->site_navigation as $href => $text){
+			foreach($this->site_navigation as $text => $href){
 				
 				//single navigation element
 				$output .= "\t\t\t".'<li><a href="'.$href.'">'.$text.'</a></li>'."\n";				
@@ -901,7 +901,7 @@ class TemplateData{
 			//render beginning of wrapper
 			$output .= '<ul class="content-main-links">'."\n";
 		
-			foreach($this->page_content_links as $href => $text){
+			foreach($this->page_content_links as $text => $href){
 			
 				//set the title without any html except <em> and <strong>
 				$output .= '<li><a href="'.$href.'">'.$text.'</a></li>';
@@ -1027,7 +1027,7 @@ class TemplateData{
 			$output .= '<ul>'."\n";
 		
 			//loop through navigation array
-			foreach($this->site_navigation as $href => $text){
+			foreach($this->site_navigation as $text => $href){
 				
 				//single navigation element
 				$output .= "\t\t\t\t\t".'<li><a href="'.$href.'">'.$text.'</a></li>'."\n";				
@@ -1537,10 +1537,10 @@ class TemplatePage{
 		if(is_array($collection)){
 		
 			//loop array elements
-			foreach($collection as $href => $text){
+			foreach($collection as $text => $href){
 			
 				//save to 
-				$this->page_content_links[$href] = strip_tags($text);
+				$this->page_content_links[strip_tags($text)] = $href;
 			}
 		}
 	}
