@@ -41,18 +41,12 @@ class TemplateData{
 	//allowed pages for the billboard
 	private $site_billboard_allowed_pages = array();
 	
-	//variable for the page filename
+	//properties for the included page to set
 	private $site_include_path;
 	private $page;
 	private $page_title;
-	
-	//variable for the page contents
 	private $page_content;
-
-	//collection of title bar links
-	private $page_content_links = array();
-	
-	//data above/below the main content block;
+	private $page_content_links;
 	private $page_content_above;
 	private $page_content_below;
 	
@@ -95,7 +89,7 @@ class TemplateData{
 		'https://publishing.ucf.edu/sites/sdes/Pages/Contact.aspx' => 'Contact Us',
 		'https://publishing.ucf.edu/sites/sdes/Pages/Staff.aspx' => 'SDES Leadership Team',
 		'http://creed.sdes.ucf.edu/' => 'The UCF Creed',
-		'http://it.sdes.ucf.edu/' => 'SDES Information Technology',
+		'http://it.sdes.ucf.edu/' => 'SDES Information Technology'
 	];
 	
 	//object constructor
@@ -895,8 +889,8 @@ class TemplateData{
 		//init
 		$output = NULL;
 		
-		//conditional
-		if(!empty($this->page_content_links)){
+		//output if property is an array
+		if(is_array($this->page_content_links) and !empty($this->page_content_links)){
 			
 			//render beginning of wrapper
 			$output .= '<ul class="content-main-links">'."\n";
@@ -909,7 +903,14 @@ class TemplateData{
 			
 			//render end of wrapper
 			$output .= '</ul>'."\n";
-		}		
+		}
+
+		//output if property is a string
+		elseif(is_string($this->page_content_links) and $this->page_content_links != NULL){
+
+			//render beginning of wrapper
+			$output .= $this->page_content_links."\n";
+		}
 		
 		//output html
 		return $output;	
@@ -1468,7 +1469,7 @@ class TemplatePage{
 	private $page_content;
 
 	//collection of title bar links
-	private $page_content_links = array();
+	private $page_content_links;
 	
 	//data above/below the main content block;
 	private $page_content_above;
@@ -1509,7 +1510,7 @@ class TemplatePage{
 		}
 		
 		//page links
-		if(isset($links) && is_array($links)){
+		if(isset($links)){
 			$this->page_content_links($links);
 		}
 		
@@ -1542,6 +1543,10 @@ class TemplatePage{
 				//save to 
 				$this->page_content_links[strip_tags($text)] = $href;
 			}
+
+		} elseif(is_string($collection)){
+
+			$this->page_content_links = $collection;
 		}
 	}
 

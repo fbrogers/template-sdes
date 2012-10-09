@@ -17,6 +17,7 @@ A set of functions, templates, and classes to standardize and simplify the colle
 	* Rewrote site_billboard() to be a little simpler
 	* Changed site_demographics to site_directory_basics to be less ambiguous
 	* Added example for page use
+	* Added the ability to set $page_content_links to an HTML string or an array
 
 2012-10-08
 
