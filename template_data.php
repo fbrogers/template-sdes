@@ -34,9 +34,9 @@ class TemplateData{
 
 	//billboard content
 	private $site_billboard;
-	private $hasBillboard;
-	private $isSlider;
-	private $slider;
+	private $site_billboard_exists;
+	private $site_billboard_dynamic;
+	private $site_billboard_dynamic_type;
 	
 	//allowed pages for the billboard
 	private $site_billboard_allowed_pages = array();
@@ -120,11 +120,9 @@ class TemplateData{
 		$this->site_subtitle_href = 'http://www.sdes.ucf.edu/';
 
 		//defaults for the billboard and/or slider
-		$this->site_billboard = 'images/slate.jpg';
+		$this->site_billboard = 'images/billboard.jpg';
+		$this->site_billboard_dynamic_type = 'nivo_slider';
 		$this->site_billboard_allowed_pages = ['home', 'thanks'];
-		$this->hasBillboard = true;
-		$this->isSlider = false;
-		$this->slider = 'nivo_slider';
 		
 		//content block
 		$this->site_include_path = NULL;
@@ -317,6 +315,11 @@ class TemplateData{
 
 	//set the raw javascript
 	public function site_js_raw($js){
+		//check for previous call
+		if($this->site_js_raw != NULL){
+			throw new Exception('Raw javascript can only be set once.');
+		}
+	
 		//type check
 		if(!is_string($js)){
 			throw new Exception('Site meta content must be passed as strings.');
@@ -345,42 +348,57 @@ class TemplateData{
 	//set the site navigation
 	public function site_navigation($elements){	
 		//verify type
-		if(is_array($elements)){
+		if(!is_array($elements)){
+			throw new Exception('Site navigation must be passed as an array.', 1);
+		}
 		
-			//loop array elements
-			foreach($elements as $href => $text){
-			
-				//policy enforcement
-				if(substr($href, 0, 4) == 'http' or substr($href, 0, 3) == 'www'){
-					throw new Exception('External links are not allowed in the site navigation.', 1);
-				}
-			
-				//save to 
-				$this->site_navigation[$href] = strip_tags($text);
+		//loop array elements
+		foreach($elements as $href => $text){
+		
+			//policy enforcement
+			if(substr($href, 0, 4) == 'http' or substr($href, 0, 3) == 'www'){
+				throw new Exception('External links are not allowed in the site navigation.', 1);
 			}
+		
+			//save to 
+			$this->site_navigation[$href] = strip_tags($text);
 		}
 	}
 	
 	//set the options for the billboard
-	public function site_billboard($hasBillboard, $isSlider){	
+	public function site_billboard($billboard, $content_file = NULL){	
 		//type check
-		if(!is_bool($hasBillboard) or !is_bool($isSlider)){
-			throw new Exception('First two parameters must be boolean.', 1);
+		if(!is_bool($billboard)){
+			throw new Exception("Parameter 1 for site billboard must be a boolean.", 1);
 		}
 	
-		//set object properties
-		$this->hasBillboard = $hasBillboard;
-		$this->isSlider = $isSlider;
+		//check existance of path
+		if($content_file == NULL){
+			$content_file = 'billboard.inc';
+		}
 
-		//include billboard contents
-		if($hasBillboard){
+		//check the billboard bit field
+		if($billboard){
+		
+			//check to see if the billboard file exists
+			if(is_file($this->get_data_include_path().$content_file)){
+		
+				//set various fields
+				$this->site_billboard = file_get_contents($this->get_data_include_path().$content_file);
+				$this->site_billboard_exists = true;
+				$this->site_billboard_dynamic = true;
+
+			} else {
 			
-			//load billboard.inc
-			$this->site_billboard = file_get_contents($this->get_data_include_path().'billboard.inc');
-
-			//throw exception if unable to load file
-			if(!$this->site_billboard){
-				throw new Exception("Error opening billboard HTML include", 1);
+				//set various fields
+				$this->site_billboard_exists = true;
+				$this->site_billboard_dynamic = false;
+			}
+		} else {
+		
+			//include billboard contents
+			if(!is_file($this->site_billboard)){
+				throw new Exception("Error opening billboard image", 1);
 			}
 		}
 	}
@@ -394,7 +412,7 @@ class TemplateData{
 
 		//set property
 		foreach($pages as $page){
-			$this->site_billboard_allowed_pages[] = trim(strip_tages($page));
+			$this->site_billboard_allowed_pages[] = trim(strip_tags($page));
 		}
 	}
 	
@@ -475,13 +493,24 @@ class TemplateData{
 /*-------------------------------------------------------------------------------------------------------------------*/
 
 	//set up the basic demographic fields for a site
-	public function site_demographics($phone, $fax, $email, $location, $mapId){	
+	public function site_directory_basics($basics){	
+	
+		//type check
+		if(!is_array($basics)){
+			throw new Exception('Basic directory information must be passed as an array.');
+		}
+		
+		//values check
+		if(count($basics) != 5){
+			throw new Exception('Basic directory information must be passed correctly.');
+		}
+	
 		//property assignment
-		$this->site_phone = $phone;
-		$this->site_fax = $fax;
-		$this->site_email = $email;
-		$this->site_location_name = $location;
-		$this->site_location_id = $mapId;
+		$this->site_phone = $basics['phone'] ?: NULL;
+		$this->site_fax = $basics['fax'] ?: NULL;
+		$this->site_email = $basics['email'] ?: NULL;
+		$this->site_location_name = $basics['location'] ?: NULL;
+		$this->site_location_id = $basics['mapId'] ?: NULL;
 	}
 	
 	//set up the social networking presences for the site
@@ -618,7 +647,7 @@ class TemplateData{
 			$output .= strip_tags($this->page_title);
 			
 			//separater
-			$output .= ' | ';
+			$output .= ' &raquo; ';
 		
 		}		
 		
@@ -699,9 +728,9 @@ class TemplateData{
 		$output = NULL;
 		
 		//check the size of the array
-		if($this->isSlider and !empty($this->site_billboard)){
+		if($this->site_billboard_dynamic and $this->site_billboard != NULL){
 		
-			switch($this->slider){
+			switch($this->site_billboard_dynamic_type){
 				case 'nivo_slider':
 					$output = 
 	'<!-- NIVO-SLIDER -->
@@ -823,10 +852,10 @@ class TemplateData{
 		$output = NULL;
 		
 		//if the billboard bitflag is on
-		if($this->hasBillboard and in_array($this->page, $this->site_billboard_allowed_pages)){
+		if($this->site_billboard_exists and in_array($this->page, $this->site_billboard_allowed_pages)){
 		
 			//if the slider bitflag is on
-			if($this->isSlider){
+			if($this->site_billboard_dynamic){
 
 				//output the entire contents of the site_billboard
 				$output .= $this->site_billboard;

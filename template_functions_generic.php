@@ -54,6 +54,28 @@
 		return $output;
 	}
 
+	//grab the basic directory information and set it to the $data object
+	function load_basics_from_directory($directory){
+
+		//init
+		$output = [];
+
+		//check for existance
+		$output['phone'] = $directory['phone'] ?: NULL;
+		$output['fax'] = $directory['fax'] ?: NULL;
+		$output['email'] = $directory['email'] ?: NULL;
+		$output['location'] = $directory['location']['building'] ?: NULL;		
+		$output['mapId'] = $directory['location']['buildingNumber'] ?: NULL;
+
+		//add room number
+		if(isset($directory['location']['roomNumber']) and $output['location'] != NULL){
+			$output['location'] .= ' '.$directory['location']['roomNumber'];
+		}
+
+		//return as preformatted array
+		return $output;
+	}
+
 	//render the links beside the title/h1
 	function contentMainLinks($links){
 		$output = NULL;

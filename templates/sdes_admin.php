@@ -12,7 +12,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<?= $data->html_site_meta(); ?>
 	<?= $data->html_site_base(); ?>
-	<title><?= $data->html_page_title().$data->html_site_title() ?> | UCF</title>
+	<title><?= $data->html_page_title().$data->html_site_title() ?> &raquo; UCF</title>
 
 	<!-- CUSTOM UCF MARKETING HEADER -->
 	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/jquery.min.js"></script>
