@@ -133,6 +133,7 @@
 		//set cURL options
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 
 		//execute cURL and dump results
 		$rss = curl_exec($ch);
@@ -157,7 +158,7 @@
 		}
 
 		//if there are errors
-		if(libxml_get_errors()){
+		if(libxml_get_errors() or $xml == NULL){
 
 			//start an error element
 			$output = '<li>Failed loading XML</li>';
@@ -167,7 +168,13 @@
 				$output .= '<li>'.htmlentities($error->message).'</li>';
 			}
 
-			//return false
+			//check for null
+			if($xml == NULL){
+				$output .= '<li>No data for the given URI, or</li>';
+				$output .= '<li>retrieval of the URI timed out.</li>';
+			}
+
+			//return error messages
 			return $output;
 		}
 
@@ -207,6 +214,7 @@
 		//set cURL options
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 
 		//execute cURL and dump results
 		$rss = curl_exec($ch);
@@ -234,7 +242,7 @@
 		$output = [];
 
 		//if there are errors
-		if(libxml_get_errors()){
+		if(libxml_get_errors() or $xml == NULL){
 
 			//start an error element
 			$output[] = 'Failed loading XML.';
@@ -244,7 +252,13 @@
 				$output[] = htmlentities($error->message);
 			}
 
-			//return false
+			//check for null
+			if($xml == NULL){
+				$output[] = 'No data for the given URI, or';
+				$output[] = 'retrieval of the URI timed out.';
+			}
+
+			//return error messages
 			return $output;
 		}
 
