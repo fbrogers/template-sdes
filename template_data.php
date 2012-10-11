@@ -115,6 +115,7 @@ class TemplateData{
 
 		//defaults for the billboard and/or slider
 		$this->site_billboard = 'images/billboard.jpg';
+		$this->site_billboard_exists = true;
 		$this->site_billboard_dynamic_type = 'nivo_slider';
 		$this->site_billboard_allowed_pages = ['home', 'thanks'];
 		
@@ -171,6 +172,22 @@ class TemplateData{
 /*-------------------------------------------------------------------------------------------------------------------*/
 /*--- SITE DATA INPUT METHODS (MUTATORS / SETTERS) ------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------*/
+
+	//sets the default includes directory
+	public function data_include_path($path){
+		//type check
+		if(!is_string($path)){
+			throw new Exception('Data include path must be passed as a string.');
+		}
+
+		//ensure that final character is a forward slash
+		if(substr($path, -1) != '/' or substr($path, -2) == '/'){
+			throw new Exception('Data include path must terminate with a forward slash.');
+		}
+
+		//set property
+		$this->data_include_path = $path;
+	}
 
 	//sets the page template
 	public function site_template($template){
@@ -375,17 +392,20 @@ class TemplateData{
 		if($billboard){
 		
 			//check to see if the billboard file exists
-			if(is_file($this->get_data_include_path().$content_file)){
-		
+			if(is_file($this->get_data_include_path().$content_file)){		
 				//set various fields
 				$this->site_billboard = file_get_contents($this->get_data_include_path().$content_file);
 				$this->site_billboard_exists = true;
 				$this->site_billboard_dynamic = true;
 
-			} else {
-			
+			} elseif(is_file($this->site_billboard)){			
 				//set various fields
 				$this->site_billboard_exists = true;
+				$this->site_billboard_dynamic = false;
+
+			} else {
+				//set defaults
+				$this->site_billboard_exists = false;
 				$this->site_billboard_dynamic = false;
 			}
 		} else {
@@ -854,7 +874,7 @@ class TemplateData{
 				//output the entire contents of the site_billboard
 				$output .= $this->site_billboard;
 		
-			} else {
+			} elseif(is_file($this->site_billboard)){
 
 				//output the image inside the preformed slate container
 				$output .= '
@@ -984,7 +1004,7 @@ class TemplateData{
 			foreach($this->site_social as $type => $val){
 
 				//start link
-				$output .= '<a href="'.urlencode($val).'">'."\n\t\t\t\t\t";
+				$output .= '<a href="'.htmlentities($val).'">'."\n\t\t\t\t\t";
 
 				//pick out an image
 				switch($type){
@@ -1245,7 +1265,7 @@ class TemplateData{
 		//conditional
 		if($this->site_footer_ucf_icon != NULL){
 		
-			//set the title without any html
+			//output the href
 			$output .= htmlentities($this->site_footer_ucf_icon);
 		}		
 		
@@ -1263,8 +1283,12 @@ class TemplateData{
 		$output = NULL;
 
 		//check all fields first
-		if($this->site_phone != NULL or	$this->site_fax != NULL or
-			$this->site_email != NULL or ($this->site_location_name != NULL and $this->site_location_id != NULL)){
+		if($this->site_phone != NULL
+			or $this->site_fax != NULL
+			or $this->site_email != NULL
+			or ($this->site_location_name != NULL and $this->site_location_id != NULL)
+			or $this->site_hours != NULL
+		){
 
 			//start block code
 			$output .= '<table class="grid smaller">'."\n";

@@ -10,6 +10,14 @@ A set of functions, templates, and classes to standardize and simplify the colle
 
 ##Changelog
 
+2012-10-10
+
+	* Fixed some defaults with the billboard properties
+	* Added a check for the default billboard image, fails over to no billboard
+	* Added a mutator for $data_include_path
+	* Hours of Operation are now included in the null check for the contact block html getter
+	* Swapped out urlencode for htmlentities over the html output of hrefs for the social media icons
+
 2012-10-09
 
 	* Added more helper functions to move directory information to the TemplateData object
