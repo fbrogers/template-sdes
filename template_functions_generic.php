@@ -41,13 +41,13 @@
 
 		//form the array
 		$output = [
-			0 => [$hours[0]['open'], $hours[0]['close']],
-			1 => [$hours[1]['open'], $hours[1]['close']],
-			2 => [$hours[2]['open'], $hours[2]['close']],
-			3 => [$hours[3]['open'], $hours[3]['close']],
-			4 => [$hours[4]['open'], $hours[4]['close']],
-			5 => [$hours[5]['open'], $hours[5]['close']],
-			6 => [$hours[6]['open'], $hours[6]['close']],
+			[$hours[0]['open'], $hours[0]['close']],
+			[$hours[1]['open'], $hours[1]['close']],
+			[$hours[2]['open'], $hours[2]['close']],
+			[$hours[3]['open'], $hours[3]['close']],
+			[$hours[4]['open'], $hours[4]['close']],
+			[$hours[5]['open'], $hours[5]['close']],
+			[$hours[6]['open'], $hours[6]['close']]
 		];
 
 		//return the preformatted array
