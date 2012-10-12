@@ -752,17 +752,11 @@ class TemplateData{
 	<script type="text/javascript" src="https://assets.sdes.ucf.edu/plugins/nivoslider/jquery.nivo.slider.js"></script>
 	<script type="text/javascript">
 		$(window).load(function() {
-			var total = $(\'#slider img\').length;
-			var rand = Math.floor(Math.random()*total);
 			$("#slider").nivoSlider({
-				startSlide: rand,
-				effect: "random",
-				slices:10,
-				animSpeed:500,
-				pauseTime:5000,
-				directionNav:true,
-				controlNav:false,
-				captionOpacity:0.7
+				slices: 10,
+				pauseTime: 5000,
+				controlNav: false,
+				captionOpacity: 0.7
 			});	
 		});	
 	</script>
