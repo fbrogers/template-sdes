@@ -6,7 +6,7 @@
 		$output = array();
 
 		//get all map locations
-		$ch = curl_init("http://assets.sdes.ucf.edu/data/directory.js");
+		$ch = curl_init('http://directory.sdes.ucf.edu/feed');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		$json = curl_exec($ch);
