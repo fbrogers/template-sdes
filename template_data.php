@@ -2,7 +2,7 @@
 
 class TemplateData{
 	//general settings
-	private $template_include_path = 'C:\WebDFS\Websites\_phplib\\';
+	private $template_include_path = 'C:\WebDFS\Websites\_phplib\sdestemplate\\';
 	private $data_include_path;
 	private $template_icon_path = 'http://assets.sdes.ucf.edu/images/icons';
 	private $site_title_length = 45;
@@ -96,8 +96,8 @@ class TemplateData{
 	public function __construct(){
 	
 		//included functions, formProcessor class
-		require_once realpath($this->template_include_path.'template_functions_generic.php');
-		require_once realpath($this->template_include_path.'forms.php');
+		require_once($this->template_include_path.'template_functions_generic.php');
+		require_once($this->template_include_path.'..\formprocessor\forms.php');
 
 		//include path for data
 		$this->data_include_path = 'includes/';
