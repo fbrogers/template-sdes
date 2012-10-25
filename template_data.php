@@ -82,12 +82,12 @@ class TemplateData{
 
 	//defaults
 	private $site_footer_col1_default = [
-		'https://publishing.ucf.edu/sites/sdes/' => 'SDES Home',
-		'https://publishing.ucf.edu/sites/sdes/Pages/WhatisSDES.aspx' => 'What is SDES? / About',
-		'https://publishing.ucf.edu/sites/sdes/Pages/Departments.aspx' => 'SDES Departments',
-		'https://publishing.ucf.edu/sites/sdes/Pages/Calendar.aspx' => 'Division Calendar',
-		'https://publishing.ucf.edu/sites/sdes/Pages/Contact.aspx' => 'Contact Us',
-		'https://publishing.ucf.edu/sites/sdes/Pages/Staff.aspx' => 'SDES Leadership Team',
+		'http://www.sdes.ucf.edu/' => 'SDES Home',
+		'http://www.sdes.ucf.edu/about' => 'What is SDES? / About',
+		'http://www.sdes.ucf.edu/departments' => 'SDES Departments',
+		'http://www.sdes.ucf.edu/events' => 'Division Calendar',
+		'http://www.sdes.ucf.edu/contact' => 'Contact Us',
+		'http://www.sdes.ucf.edu/staff' => 'SDES Leadership Team',
 		'http://creed.sdes.ucf.edu/' => 'The UCF Creed',
 		'http://it.sdes.ucf.edu/' => 'SDES Information Technology'
 	];
@@ -1595,7 +1595,7 @@ class TemplatePage{
 class TemplateFrame{
 
 	//settings for templates
-	private $template_path = 'C:\WebDFS\Websites\_phplib\templates\\';
+	private $template_path;
 
 	//constructor
 	public function __construct(TemplateData $data){
@@ -1604,6 +1604,14 @@ class TemplateFrame{
 		if($data->get_site_template() == NULL){
 			throw new Exception("Template is not set.", 1);
 		}
+
+		//check file path
+		if($data->get_template_include_path() == NULL){
+			throw new Exception("Template include path is not set.", 1);
+		}
+
+		//set template directory
+		$this->template_path = $data->get_template_include_path().'\templates\\';
 
 		//load the template
 		switch($data->get_site_template()){
