@@ -273,7 +273,8 @@
 			$title 	= str_replace('&', '&amp;', $xml->channel->item[$i]->title);
 
 			//echo beginning of list item
-			$output[$url] = strlen($title) > 50 ? substr($title, 0, 45).'...' : $title;
+			$title = strlen($title) > 50 ? substr($title, 0, 45).'...' : $title;
+			$output[$title] = $url;
 		}
 
 		//return output

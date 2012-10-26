@@ -520,11 +520,11 @@ class TemplateData{
 		}
 	
 		//property assignment
-		$this->site_phone = $basics['phone'] ?: NULL;
-		$this->site_fax = $basics['fax'] ?: NULL;
-		$this->site_email = $basics['email'] ?: NULL;
-		$this->site_location_name = $basics['location'] ?: NULL;
-		$this->site_location_id = $basics['mapId'] ?: NULL;
+		$this->site_phone = isset($basics['phone']) ? $basics['phone'] : NULL;
+		$this->site_fax = isset($basics['fax']) ? $basics['fax'] : NULL;
+		$this->site_email = isset($basics['email']) ? $basics['email'] : NULL;
+		$this->site_location_name = isset($basics['location']) ? $basics['location'] : NULL;
+		$this->site_location_id = isset($basics['mapId']) ? $basics['mapId'] : NULL;
 	}
 	
 	//set up the social networking presences for the site
@@ -1105,7 +1105,7 @@ class TemplateData{
 					$output .= "\t\t\t\t".'<ul>'."\n";
 				
 					//set the title without any html except <em> and <strong>
-					foreach($this->site_footer_col1_1 as $href => $text){						
+					foreach($this->site_footer_col1_1 as $text => $href){						
 						$output .= "\t\t\t\t\t".'<li><a href="'.$href.'">'.$text.'</a></li>'."\n";
 					}
 					
@@ -1120,7 +1120,7 @@ class TemplateData{
 					$output .= "\t\t\t\t".'<ul>'."\n";
 				
 					//set the title without any html except <em> and <strong>
-					foreach($this->site_footer_col1_2 as $href => $text){
+					foreach($this->site_footer_col1_2 as $text => $href){
 						$output .= "\t\t\t\t\t".'<li><a href="'.$href.'">'.$text.'</a></li>'."\n";
 					}
 					
@@ -1136,7 +1136,7 @@ class TemplateData{
 					$output .= "\t\t\t\t".'<ul>'."\n";
 				
 					//set the title without any html except <em> and <strong>
-					foreach($this->site_footer_col1 as $href => $text){
+					foreach($this->site_footer_col1 as $text => $href){
 						$output .= "\t\t\t\t\t".'<li><a href="'.$href.'">'.$text.'</a></li>'."\n";
 					}
 					
@@ -1155,7 +1155,7 @@ class TemplateData{
 					$output .= "\t\t\t\t".'<ul>'."\n";
 				
 					//set the title without any html except <em> and <strong>
-					foreach($this->site_footer_col2_1 as $href => $text){
+					foreach($this->site_footer_col2_1 as $text => $href){
 						$output .= "\t\t\t\t\t".'<li><a href="'.$href.'">'.$text.'</a></li>'."\n";
 					}
 					
@@ -1170,7 +1170,7 @@ class TemplateData{
 					$output .= "\t\t\t\t".'<ul>'."\n";
 				
 					//set the title without any html except <em> and <strong>
-					foreach($this->site_footer_col2_2 as $href => $text){
+					foreach($this->site_footer_col2_2 as $text => $href){
 						$output .= "\t\t\t\t\t".'<li><a href="'.$href.'">'.$text.'</a></li>'."\n";
 					}
 					
@@ -1186,7 +1186,7 @@ class TemplateData{
 					$output .= "\t\t\t\t".'<ul>'."\n";
 				
 					//set the title without any html except <em> and <strong>
-					foreach($this->site_footer_col2 as $href => $text){
+					foreach($this->site_footer_col2 as $text => $href){
 						$output .= "\t\t\t\t\t".'<li><a href="'.$href.'">'.$text.'</a></li>'."\n";
 					}
 					
@@ -1223,16 +1223,19 @@ class TemplateData{
 				? $this->html_email_link().'<br />'
 				: 'Email: '.$this->html_email_link().'<br />';
 		
-		}else{
-
+		} elseif($this->site_subtitle != NULL){
 			//subtitle link
 			$output .= '<a href="'.$this->site_subtitle_href.'">'.strip_tags($this->site_subtitle).'</a><br />';
+
+		} else {
+			//generic ucf link
+			$output .= '<a href="http://www.ucf.edu/">University of Central Florida</a><br />';
 		}
 
 		//if phone and email are set, echo; else, use subtitle
 		if($this->site_location_name != NULL and $this->site_location_id != NULL){
 
-			//phone
+			//location link
 			$output .= 'Location: '.$this->html_map_link().'<br />';
 
 		}else{
