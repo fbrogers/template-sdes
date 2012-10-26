@@ -100,25 +100,6 @@
 		return realpath(ini_get('upload_tmp_dir'));
 	}
 
-	//open a sql connection
-	function sqlsrv_open(){
-
-		//connection settings
-		$settings = [
-			"Database" => SQL_DB,
-			"UID"=> SQL_USER,
-			"PWD"=> SQL_PASS,
-			"CharacterSet" => "UTF-8",
-			"ReturnDatesAsStrings" => 1
-		];
-
-		//connect to sql
-		$conn = sqlsrv_connect(SQL_SERVER, $settings) or die(print_r(sqlsrv_errors(), true));
-		
-		//return connection pointer
-		return $conn;
-	}
-
 	//prepares values for insert into a CSV file
 	function csv_prepare(&$value, $key){
 		$value = '"'.$value.'"';
@@ -415,7 +396,8 @@
 
 	function simpleInsert($table){
 		//connect to sql
-		$conn = sqlsrv_open();
+		$db = db::instance();
+		$conn = $db::connect();
 
 		//sanitize
 		FormProcessor::oxyClean($_POST);
@@ -438,9 +420,6 @@
 
 		//get last primary key
 		$pk = getLastId($result);
-		
-		//close sql
-		sqlsrv_close($conn);
 
 		//return new primary key
 		return $pk;
@@ -448,7 +427,8 @@
 
 	function simpleUpdate($table, $key){
 		//connect to sql
-		$conn = sqlsrv_open();
+		$db = db::instance();
+		$conn = $db::connect();
 		
 		//quick fix
 		$tableName = explode('_',$table);
@@ -471,9 +451,6 @@
 		//mezmerise
 		$query = "UPDATE [$table] SET {$update} WHERE [$id] = ?";
 		$result = sqlsrv_query($conn, $query, [$key]) or die(print_r(sqlsrv_errors(), true));
-		
-		//close sql
-		sqlsrv_close($conn);
 	}
 
 	//check to see if a given url returns an HTML 200
@@ -510,7 +487,8 @@
 	function dropDownChanger($table, $id, $name, $selected = NULL){
 		
 		//build the query from the pieces
-		$conn = sqlsrv_open();
+		$db = db::instance();
+		$conn = $db::connect();
 		$query = "SELECT [$id], [$name] FROM [$table] ORDER BY [$name]";
 		$result = sqlsrv_query($conn, $query) or die(print_r(sqlsrv_errors(), true));
 		
@@ -522,10 +500,7 @@
 			$output .= ($row[$id] == $selected)
 				? '<option value="'.$row[$id].'" selected="selected">'.ucwords($row[$name]).'</option>'
 				: '<option value="'.$row[$id].'">'.ucwords($row[$name]).'</option>';
-		}		
-		
-		//close sql connection
-		sqlsrv_close($conn);
+		}
 
 		//return
 		return $output;
@@ -653,8 +628,9 @@
 	
 	//check to see if a form is active: requires a database with a switch table
 	function checkSwitch($name){
-		//open sql connection
-		$conn = sqlsrv_open();
+		//connect to database
+		$db = db::instance();
+		$conn = $db::connect();
 		
 		//check to see if given switch is on or off
 		$query = "SELECT TOP 1 * FROM [switch] WHERE switchName = ? AND switchValue = 1";
@@ -663,9 +639,6 @@
 		
 		//set switch
 		$switch = sqlsrv_has_rows($result);
-		
-		//close sql connection
-		sqlsrv_close($conn);	
 		
 		//return
 		return $switch;

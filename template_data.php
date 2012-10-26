@@ -82,14 +82,14 @@ class TemplateData{
 
 	//defaults
 	private $site_footer_col1_default = [
-		'http://www.sdes.ucf.edu/' => 'SDES Home',
-		'http://www.sdes.ucf.edu/about' => 'What is SDES? / About',
-		'http://www.sdes.ucf.edu/departments' => 'SDES Departments',
-		'http://www.sdes.ucf.edu/events' => 'Division Calendar',
-		'http://www.sdes.ucf.edu/contact' => 'Contact Us',
-		'http://www.sdes.ucf.edu/staff' => 'SDES Leadership Team',
-		'http://creed.sdes.ucf.edu/' => 'The UCF Creed',
-		'http://it.sdes.ucf.edu/' => 'SDES Information Technology'
+		'SDES Home' => 'http://www.sdes.ucf.edu/',
+		'What is SDES? / About' => 'http://www.sdes.ucf.edu/about',
+		'SDES Departments' => 'http://www.sdes.ucf.edu/departments',
+		'Division Calendar' => 'http://www.sdes.ucf.edu/events',
+		'Contact Us' => 'http://www.sdes.ucf.edu/contact',
+		'SDES Leadership Team' => 'http://www.sdes.ucf.edu/staff',
+		'The UCF Creed' => 'http://creed.sdes.ucf.edu/',
+		'SDES Information Technology' => 'http://it.sdes.ucf.edu/'
 	];
 	
 	//object constructor
@@ -97,6 +97,7 @@ class TemplateData{
 	
 		//included functions, formProcessor class
 		require_once($this->template_include_path.'template_functions_generic.php');
+		require_once($this->template_include_path.'template_db.php');
 		require_once($this->template_include_path.'..\formprocessor\forms.php');
 
 		//include path for data
@@ -126,7 +127,7 @@ class TemplateData{
 		//footer block
 		$this->site_footer(1, 'Site Hosted by SDES', $this->site_footer_col1_default);
 		$this->site_footer(2, 'UCF Today News', parse_rss_template());
-		$this->site_footer_ucf_icon = 'http://www.ucf.edu/';
+		$this->site_footer_ucf_icon = 'http://www.ucf.edu/';	
 	}
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -1498,6 +1499,14 @@ class TemplatePage{
 
 	//get the current page via querystring
 	public function __construct(TemplateData $data){
+
+		//check for active connection string
+		if(class_exists('db')){
+			$instance = db::instance();
+			if($instance->isConnected()){
+				$conn = db::connect();
+			}
+		}	
 	
 		//turn on output buffering
 		ob_start();
