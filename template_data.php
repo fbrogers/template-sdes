@@ -97,7 +97,6 @@ class TemplateData{
 	
 		//included functions, formProcessor class
 		require_once($this->template_include_path.'template_functions_generic.php');
-		require_once($this->template_include_path.'template_db.php');
 		require_once($this->template_include_path.'..\formprocessor\forms.php');
 
 		//include path for data

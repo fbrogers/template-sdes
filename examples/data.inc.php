@@ -457,7 +457,13 @@ constraints:
 default: null
 
 example usage:
-$data->site_directory_basics(['407-823-5753', NULL, 'fy@ucf.edu', 'Howard Philips Hall 156', '27']);
+$data->site_directory_basics([
+	'phone' => 407-823-5753',
+	'fax' => NULL,
+	'email' => fy@ucf.edu',
+	'location' => 'Howard Philips Hall 156',
+	'mapId' => '27'
+]);
 $data->site_directory_basics(load_basics_from_directory($dir));
 ---------------------------------------------------------------------------- */
 $dir = get_directory_info('it');
