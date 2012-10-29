@@ -459,9 +459,9 @@ default: null
 
 example usage:
 $data->site_directory_basics([
-	'phone' => 407-823-5753',
+	'phone' => '407-823-5753',
 	'fax' => NULL,
-	'email' => fy@ucf.edu',
+	'email' => 'fy@ucf.edu',
 	'location' => 'Howard Philips Hall 156',
 	'mapId' => '27'
 ]);

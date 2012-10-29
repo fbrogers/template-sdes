@@ -1366,7 +1366,7 @@ class TemplateData{
 		
 		//check for null, add to output
 		if($this->site_email != NULL){
-			$output .= '<a href="mailto:'.$this->site_email.'">'.$this->site_email.'</a>'."\n";
+			$output .= '<a href="mailto:'.$this->site_email.'">'.$this->site_email.'</a>';
 		}		
 		
 		//output html
@@ -1380,7 +1380,7 @@ class TemplateData{
 		
 		//check for null, add to output
 		if($this->site_location_name != NULL && $this->site_location_id != NULL){
-			$output .= '<a href="http://map.ucf.edu/?show='.$this->site_location_id.'">'.$this->site_location_name.'</a>'."\n";
+			$output .= '<a href="http://map.ucf.edu/?show='.$this->site_location_id.'">'.$this->site_location_name.'</a>';
 		}		
 		
 		//output html
