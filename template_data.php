@@ -1205,7 +1205,7 @@ class TemplateData{
 		$output = '<p>';
 		
 		//site title
-		$output .= $this->html_site_title_div().'<br />';
+		$output .= $this->html_site_title().'<br />';
 
 		//if phone and email are set, echo; else, use subtitle
 		if($this->site_phone != NULL and $this->site_email != NULL){
