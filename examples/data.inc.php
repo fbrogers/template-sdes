@@ -415,6 +415,7 @@ $data->site_footer(2, 'UCF Today News', parse_rss_template());
 example usage:
 $data->site_footer(1, 'Upcoming Events', parse_rss_template());
 $data->site_footer(2, 'News', parse_rss_template(), 'Events', $events);
+$data->site_footer(1, '', []);
 ---------------------------------------------------------------------------- */
 //$data->site_footer(1, 'Site Hosted by SDES', $this->site_footer_col1_default);
 //$data->site_footer(2, 'UCF Today News', parse_rss_template());
