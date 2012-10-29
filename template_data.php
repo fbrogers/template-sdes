@@ -1387,7 +1387,7 @@ class TemplateData{
 		return $output;	
 	}
 
-	//email link
+	//UCF map link
 	public function html_map_link(){
 		//init
 		$output = NULL;
@@ -1484,6 +1484,28 @@ class TemplateData{
 		
 		//output html
 		return $output;
+	}
+
+	//social getter
+	public function html_social_uri($network = NULL){
+		//init
+		$output = NULL;
+
+		if(!($this->site_social == NULL)){
+
+			//if null
+			if($network == NULL){
+				$output = $this->site_social;
+			}
+
+			//add to output
+			elseif(isset($this->site_social[$network])){
+				$output .= $this->site_social[$network];
+			}				
+		}	
+		
+		//output
+		return $output;	
 	}
 }
 
