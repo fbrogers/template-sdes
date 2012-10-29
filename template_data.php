@@ -6,6 +6,7 @@ class TemplateData{
 	private $data_include_path;
 	private $template_icon_path = 'http://assets.sdes.ucf.edu/images/icons';
 	private $site_title_length = 45;
+	private $site_subtitle_length = 60;
 	private $site_footer_column_limit = 8;
 
 	//site template
@@ -236,8 +237,8 @@ class TemplateData{
 		$text = strip_tags(trim($text), '<img>');
 
 		//ensure that the text can fit into the template
-		if(strlen($text) > $this->site_title_length){
-			throw new Exception('Site title must be less than {$this->site_title_length} characters.');
+		if(strlen(strip_tags($text)) > $this->site_title_length){
+			throw new Exception("Site title must be less than {$this->site_title_length} characters.");
 		}
 
 		//set the internal reference
@@ -255,8 +256,8 @@ class TemplateData{
 		$text = strip_tags(trim($text), '<br><img>');
 
 		//ensure that the text can fit into the template
-		if(strlen($text) > $this->site_title_length){
-			throw new Exception('Site title must be less than 45 characters.');
+		if(strlen($text) > $this->site_subtitle_length){
+			throw new Exception("Site subtitle must be less than {$this->site_subtitle_length} characters.");
 		}
 
 		//set the internal reference
