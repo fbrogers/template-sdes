@@ -1359,6 +1359,20 @@ class TemplateData{
 		return $output;	
 	}
 
+	//email address
+	public function html_email(){
+		//init
+		$output = NULL;
+		
+		//check for null, add to output
+		if($this->site_email != NULL){
+			$output .= $this->site_email;
+		}		
+		
+		//output html
+		return $output;	
+	}
+
 	//email link
 	public function html_email_link(){
 		//init
