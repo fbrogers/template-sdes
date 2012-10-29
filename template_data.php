@@ -674,7 +674,7 @@ class TemplateData{
 
 		//check for null
 		if($this->site_title != NULL){
-			$output .= $this->site_title;
+			$output .= strip_tags($this->site_title);
 		}
 
 		//output
