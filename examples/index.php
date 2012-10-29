@@ -7,7 +7,7 @@ This is where you should include the template_data.php file, which contains
 the three required classes for using this engine: TemplateData, TemplatePage,
 and TemplateFrame.
 ---------------------------------------------------------------------------- */
-require_once realpath('C:\WebDFS\Websites\_phplib\template_data.php');
+require_once 'C:\WebDFS\Websites\_phplib\sdestemplate\template_data.php';
 
 
 /* ----------------------------------------------------------------------------

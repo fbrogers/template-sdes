@@ -52,9 +52,7 @@
 	<!-- /HEADER -->
 
 	<!-- NAVIGATION -->
-	<div id="nav_container">
-		<?= $data->html_site_navigation() ?>
-	</div>
+	<div id="nav_container"><?= $data->html_site_navigation() ?></div>
 	<!-- /NAVIGATION -->
 
 	<!-- CONTENT -->

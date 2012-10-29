@@ -409,11 +409,8 @@ class TemplateData{
 				$this->site_billboard_dynamic = false;
 			}
 		} else {
-		
-			//include billboard contents
-			if(!is_file($this->site_billboard)){
-				throw new Exception("Error opening billboard image", 1);
-			}
+			//turn it off
+			$this->site_billboard_exists = false;
 		}
 	}
 
