@@ -76,6 +76,21 @@
 		return $output;
 	}
 
+	function load_social_from_directory($directory){
+
+		//init
+		$output = [];
+
+		if(isset($directory['socialNetworks']) and !empty($directory['socialNetworks'])){
+			foreach ($directory['socialNetworks'] as $node) {
+				$output[strtolower(trim($node['name']))] = $node['uri'];
+			}
+		}
+
+		//return as preformatted array
+		return $output;
+	}
+
 	//render the links beside the title/h1
 	function contentMainLinks($links){
 		$output = NULL;
