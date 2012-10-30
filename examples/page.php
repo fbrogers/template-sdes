@@ -151,6 +151,7 @@ example usage:
 <?= $data->html_site_hours() ?>
 <?= $data->html_phone() ?>
 <?= $data->html_fax() ?>
+<?= $data->html_email() ?>
 <?= $data->html_email_link() ?>
 <?= $data->html_map_link() ?>
 
