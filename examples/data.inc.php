@@ -89,7 +89,7 @@ default: 'Student Development<br /> and Enrollment Services'
 example usage:
 $data->site_subtitle('Student Development<br /> and Enrollment Services');
 ---------------------------------------------------------------------------- */
-$data->site_subtitle('Submit a Call Ticket');
+//$data->site_subtitle('Submit a Call Ticket');
 
 
 /* ----------------------------------------------------------------------------
@@ -112,7 +112,7 @@ $data->site_title_href('./');
 $data->site_title_href('?id=home'); 
 $data->site_title_href('home'); 
 ---------------------------------------------------------------------------- */
-$data->site_title_href('./');
+//$data->site_title_href('./');
 
 
 /* ----------------------------------------------------------------------------
@@ -134,7 +134,7 @@ example usage:
 $data->site_subtitle_href('http://www.sdes.ucf.edu/');
 $data->site_subtitle_href('../');
 ---------------------------------------------------------------------------- */
-$data->site_subtitle_href('https://portal.sdes.ucf.edu/technology/callticket/staff_submit.aspx');
+//$data->site_subtitle_href('../');
 
 
 /* ----------------------------------------------------------------------------
@@ -158,7 +158,7 @@ $data->site_css('https://assets.sdes.ucf.edu/css/sdes_ucf.css','screen');
 $data->site_css('css/style.css','screen');
 $data->site_css('css/print.css','print');
 ---------------------------------------------------------------------------- */
-$data->site_css('https://assets.sdes.ucf.edu/css/sdes_it.css','screen');
+$data->site_css('https://assets.sdes.ucf.edu/css/sdes_ucf.css','screen');
 
 
 /* ----------------------------------------------------------------------------
@@ -177,7 +177,7 @@ example usage:
 $data->site_js('https://assets.sdes.ucf.edu/scripts/jquery.hoverIntent.js');
 $data->site_js('scripts/application.js');
 ---------------------------------------------------------------------------- */
-$data->site_js('https://assets.sdes.ucf.edu/plugins/fancybox/jquery.fancybox.js');
+
 
 
 /* ----------------------------------------------------------------------------
@@ -202,17 +202,7 @@ $raw =
 
 $data->site_js_raw($raw);
 ---------------------------------------------------------------------------- */
-$js = '$(document).ready(function(){
-    //FancyBox on the Portfolio Page
-    $("a.fancy").fancybox({
-        \'padding\': 10,
-        \'overlayOpacity\': 0.5,
-        \'zoomSpeedIn\': 300, 
-        \'zoomSpeedOut\': 300,
-        \'zoomOpacity\': true
-    });
-});';
-$data->site_js_raw($js);
+
 
 
 /* ----------------------------------------------------------------------------
@@ -531,6 +521,6 @@ $data->site_social([
 	'youtube' => 'http://www.youtube.com/fbrogers'
 ]);
 ---------------------------------------------------------------------------- */
-//$data->site_social();
+$data->site_social(load_social_from_directory($dir));
 
 ?>
