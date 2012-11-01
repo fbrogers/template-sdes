@@ -24,6 +24,10 @@
 	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_main.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_print.css" type="text/css" media="print" />
 	<link rel="shortcut icon" href="http://assets.sdes.ucf.edu/images/favicon_black.png" type="text/css" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://assets.sdes.ucf.edu/images/icons/ios-144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://assets.sdes.ucf.edu/images/icons/ios-114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://assets.sdes.ucf.edu/images/icons/ios-72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://assets.sdes.ucf.edu/images/icons/ios-57.png" />
 	<?= $data->html_site_css(); ?>
 	<!-- /STYLES -->
 
