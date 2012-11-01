@@ -124,6 +124,7 @@
 	function parse_rss($uri = 'http://today.ucf.edu/feed/', $limit = 8){
 
 		//initiate a cURL connection
+		$xml = NULL;
 		$ch = curl_init($uri);
 
 		//set cURL options
@@ -205,6 +206,7 @@
 	function parse_rss_template($uri = 'http://today.ucf.edu/feed/', $limit = 8){
 
 		//initiate a cURL connection
+		$xml = NULL;
 		$ch = curl_init($uri);
 
 		//set cURL options
