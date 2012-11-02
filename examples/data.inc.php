@@ -313,7 +313,7 @@ constraints:
 default: ['home', 'thanks']
 
 example usage:
-$data->site_billboard(['thanks2', 'thanks3']);
+$data->site_billboard_allowed_pages(['thanks2', 'thanks3']);
 ---------------------------------------------------------------------------- */
 //$data->site_billboard_allowed_pages();
 
