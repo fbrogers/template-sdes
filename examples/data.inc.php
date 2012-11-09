@@ -249,7 +249,7 @@ $data->site_navigation([
 	'About' => 'about',
 	'Teams' => 'teams',
 	'Services' => 'services',
-	'Training' => 'teams#training',
+	'Training' => 'training',
 	'Resources' => 'resources',
 	'Contact' => 'contact'
 ]);
