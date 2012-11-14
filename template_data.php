@@ -358,12 +358,7 @@ class TemplateData{
 	}
 	
 	//set the site navigation
-	public function site_navigation($elements){	
-		//verify type
-		if(!is_array($elements)){
-			throw new Exception('Site navigation must be passed as an array.', 1);
-		}
-		
+	public function site_navigation(array $elements){
 		//loop array elements
 		foreach($elements as $text => $href){
 		
@@ -384,7 +379,7 @@ class TemplateData{
 			throw new Exception("Parameter 1 for site billboard must be a boolean.", 1);
 		}
 	
-		//check existance of path
+		//check existence of path
 		if($content_file == NULL){
 			$content_file = 'billboard.inc';
 		}
@@ -416,12 +411,7 @@ class TemplateData{
 	}
 
 	//set the allowed pages for the billboard to appear under
-	public function site_billboard_allowed_pages($pages){
-		//type check
-		if(!is_array($pages)){
-			throw new Exception('Pages allowed to show the billboard must be passed as an array.');
-		}
-
+	public function site_billboard_allowed_pages(array $pages){
 		//set property
 		foreach($pages as $page){
 			$this->site_billboard_allowed_pages[] = trim(strip_tags($page));
@@ -440,12 +430,12 @@ class TemplateData{
 	}
 
 	//pass general data into the footer properties
-	public function site_footer($position, $title1, $elements1, $title2 = NULL, $elements2 = NULL){
+	public function site_footer($position, $title1, array $elements1, $title2 = NULL, array $elements2 = NULL){
 		//allowed positions
 		$allowed = [1, 2];
 
 		//check type
-		if(!is_array($elements1) or !is_int($position) or !in_array($position, $allowed)){
+		if(!is_int($position) or !in_array($position, $allowed)){
 			throw new Exception('Type is not correct for footer column.');
 		}
 
@@ -503,13 +493,7 @@ class TemplateData{
 /*-------------------------------------------------------------------------------------------------------------------*/
 
 	//set up the basic demographic fields for a site
-	public function site_directory_basics($basics){	
-	
-		//type check
-		if(!is_array($basics)){
-			throw new Exception('Basic directory information must be passed as an array.');
-		}
-		
+	public function site_directory_basics(array $basics){
 		//values check
 		if(count($basics) != 5){
 			throw new Exception('Basic directory information must be passed correctly.');
@@ -524,12 +508,7 @@ class TemplateData{
 	}
 	
 	//set up the social networking presences for the site
-	public function site_social($collection){	
-		//type check
-		if(!is_array($collection)){
-			throw new Exception('Site social must be passed as an array.');
-		}
-		
+	public function site_social(array $collection){
 		//possible values for $type
 		$allowed = ['facebook', 'picasa', 'skype', 'tumblr', 'twitter', 'wordpress', 'youtube'];
 
@@ -547,12 +526,7 @@ class TemplateData{
 	}
 
 	//set the hours for each day of the week
-	public function site_hours($hours){
-		//type check
-		if(!is_array($hours)){
-			throw new Exception("Hours must be passed as a two-dimensional array.", 1);
-		}
-
+	public function site_hours(array $hours){
 		//count check for days of the week
 		if(count($hours) != 7){
 			throw new Exception("Each day of the week must be represented in the hours array.", 1);
@@ -578,7 +552,7 @@ class TemplateData{
 			}
 		}
 
-		//save to interal property
+		//save to internal property
 		$this->site_hours = $hours;
 	}
 
@@ -607,20 +581,20 @@ class TemplateData{
 /*--- HTML SITE DATA OUTPUT METHODS (ACCESSORS / GETTERS) -----------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------*/
 
-	//generate meta tag html
+	//generate meta tag HTML
 	public function html_site_meta(){
 		//init
 		$output = NULL;
 
-		//loop through all of the current meta tag nodes and generate the html
+		//loop through all of the current meta tag nodes and generate the HTML
 		foreach($this->site_meta as $node){
 
-			//check each piece for necessary indices
+			//check each piece for necessary indexes
 			if(!isset($node['name'], $node['content'])){
 				throw new Exception('Meta tag generator missing required fields.');
 			}
 
-			//construct the html node
+			//construct the HTML node
 			$output .= '<meta name="'.$node['name'].'" content="'.$node['content'].'" />';
 
 			//insert a clean newline
@@ -656,7 +630,7 @@ class TemplateData{
 			//set the title without any html
 			$output .= strip_tags($this->page_title);
 			
-			//separater
+			//separator
 			$output .= ' &raquo; ';
 		
 		}		
@@ -687,7 +661,7 @@ class TemplateData{
 		//loop through all of the current css files and generate the html
 		foreach($this->site_css as $file){
 
-			//check each piece for necessary indices
+			//check each piece for necessary indexes
 			if(!isset($file['path'], $file['media'])){
 				throw new Exception('CSS generator missing required fields.');
 			}
