@@ -58,10 +58,6 @@
 	<div id="content_container">
 		<div class="shadow"></div>
 
-		<!-- BILLBOARD -->
-		<?= $data->html_billboard() ?>
-		<!-- /BILLBOARD -->
-
 		<!-- CONTENT-MAIN -->
 		<?= $data->html_page_content_above() ?>
 		<div class="content-main-top"></div>
@@ -92,7 +88,7 @@
 				<a href="#">Valid HTML 5</a> &bull;
 				<a href="#">Valid CSS 3</a> &bull;
 				<a href="http://50.cms.smca.ucf.edu/"><img src="https://assets.sdes.ucf.edu/images/50.png" id="fifty" alt="UCF 50 Years" /></a> &bull;			
-				<a href="<?= $data->html_site_footer_ucf_icon() ?>"><img src="https://assets.sdes.ucf.edu/images/sub-footer-pegasus.png" id="pegasus" alt="Pegasus" /></a>
+				<a href="http://www.ucf.edu/"><img src="https://assets.sdes.ucf.edu/images/sub-footer-pegasus.png" id="pegasus" alt="Pegasus" /></a>
 			</div>
 			<span>
 				Copyright &copy; <?= date('Y'); ?> <a href="http://www.sdes.ucf.edu/">Student Development and Enrollment Services</a> &bull;

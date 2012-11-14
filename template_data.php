@@ -450,13 +450,13 @@ class TemplateData{
 		}
 
 		//check length of array, both elements 1 and 2
-		if(count($elements1) > $this->site_footer_column_limit or (is_array($elements2) and count($elements2) > $this->site_footer_column_limit)){
+		if(count($elements1) > $this->site_footer_column_limit
+		or (is_array($elements2) and count($elements2) > $this->site_footer_column_limit)){
 			throw new Exception('Arrays must be capped at '.$this->site_footer_column_limit.' elements in the footer.');
 		}
 
 		//mini columns
 		if(is_array($elements2)){
-
 			//switch for position
 			switch($position){
 				case 1:
@@ -472,9 +472,7 @@ class TemplateData{
 					$this->site_footer_col2_2_title = $title2;
 					break;
 			}
-
 		}else{
-
 			//switch for position
 			switch($position){
 				case 1:
@@ -1530,7 +1528,7 @@ class TemplatePage{
 	private $page_content_above;
 	private $page_content_below;
 
-	//get the current page via querystring
+	//get the current page via query string
 	public function __construct(TemplateData $data){
 
 		//check for active connection string
@@ -1547,7 +1545,7 @@ class TemplatePage{
 		//flush the buffer
 		ob_implicit_flush(0);
 
-		//set page name to querystring id or home
+		//set page name to query string id or home
 		$this->page = isset($_GET['id']) ? $_GET['id'] : 'home';
 
 		//get site include path from data object
