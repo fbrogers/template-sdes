@@ -254,16 +254,15 @@ $data->site_navigation([
 	'Contact' => 'contact'
 ]);
 ---------------------------------------------------------------------------- */
-$nav = [
+$data->site_navigation([
 	'Home' => './',
 	'About' => 'about',
 	'Teams' => 'teams',
 	'Services' => 'services',
-	'Training' => 'teams#training',
+	'Training' => 'training',
 	'Resources' => 'resources',
 	'Contact' => 'contact'
-];
-$data->site_navigation($nav);
+]);
 
 
 /* ----------------------------------------------------------------------------
