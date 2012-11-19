@@ -123,88 +123,6 @@
 	}
 
 	//parse an rss feed
-	function parse_rss($uri = 'http://today.ucf.edu/feed/', $limit = 8){
-
-		//initiate a cURL connection
-		$xml = NULL;
-		$ch = curl_init($uri);
-
-		//set cURL options
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-
-		//execute cURL and dump results
-		$rss = curl_exec($ch);
-
-		//close the cURL connection
-		curl_close($ch);
-
-		//encode the return as UTF-8 and suppress errors
-		$rss = @utf8_encode($rss);
-
-		//disable libxml errors and allow user to fetch error information as needed
-		libxml_use_internal_errors(true);
-
-		//try to parse cURL return as XML
-		try{
-			$xml = new SimpleXMLElement($rss, LIBXML_NOCDATA);
-		} 
-
-		//catch exceptions
-		catch(Exception $e){
-			//nothing
-		}
-
-		//if there are errors
-		if(libxml_get_errors() or $xml == NULL){
-
-			//start an error element
-			$output = '<li>Failed loading XML</li>';
-
-			//loop through errors
-			foreach(libxml_get_errors() as $error){
-				$output .= '<li>'.htmlentities($error->message).'</li>';
-			}
-
-			//check for null
-			if($xml == NULL){
-				$output .= '<li>No data for the given URI, or</li>';
-				$output .= '<li>retrieval of the URI timed out.</li>';
-			}
-
-			//return error messages
-			return $output;
-		}
-
-		//set limit if items returned are smaller than limit
-		$count = (count($xml->channel->item) > $limit) ? $limit : count($xml->channel->item);
-
-		//init
-		$output = NULL;
-
-		//loop through returned list items
-		for($i = 0; $i < $count; $i++){
-
-			//filter out non UTF-8 characters
-			$url 	= str_replace('&', '&amp;', $xml->channel->item[$i]->link);
-			$title 	= str_replace('&', '&amp;', $xml->channel->item[$i]->title);
-
-			//echo beginning of list item
-			$output .= '<li><a href="'.$url.'">';
-
-			//truncate title
-			$output .= strlen($title) > 50 ? substr($title, 0, 45).'...' : $title;
-
-			//echo end of list item
-			$output .= '</a></li>';
-		}
-
-		//return output
-		return $output;
-	}
-
-	//parse an rss feed
 	function parse_rss_template($uri = 'http://today.ucf.edu/feed/', $limit = 8){
 
 		//initiate a cURL connection
@@ -426,12 +344,12 @@
 		
 		//place markers around each value
 		foreach($_POST as &$x){
-			$x = is_null($x) ? 'NULL' : "'".str_replace("'","''",$x)."'";
+			$x = is_null($x) ? 'NULL' : "'".str_replace("'", "''", $x)."'";
 		}
 		
 		//pieces them all together and rewrite nulls
-		$values = implode(",",$_POST);
-		$values = str_replace("'NULL'","NULL",$values);	
+		$values = implode(",", $_POST);
+		$values = str_replace("'NULL'", "NULL", $values);	
 		
 		//fire insert query
 		$query = "INSERT INTO [$table] ($columns) VALUES ($values); SELECT SCOPE_IDENTITY();";
@@ -450,7 +368,7 @@
 		$conn = $db::connect();
 		
 		//quick fix
-		$tableName = explode('_',$table);
+		$tableName = explode('_', $table);
 		$id = end($tableName).'Id';
 
 		//sanitize
@@ -458,21 +376,21 @@
 		
 		//place markers around each value
 		foreach($_POST as &$x){
-			$x = is_null($x) ? 'NULL' : "'".str_replace("'","''",$x)."'";
+			$x = is_null($x) ? 'NULL' : "'".str_replace("'", "''", $x)."'";
 		}
 				
 		//build values and columns
 		foreach($_POST as $col => $val){
 			$update[] = $col."=".$val;
 		}
-		$update = implode(', ',$update);
+		$update = implode(', ', $update);
 		
-		//mezmerise
+		//mesmerize
 		$query = "UPDATE [$table] SET {$update} WHERE [$id] = ?";
 		$result = sqlsrv_query($conn, $query, [$key]) or die(print_r(sqlsrv_errors(), true));
 	}
 
-	//check to see if a given url returns an HTML 200
+	//check to see if a given URL returns an HTML 200
 	function is_live($url){
 		//set return bit
 		$bool = true;
