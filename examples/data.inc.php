@@ -233,7 +233,7 @@ setter for $site_navigation. takes in an array of values that should be formed
 as a key/value pair, with the value representing the href of the navigation
 link and the key representing the text to place within the anchor. as external
 links are NOT allowed within a site navigation, the setter checks for the
-existance of http or www and fails if found. if constraints are passed, each
+existence of http or www and fails if found. if constraints are passed, each
 element of the passed array will be set to $site_navigation as a key/value
 pair.
 
@@ -371,7 +371,7 @@ $end = '<div class="sponsors">
 </div>';
 $data->site_content_end_under($end);
 ---------------------------------------------------------------------------- */
-//$data->site_billboard_allowed_pages();
+//$data->site_content_end_under();
 
 
 /* ----------------------------------------------------------------------------
@@ -379,7 +379,7 @@ $data->site_content_end_under($end);
 ------------------------------------------------------------------------------- 
 description:
 setter for all site footer-related properties. takes in between two required
-parameters and five paramters to form the first and second columns in the
+parameters and five parameters to form the first and second columns in the
 footer. parameter 1 determines the position (range defined by $allowed, 
 defaults to 1 or 2). parameters 2 and 3 indicate the title and elements of the
 column. the passed array for elements can contain up to 
@@ -433,8 +433,8 @@ $data->site_footer_ucf_icon('admin/');
 	BASIC DIRECTORY INFORMATION
 ------------------------------------------------------------------------------- 
 description:
-setter for phone, fax, email, and location properties. all fields are required,
-but any field can be passed as null. takes in one array with five (5) values:
+setter for phone, fax, email, and location properties. any field can be passed
+as null. takes in one array with five (5) values:
 phone; fax;	valid email address; location name; location ID
 (UCF Map Building Number). A helper function is included with 
 template_functions_generic that takes in a directory node and pushes it into
@@ -442,7 +442,8 @@ this method.
 
 constraints:
 - must be of type array
-- array must contain five values
+- array must contain correctly-indexed values to set correctly
+- NULLs are not strictly necessary, but are good ways to indicate intent
 
 default: null
 
@@ -464,7 +465,7 @@ $data->site_directory_basics(load_basics_from_directory($dir));
 	HOURS OF OPERATION
 ------------------------------------------------------------------------------- 
 description:
-setter for $site_hours, which houses 14 individual values in a mutlidimensional
+setter for $site_hours, which houses 14 individual values in a multidimensional
 array (two values for each of the seven days of the week). takes in one array
 that must have seven values, and each value must be an array with two values
 each. these two-value arrays must contain valid timestamps or nulls.
@@ -521,5 +522,4 @@ $data->site_social([
 ]);
 ---------------------------------------------------------------------------- */
 $data->site_social(load_social_from_directory($dir));
-
 ?>

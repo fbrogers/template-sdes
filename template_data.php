@@ -494,11 +494,7 @@ class TemplateData{
 
 	//set up the basic demographic fields for a site
 	public function site_directory_basics(array $basics){
-		//values check
-		if(count($basics) != 5){
-			throw new Exception('Basic directory information must be passed correctly.');
-		}
-	
+
 		//property assignment
 		$this->site_phone = isset($basics['phone']) ? $basics['phone'] : NULL;
 		$this->site_fax = isset($basics['fax']) ? $basics['fax'] : NULL;
@@ -528,34 +524,32 @@ class TemplateData{
 	//set the hours for each day of the week
 	public function site_hours(array $hours){
 		//count check for days of the week
-		if(count($hours) != 7){
-			throw new Exception("Each day of the week must be represented in the hours array.", 1);
-		}
+		if(count($hours) == 7){
 
-		//loop each day of the week
-		for($i = 0; $i <= 6; $i++){
+			//loop each day of the week
+			for($i = 0; $i <= 6; $i++){
 
-			//check each day for two values
-			if(count($hours[$i]) != 2){
-				throw new Exception("Each day of the week must contain open and close time.", 1);
+				//check each day for two values
+				if(count($hours[$i]) != 2){
+					throw new Exception("Each day of the week must contain open and close time.", 1);
+				}
+
+				//if the values are not null (null is an acceptable value)
+				if($hours[$i][0] != NULL and $hours[$i][1] != NULL){
+					//check each value for valid timestamps
+					if(!preg_match("/^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $hours[$i][0])){
+						throw new Exception("Invalid open time.", 1);
+					}
+					if(!preg_match("/^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $hours[$i][1])){
+						throw new Exception("Invalid close time.", 1);
+					}
+				}
 			}
 
-			//if the values are not null (null is an acceptable value)
-			if($hours[$i][0] != NULL and $hours[$i][1] != NULL){
-				//check each value for valid timestamps
-				if(!preg_match("/^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $hours[$i][0])){
-					throw new Exception("Invalid open time.", 1);
-				}
-				if(!preg_match("/^([01][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $hours[$i][1])){
-					throw new Exception("Invalid close time.", 1);
-				}
-			}
-		}
-
-		//save to internal property
-		$this->site_hours = $hours;
+			//save to internal property
+			$this->site_hours = $hours;
+		}	
 	}
-
 
 /*-------------------------------------------------------------------------------------------------------------------*/
 /*--- SIMPLE DATA OUTPUT METHODS (ACCESSORS / GETTERS) --------------------------------------------------------------*/

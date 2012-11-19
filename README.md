@@ -10,6 +10,15 @@ A set of functions, templates, and classes to standardize and simplify the colle
 
 ##Changelog
 
+2012-11-19
+
+	* Allowing no action if site hours, basic information, and social networks are blank or malformed
+
+2012-11-16
+
+	* In full production
+	* Lots and lots and lots of bug fixes and tweaks
+
 2012-10-10
 
 	* Fixed some defaults with the billboard properties

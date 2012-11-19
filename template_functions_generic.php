@@ -33,10 +33,12 @@
 
 	//grab the hours from a directory output and put them into template format
 	function load_hours_from_directory($hours){
+		//init
+		$output = [];
 
 		//check input size
 		if(count($hours) != 7){
-			return false;
+			return $output;
 		}
 
 		//form the array
@@ -50,7 +52,7 @@
 			[$hours[6]['open'], $hours[6]['close']]
 		];
 
-		//return the preformatted array
+		//return the pre-formatted array
 		return $output;
 	}
 
@@ -60,7 +62,7 @@
 		//init
 		$output = [];
 
-		//check for existance
+		//check for existence
 		$output['phone'] = $directory['phone'] ?: NULL;
 		$output['fax'] = $directory['fax'] ?: NULL;
 		$output['email'] = $directory['email'] ?: NULL;
@@ -72,7 +74,7 @@
 			$output['location'] .= ' '.$directory['location']['roomNumber'];
 		}
 
-		//return as preformatted array
+		//return as pre-formatted array
 		return $output;
 	}
 
@@ -87,7 +89,7 @@
 			}
 		}
 
-		//return as preformatted array
+		//return as pre-formatted array
 		return $output;
 	}
 
