@@ -3,7 +3,7 @@
 	function get_directory_info($id){
 
 		//init
-		$output = array();
+		$output = [];
 
 		//get all map locations
 		$ch = curl_init('http://directory.sdes.ucf.edu/feed');
@@ -16,13 +16,13 @@
 		$json = json_decode($json, true);
 
 		//loop through to find the given id
-		foreach($json['departments'] as $department){
+		foreach($json['departments'] as $dept){
 
 			//check acronym field against id
-			if($department['acronym'] == $id){
+			if($dept['acronym'] == $id){
 
 				//save output
-				$output = $department;
+				$output = $dept;
 				break;
 			}
 		}
@@ -57,21 +57,21 @@
 	}
 
 	//grab the basic directory information and set it to the $data object
-	function load_basics_from_directory($directory){
+	function load_basics_from_directory($dir){
 
 		//init
 		$output = [];
 
 		//check for existence
-		$output['phone'] = $directory['phone'] ?: NULL;
-		$output['fax'] = $directory['fax'] ?: NULL;
-		$output['email'] = $directory['email'] ?: NULL;
-		$output['location'] = $directory['location']['building'] ?: NULL;		
-		$output['mapId'] = $directory['location']['buildingNumber'] ?: NULL;
+		$output['phone'] 	= isset($dir['phone']) ? $dir['phone'] : NULL;
+		$output['fax'] 		= isset($dir['fax']) ? $dir['fax'] : NULL;
+		$output['email'] 	= isset($dir['email']) ? $dir['email'] : NULL;
+		$output['location'] = isset($dir['location']['building']) ? $dir['location']['building'] : NULL;
+		$output['mapId'] 	= isset($dir['location']['buildingNumber']) ? $dir['location']['buildingNumber'] : NULL;
 
 		//add room number
-		if(isset($directory['location']['roomNumber']) and $output['location'] != NULL){
-			$output['location'] .= ' '.$directory['location']['roomNumber'];
+		if(isset($dir['location']['roomNumber']) and $output['location'] != NULL){
+			$output['location'] .= ' '.$dir['location']['roomNumber'];
 		}
 
 		//return as pre-formatted array
