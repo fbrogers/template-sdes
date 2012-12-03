@@ -191,7 +191,14 @@
 			$title 	= str_replace('&', '&amp;', $xml->channel->item[$i]->title);
 
 			//echo beginning of list item
-			$title = strlen($title) > 50 ? substr($title, 0, 45).'...' : $title;
+			$title = strlen($title) > 50 ? substr($title, 0, 45).'&hellp;' : $title;
+
+			//check for duplicate title
+			if(isset($output[$title])){
+				$title .= ' <span style="display: none;">'.$i.'</span>';
+			}
+
+			//store item from rss
 			$output[$title] = $url;
 		}
 
