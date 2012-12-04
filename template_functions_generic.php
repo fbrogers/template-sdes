@@ -191,7 +191,7 @@
 			$title 	= str_replace('&', '&amp;', $xml->channel->item[$i]->title);
 
 			//echo beginning of list item
-			$title = strlen($title) > 50 ? substr($title, 0, 45).'&hellp;' : $title;
+			$title = strlen($title) > 50 ? substr($title, 0, 45).'&hellip;' : $title;
 
 			//check for duplicate title
 			if(isset($output[$title])){
