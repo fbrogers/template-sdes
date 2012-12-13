@@ -9,11 +9,17 @@
 		$ch = curl_init('http://directory.sdes.ucf.edu/feed');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 5);	
 		$json = curl_exec($ch);
 		curl_close($ch);
 
 		//grab only objects that are type building
 		$json = json_decode($json, true);
+
+		//fail if no values
+		if(!isset($json['departments']) or empty($json['departments'])){
+			return $output;
+		}
 
 		//loop through to find the given id
 		foreach($json['departments'] as $dept){
@@ -229,6 +235,7 @@
 		//set cURL options
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 10);	
 
 		//execute and dump to variable
 		$rss = curl_exec($ch);
