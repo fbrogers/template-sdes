@@ -1,4 +1,15 @@
 <?php
+	//check the $_POST superglobal for a given array of indexes
+	function verify_required_fields($fields){
+
+		//check all required fields
+		foreach($fields as $x){
+			if(!isset($_POST[$x]) or $_POST[$x] == NULL){
+				die("Required fields not completed. Press back to try again.");
+			}
+		}
+	}
+
 	//load a piece of the SDES Directory feed
 	function get_directory_info($id){
 
