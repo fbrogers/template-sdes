@@ -194,7 +194,7 @@
 			}
 
 			//return error messages
-			return $output;
+			return array_flip($output);
 		}
 
 		//set limit if items returned are smaller than limit

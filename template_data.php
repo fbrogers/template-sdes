@@ -439,10 +439,14 @@ class TemplateData{
 			throw new Exception('Type is not correct for footer column.');
 		}
 
-		//check length of array, both elements 1 and 2
-		if(count($elements1) > $this->site_footer_column_limit
-		or (is_array($elements2) and count($elements2) > $this->site_footer_column_limit)){
-			throw new Exception('Arrays must be capped at '.$this->site_footer_column_limit.' elements in the footer.');
+		//check length of array on element 1
+		if(count($elements1) > $this->site_footer_column_limit){
+			$elements1 = array_slice($elements1, 0, $this->site_footer_column_limit);
+		}
+
+		//check length of array on element 2, if it exists
+		if(is_array($elements2) and count($elements2) > $this->site_footer_column_limit){
+			$elements2 = array_slice($elements2, 0, $this->site_footer_column_limit);
 		}
 
 		//mini columns
