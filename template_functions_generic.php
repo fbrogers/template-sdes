@@ -204,8 +204,8 @@
 		for($i = 0; $i < $count; $i++){
 
 			//filter out non UTF-8 characters
-			$url 	= str_replace('&', '&amp;', $xml->channel->item[$i]->link);
-			$title 	= str_replace('&', '&amp;', $xml->channel->item[$i]->title);
+			$url 	= purge_non_utf8($xml->channel->item[$i]->link);
+			$title 	= purge_non_utf8($xml->channel->item[$i]->title);
 
 			//echo beginning of list item
 			$title = strlen($title) > 50 ? substr($title, 0, 45).'&hellip;' : $title;
@@ -220,6 +220,11 @@
 		}
 
 		//return output
+		return $output;
+	}
+
+	function purge_non_utf8($input){
+		$output = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $input);
 		return $output;
 	}
 
