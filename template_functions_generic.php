@@ -136,7 +136,7 @@
 
 	//prepares values for insert into a CSV file
 	function csv_prepare(&$value, $key){
-		$value = '"'.$value.'"';
+		$value = '"'.str_replace('"', '""', $value).'"';
 	}
 
 	//parse an rss feed

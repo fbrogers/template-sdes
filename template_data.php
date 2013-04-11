@@ -2,12 +2,12 @@
 
 class TemplateData{
 	//general settings
-	private $template_include_path = 'C:\WebDFS\Websites\_phplib\sdestemplate\\';
+	private $template_include_path;
 	private $data_include_path;
-	private $template_icon_path = 'http://assets.sdes.ucf.edu/images/icons';
-	private $site_title_length = 45;
-	private $site_subtitle_length = 60;
-	private $site_footer_column_limit = 8;
+	private $template_icon_path;
+	private $site_title_length;
+	private $site_subtitle_length;
+	private $site_footer_column_limit;
 
 	//site template
 	private $site_template;
@@ -22,7 +22,7 @@ class TemplateData{
 	private $site_subtitle;
 	private $site_subtitle_href;
 
-	//collection of custom css/js files included in the header
+	//collection of custom css / js files included in the header
 	private $site_css = array();
 	private $site_js = array();
 	private $site_js_raw;
@@ -95,39 +95,47 @@ class TemplateData{
 	
 	//object constructor
 	public function __construct(){
+
+		//open config file
+		$config = parse_ini_file('config.ini');
+		$this->template_include_path = $config['INSTALL_DIR'];
+		$this->template_icon_path = $config['ICONS_URI'];
+		$this->site_title_length = $config['TITLE_LIMIT'];
+		$this->site_subtitle_length = $config['SUBTITLE_LIMIT'];
+		$this->site_footer_column_limit = $config['FOOTER_COLS_LIMIT'];
 	
 		//included functions, formProcessor class
 		require_once($this->template_include_path.'template_functions_generic.php');
 		require_once($this->template_include_path.'..\formprocessor\forms.php');
 
 		//include path for data
-		$this->data_include_path = 'includes/';
+		$this->data_include_path = $config['DEFAULT_INCLUDE_PATH'];
 
 		//default template
-		$this->site_template = 'main';
+		$this->site_template = $config['DEFAULT_TEMPLATE'];
 
 		//sets the default title to dummy text and href to self
-		$this->site_title = 'SITE_TITLE';
-		$this->site_title_href = './';
+		$this->site_title = $config['DEFAULT_TITLE'];
+		$this->site_title_href = $config['DEFAULT_TITLE_HREF'];
 
 		//sets the default subtitle to SDES
-		$this->site_subtitle = 'Student Development<br /> and Enrollment Services';
-		$this->site_subtitle_href = 'http://www.sdes.ucf.edu/';
+		$this->site_subtitle = $config['DEFAULT_SUBTITLE'];
+		$this->site_subtitle_href = $config['DEFAULT_SUBTITLE_HREF'];
 
 		//defaults for the billboard and/or slider
-		$this->site_billboard = 'images/billboard.jpg';
-		$this->site_billboard_exists = true;
-		$this->site_billboard_dynamic_type = 'nivo_slider';
+		$this->site_billboard = $config['DEFAULT_BILLBOARD_IMAGE'];
+		$this->site_billboard_exists = (bool)$config['DEFAULT_BILLBOARD_STATE'];
+		$this->site_billboard_dynamic_type = $config['DEFAULT_BILLBOARD_TYPE'];
 		$this->site_billboard_allowed_pages = ['home', 'thanks'];
 		
 		//content block
-		$this->site_include_path = NULL;
+		$this->site_include_path = $config['DEFAULT_PAGE_PATH'];
 		$this->site_title_under = '<div class="top"></div>';
 
 		//footer block
 		$this->site_footer(1, 'Site Hosted by SDES', $this->site_footer_col1_default);
 		$this->site_footer(2, 'UCF Today News', parse_rss_template());
-		$this->site_footer_ucf_icon = 'http://www.ucf.edu/';	
+		$this->site_footer_ucf_icon = $config['DEFAULT_FOOTER_ICON_HREF'];
 	}
 
 /*-------------------------------------------------------------------------------------------------------------------*/
