@@ -518,7 +518,7 @@ class TemplateData{
 	//set up the social networking presences for the site
 	public function site_social(array $collection){
 		//possible values for $type
-		$allowed = ['facebook', 'picasa', 'skype', 'tumblr', 'twitter', 'wordpress', 'youtube'];
+		$allowed = ['facebook', 'flickr', 'picasa', 'pinterest', 'skype', 'tumblr', 'twitter', 'wordpress', 'youtube'];
 
 		//loop
 		foreach($collection as $type => $val){
@@ -981,8 +981,14 @@ class TemplateData{
 					case 'facebook':
 						$output .= '<img src="'.$this->template_icon_path.'/facebook.png" class="icon" alt="icon" title="Facebook" />';
 						break;
+					case 'flickr':
+						$output .= '<img src="'.$this->template_icon_path.'/flickr.png" class="icon" alt="icon" title="Flickr" />';
+						break;
 					case 'picasa':
 						$output .= '<img src="'.$this->template_icon_path.'/picasa.png" class="icon" alt="icon" title="Google Picasa" />';
+						break;
+					case 'pinterest':
+						$output .= '<img src="'.$this->template_icon_path.'/pinterest.png" class="icon" alt="icon" title="Pinterest" />';
 						break;
 					case 'skype':
 						$output .= '<img src="'.$this->template_icon_path.'/skype.png" class="icon" alt="icon" title="Skype" />';
