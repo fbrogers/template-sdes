@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+#footer_container{
+	height: 3px;
+	background-position: 0px -2px;
+	overflow: hidden;
+}
+
+#content_container{
+	min-height: 600px;
+}

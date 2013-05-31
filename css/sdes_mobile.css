@@ -1,0 +1,383 @@
+@media only screen and (max-width: 945px){
+  #UCFHBHeader form, 
+  #UCFHBHeader #UCFHBMy_ucf,
+  .content-main-top, 
+  .content-main-bottom,
+  .nomobile{
+    display: none;
+  }
+
+  #UCFHBHeader {
+    padding: 0.25em 1em;
+    overflow-x: hidden;
+  } 
+
+  body{
+    background: white url('http://assets.sdes.ucf.edu/images/bgs/ucf.png') repeat-x 0px -30px;
+  }
+
+  img{
+    max-width: 100%;  
+  }
+
+  #header_container{
+    padding: 1em 1em 0 1em;
+  }
+
+  .content-main, #footer_container, #sub_footer_container{
+    padding: 0 1em 1em 1em; 
+  }
+
+  .content-main .left, 
+  .content-main .right,
+  .content-main .sidebar-left,
+  .content-main .sidebar-right, 
+  .content-main .floatright, 
+  .content-main .floatleft, 
+  .global-col2-1,
+  .global-col2-2,
+  .global-col3-1, 
+  .global-col3-2, 
+  .global-col3-3{
+    float: none;  
+    width: auto;
+    margin: 0 0 1.3em 0;
+  }
+
+  #header_container, 
+  #header, 
+  #footer,
+  #sub_footer,
+  .content-main-top, 
+  .content-main-bottom, 
+  .content-main-body {
+    width: auto;
+  }
+
+  #header_container{
+    background: none;
+    height: auto;
+  }
+
+  #header, #title, #subtitle{
+    height: auto;
+    float: none;
+    position: relative;
+    letter-spacing: normal;
+    text-align: left;
+  }
+
+  #title{
+    font-size: 2.8em; 
+    margin-bottom: 0.333em;
+  }
+
+  #subtitle {
+    font-size: 1.5em; 
+    margin-bottom: 1em;
+  }
+
+  #nav_container {
+    height: auto;
+    min-height: 3em;
+  }
+  
+  #nav_container:empty {
+    min-height: inherit;
+  }
+  
+  .nav-menu-button:hover ~ #nav-under,
+  #nav-under:hover{
+    display: block;
+  }
+
+  #nav-under {
+    width: auto;
+    height: auto;
+    padding: 0;
+    display: none;
+  }
+  
+  #nav-under li {
+    display: block;
+    padding: 0;   
+  }
+
+  #nav-under li a {
+    display: block;
+    float: none;
+    padding: 0.5em 1em;
+    text-transform: none;
+  }
+
+  #nav_container .nav-menu-button {
+    width: auto;
+    float: right;
+    display: block;
+    border: 2px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    margin: 0.5em 1em;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  #nav_container .clear {
+    clear: both;
+    border: 0;
+    height: 0;
+    padding: 0;
+  }
+
+  #slate_container {
+    background: none;
+    width: auto;
+    height: auto;
+    margin: 0 auto 1.5em auto;
+    padding: 0 1em;
+  }
+
+  #slate_container #slate {
+    margin: 0;
+    padding: 0;
+  }
+
+  #slate_container #slate img {
+    box-shadow: 0px 1px 3px 1px #bbb;
+  }
+
+  #slate_container #slate #slider{
+    width: 100%;
+    height: auto;
+    box-shadow: 0px 1px 3px 1px #bbb;
+  }
+
+  #content_container{
+    background: none;
+    min-height: inherit;
+  }
+
+  .content-main h1{
+    font-size: 2.5em;
+  }
+
+  .content-main .content-main-links {
+    float: none;
+    margin: 0 0 1.5em 0;
+  }
+
+  .content-main .content-main-links li {
+    display: block;
+    list-style-type: none;
+    background-position: left center;
+    font-size: inherit;
+    line-height: 2em;
+    margin: 0 0 0 1em;
+    padding: 0 0 0 1em; 
+  }
+
+  .content-main .header{
+    border: 0px;  
+    padding: 0px;
+    margin-bottom: 5px;
+  }
+
+  .content-main h2{
+    font-size: 2.0em; 
+  }
+
+  .content-main h3{
+    font-size: 1.75em; 
+  }
+
+  .content-main h4{
+    font-size: 1.50em; 
+  }
+
+  .content-main .event-title {
+    width: 100%;
+    height: auto;
+    padding: 1em 0;
+    border-radius: 0;   
+  }
+
+  .content-main .sidemenu {
+    width: auto;
+    height: auto;
+    margin: 0 0 1.3em 0;
+    float: none;
+  }
+
+  .content-main p{
+    text-align: left;
+  }
+
+  .content-main .jbox {
+    margin: 0 2em 2em 0;
+    padding: 0;
+    background: none;
+    box-shadow: 0px 2px 5px 1px #bbb;
+  }
+
+  .content-main .grid {
+    font-size: 0.75em;
+  }
+
+  .content-main .fieldset fieldset, .content-main .fieldset .submitbox {
+    margin: 3em 0 0 0;
+    padding: 1em;
+    text-align: left;
+  }
+
+  .content-main .fieldset .shift-right, 
+  .content-main .fieldset .shift-left, 
+  .content-main .fieldset .space-right, 
+  .content-main .fieldset .space-left{
+    float: none;
+    width: auto;
+    border: 0;
+    padding: 0;
+    margin: 0 0 1.3em 0;
+  }
+
+  .content-main .fieldset .global-col2-1,
+  .content-main .fieldset .global-col2-2,
+  .content-main .fieldset .global-col3-1, 
+  .content-main .fieldset .global-col3-2,
+  .content-main .fieldset .global-col3-3 {
+    float: none;
+    width: auto;
+    border: 0;
+    padding: 0;
+  }
+
+  .content-main .fieldset input,
+  .content-main .fieldset select,
+  .content-main .fieldset textarea {
+    width: 99%;
+    padding: 0;
+  }
+
+  .content-main .fieldset input[type=radio],
+  .content-main .fieldset input[type=checkbox] {
+    width: auto;
+  }
+
+  .content-main .fieldset textarea {
+    height: 5em;
+  }
+
+  .content-main .fieldset .submitbox {
+    min-width: inherit;
+    height: 2em;
+  }
+
+  .content-main .left,
+  .content-main .right,
+  .content-main .sidebar-right,
+  .content-main .sidebar-left{
+    float: none;
+  }
+
+  .content-main .staff img, .content-main .news img{
+    float: none;
+    max-width: 125px;
+    width: auto;
+    margin: 0;
+  }
+
+  .content-main .staff .staff-content, .content-main .news .news-content{
+    margin: 0;
+  }
+
+  .events{
+    width: 100%;
+    float: none;
+    padding: 1em;
+    box-sizing: border-box;
+  }
+
+  .content-end{
+    padding: 1em;
+    height: auto;
+  }
+
+  .content-end ul li{
+    display: block;
+    padding: 0 0 .5em 0;
+  }
+  
+  #footer_container {
+    background-color: #222;
+  }
+
+  #footer_container,
+  #footer #search,
+  #footer #search #input {
+    width: auto;
+    height: auto;
+  }
+
+  #footer div.hr {
+    border: 0;
+    height: 0.5em;
+  }
+
+  #footer .col3-1,
+  #footer .col3-2,
+  #footer .col3-3,
+  #footer .col3-1-1,
+  #footer .col3-1-2,
+  #footer .col3-2-1,
+  #footer .col3-2-2 {
+    width: auto;
+    margin: 0 0 2em 0;
+    float: none;
+  }
+
+  #footer p {
+    font-size: 1.2em;
+    line-height: normal;
+  }
+
+  #footer ul{
+    line-height: normal;
+  }
+
+  #footer li{
+    border: 0;
+    font-size: 1.2em;
+  }
+
+  #footer li a{
+    padding: 0.5em 0;
+  }
+
+  #footer #search {
+    margin: 0 0 2em 0;
+    background: none;
+  }
+
+  #footer #search #input {
+    margin: 0 0.5em 0 0;
+    padding: 0.333em 0 0.333em 1em;
+    background: #fff;
+    border: inherit;
+  }
+
+  #footer #search input[type='image'] {
+    padding: 0.333em;
+    background: #777;
+  }
+
+  #sub_footer_container{
+    height: auto;
+    background-color: #161616;
+    clear: both;
+  }
+
+  #w3c{
+    float: none;  
+  }  
+}

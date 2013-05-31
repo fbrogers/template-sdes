@@ -1650,6 +1650,9 @@ class TemplateFrame{
 			case 'admin':
 				require_once $this->get_template_path().'sdes_admin.php';
 				break;
+			case 'ucf_mobile':
+				require_once $this->get_template_path().'sdes_main_mobile.php';
+				break;
 			default:
 				require_once $this->get_template_path().'sdes_main.php';
 				break;

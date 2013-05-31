@@ -1,0 +1,1784 @@
+@charset "utf-8";
+/* CSS Document */
+
+.header-title, .header-title:hover{
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.header-title span{
+	font-size: 2.95em;
+	display: block;
+	letter-spacing: -3px;
+	font-family: 'Cambria', Arial, sans-serif;
+	font-weight: bold;
+}
+
+.nav-menu-button{
+	display: none;
+}
+
+table.empty{ border-spacing: 0px; }
+a.drop{ background: url('../images/drop.gif') right center no-repeat; padding-right: 15px; }
+a.up{ background: url('../images/drop-up.gif') right center no-repeat; padding-right: 15px; }
+
+/* ------------------------------------------------------------------- */
+/* ----------------------------------------- ROTATOR SECTION --------- */
+/* ------------------------------------------------------------------- */
+
+.nivoSlider a.nivo-imageLink{
+	background-color:#fff; 
+    filter: alpha(opacity=0); 
+    opacity: 0;
+    -webkit-opacity:0;
+    -moz-opacity:0;
+    -khtml-opacity:0;	
+	padding: 0px;
+}
+
+.nivo-padding{
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.nivo-padding h2, .nivo-padding h3, .nivo-padding h4{
+	margin: 0px;
+}
+
+.nivo-caption .nivo-padding p{
+	padding: 2px 0px;
+}
+
+/* ------------------------------------------------------------------- */
+/* ----------------------------------------- GLOBAL SECTION ---------- */
+/* ------------------------------------------------------------------- */
+body{
+	margin:0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 75%;
+	color: #000;
+	background: #161616;
+}
+
+img{
+	margin: 0px;	
+	border: 0px;
+}
+
+p{
+	text-align: justify;
+}
+
+a{
+	color: #a70;	
+}
+
+a:hover{
+	color: #111;	
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{
+	color: #555;	
+	text-decoration: none;
+	background-color: transparent;
+}
+
+hr{
+	display: none;
+}
+
+strong{
+	color: #111;
+}
+
+ul{
+	list-style-type:square;	
+}	
+
+/* ------------------------------------------------------------------- */
+/* ----------------------------------------- FILE ICON SECTION ------- */
+/* ------------------------------------------------------------------- */
+
+a[href$='.pdf'].noicon, a[href$='.xls'].noicon, a[href$='.swf'].noicon, a[href$='.flv'].noicon, a[href$='.docx'].noicon, a[href$='.rtf'].noicon, a[href$='.xlsx'].noicon, a[href$='.ppsx'].noicon{
+	background: none;
+	padding:0;
+}
+
+a[href$='.pdf']{
+	padding: 1px 0px 0px 20px;
+	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_acrobat.png') left center no-repeat;
+}
+
+h1 a[href$='.pdf'], h2 a[href$='.pdf'], h3 a[href$='.pdf']{
+	padding-right: 20px;
+	padding-left: 0px;
+	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_acrobat.png') right center no-repeat;
+}
+
+a[href$='.doc'], a[href$='.docx'], a[href$='.rtf']{
+	padding: 1px 0px 0px 20px;
+	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_word.png') left center no-repeat;
+}
+
+a[href$='.xls'], a[href$='.xlsx'], a[href$='.xlsm']{
+	padding: 1px 0px 0px 20px;
+	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_excel.png') left center no-repeat;
+}
+
+h1 a[href$='.xlsx'], h2 a[href$='.xlsx'], h3 a[href$='.xlsx']{
+	padding-right: 20px;
+	padding-left: 0px;
+	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_excel.png') right center no-repeat;
+}
+
+a[href$='.ppt'], a[href$='.pptx'], a[href$='.ppsx']{
+	padding: 1px 0px 0px 20px;
+	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_powerpoint.png') left center no-repeat;
+}
+
+h1 a[href$='.ppt'], h2 a[href$='.ppt'], h3 a[href$='.ppt'], h1 a[href$='.pptx'], h2 a[href$='.pptx'], h3 a[href$='.pptx']{
+	padding-right: 20px;
+	padding-left: 0px;
+	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_powerpoint.png') right center no-repeat;
+}
+
+a[href$='.swf'], a[href$='.flv']{
+	padding: 1px 0px 0px 20px;
+	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_flash.png') left center no-repeat;
+}
+
+a.external{
+	padding-right: 20px;
+	padding-left: 0px;
+	background: url('https://assets.sdes.ucf.edu/images/icons/ex-link.png') right center no-repeat;
+}
+
+/* ------------------------------------------------------------------- */
+/* ----------------------------------------- GLOBAL CLASSES SECTION -- */
+/* ------------------------------------------------------------------- */
+
+address{
+	font-style:normal;
+}
+
+.message, .validation-summary-errors li{
+	color: #e00;
+	font-size: 1.333em;
+	padding: 2px;
+	background: #fafafa;
+	border: 1px solid #ccc;
+	letter-spacing: -1px;
+	font-family: 'Lucida Console', Monaco, monospace;
+	margin-bottom: 20px;
+}
+
+.validation-summary-errors ul{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.good{
+	color: #090;
+}
+
+.flavor{
+	border-right: 10px solid #eee;
+	color: #aaa;
+	font-family: Georgia, serif;
+	font-weight: bold;
+	font-size: 4.167em;
+	letter-spacing: -4px;
+	line-height: 44px;
+	padding-right: 2px;
+	margin: 0px;
+	text-transform: uppercase;
+	text-align: right;
+}
+
+.flavor-right{
+	text-align: left;
+	border-left: 10px solid #eee;
+	padding-left: 2px;
+	font-family: Georgia, serif;
+	font-weight: bold;
+	font-size: 4.167em;
+	letter-spacing: -4px;
+	line-height: 44px;
+	color: #aaa;
+	margin: 0px;
+	text-transform: uppercase;
+}
+
+.floatleft{		float: left;	margin-right: 15px;	}
+.floatright{	float: right;	margin-left: 15px;	}
+
+.content-main .storyright, .content-main .right{	float: right; }
+.content-main .storyleft, .content-main .left{	float: left;  }
+
+.content-main .storyright, .content-main .storyleft, .content-main .right, .content-main .left{
+	width: 600px;
+	margin-bottom: 10px;
+}
+
+.content-main .storyright p, .content-main .storyleft p{	text-align: justify; }
+
+.content-main .storyright p:first-child, .content-main .storyleft p:first-child, 
+.content-main .left p:first-child, .content-main .right p:first-child,
+.content-main .left h2:first-child, .content-main .right h2:first-child,
+.content-main .left h3:first-child, .content-main .right h3:first-child,
+.content-main .sidebar-right h2:first-child, .content-main .sidebar-right h2:first-child,
+.content-main .sidebar-left h2:first-child, .content-main .sidebar-left h2:first-child,
+.content-main .sidebar-right h3:first-child, .content-main .sidebar-right h3:first-child,
+.content-main .sidebar-left h3:first-child, .content-main .sidebar-left h3:first-child,
+.content-main .sidebar-left p:first-child, .content-main .sidebar-left p:first-child{
+	margin-top: 0px;
+}
+
+.content-main .storyright h2, .content-main .storyright h3, .content-main .storyright h4, 
+.content-main .storyleft h2, .content-main .storyleft h3, .content-main .storyleft h4{
+	margin: 0px;
+	letter-spacing: -1px;
+}
+
+.content-main .storyright h3 a, .content-main .storyright h4 a, 
+.content-main .storyleft h3 a, .content-main .storyleft h4 a{
+	padding-left: 15px;
+	background: url('https://assets.sdes.ucf.edu/images/3bul.png') no-repeat center left;
+}
+
+.content-main .datestamp{
+	margin: 0px;
+	font-size: 0.833em;
+	color: #666;
+}
+
+.pic h2, .pic h3, .pic h4{ margin: 0px; }
+
+/* ---------------------- STAFF CLASS -------------------------------------- */
+.staff img{			width: 125px; float: left; margin-right: 10px;}
+.staff a img.map{ 	float: none; margin: 0px; padding: 0px; border: 0px;}
+.staff h2{			letter-spacing: -1px;}
+.staff-content{		margin-left: 150px;}
+.staff-content ul{	list-style-type:square;	}
+.content-main .staff h1, .content-main .staff h2, .content-main .staff h3, .content-main .staff h4{ margin: 0px; }
+
+/* ---------------------- NEWS CLASS -------------------------------------- */
+.news img{			width: 75px; float: left; margin-right: 10px;}
+.news h2{			letter-spacing: -1px;}
+.news-content{		margin-left: 95px;}
+.news-content ul{	list-style-type:square;	}
+.content-main .news h1, .content-main .news h2, .content-main .news h3, .content-main .news h4{ margin: 0px; }
+
+
+.submitbox{
+	height: 50px;
+	background: #fffbec;
+	padding: 15px;
+	clear: both;
+	margin: 10px 0px;
+	text-align: right;
+	box-shadow: 0px 1px 3px #ccc;
+}
+
+/* ---------------------- LARGE UL LIST -------------------------------------- */
+.content-main .large_list{			list-style-type:none; margin: 0px; padding: 0px; }
+.content-main .large_list li{			border-bottom: 1px solid #eee; font-size: 1.667em;	padding: 4px 0px; }
+.content-main .large_list li:hover{ 	border-bottom: 1px solid #ddd; background: #fafafa; }
+.content-main .large_list a{ 		color: #555; text-decoration: none; background-color: transparent; }
+.content-main .large_list a:hover{ 	color: #111; }
+
+.large_list_simple{			padding: 0px; margin: 0px; list-style-type:none; }
+.large_list_simple li{		font-size: 1.667em;	padding: 4px 0px;}
+.large_list_simple li:hover{	background: #fafafa;}
+.large_list_simple a{		text-decoration: none;	color: #555; background-color: transparent; }
+.large_list_simple a:hover{	color: #111;}
+
+
+/* ---------------------- UL LINK LIST -------------------------------------- */
+.link-list, .news-content ul.link-list{	padding: 0px; margin: 0px; list-style-type:none; }
+.link-list li{ font-size: 1.5em; padding: 1px 0px; color: #555; background-color: transparent; }
+.link-list li li{ font-size: 0.75em; }
+.link-list li:hover{	background: #fafafa; }
+.link-list a{ text-decoration: none; color: #666; }
+.link-list a:hover{	color: #111; }
+
+.bullets, .news-content .bullets{ 
+	padding-left: 15px; 
+	background: url('https://assets.sdes.ucf.edu/images/3bul.png') no-repeat center left;	
+}
+
+ul.bullets, .news-content ul.bullets{
+	padding-left: 25px;
+	background: none;
+	margin-top: 15px;
+}
+
+ul.bullets li, ul.bullets li:hover{
+	padding-left: 15px;
+	background: url('https://assets.sdes.ucf.edu/images/3bul.png') no-repeat center left;	
+}
+
+.content-main ul.normal{
+	padding-left: 25px;
+	background: none;
+	margin-top: 10px;
+	list-style-type: square;
+}
+
+.content-main ul.normal li, .content-main ul.normal li:hover{ 
+	margin-left: 15px; 
+}
+
+.hidden{
+	display: none;
+}
+
+.content-main .header{
+	margin-top: 40px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+	clear: both;
+}
+
+.content-main h3.header{
+	background-position: 0px 7px;
+}
+
+blockquote.pull{
+	margin: 3px 0px 10px 20px;
+	padding: 15px 0px;
+	text-align: justify;
+	width: 285px;
+	font-size: 1.667em;
+	border-top: 2px solid #ffc904;
+	border-bottom: 2px solid #ffc904;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+blockquote.quote{
+    background: transparent url('../images/quotestart.png') left top no-repeat;
+    margin: 15px 10px 10px 10px;
+    padding: 0px 35px;
+}
+
+blockquote.quote p{
+    background: transparent url('../images/pull.png') right 80% no-repeat;
+    text-align: left;
+	padding-right: 20px;
+	padding-bottom: 10px;
+}
+
+blockquote.bio{
+	font-size: 2.0em; 
+	font-weight: normal; 
+	font-style:italic; 
+	letter-spacing: -1px; 
+	line-height: 24px; 
+	color: #555;
+	background-color: transparent; 
+}
+
+/*---------------------------------------------------GENERIC TABLES SECTION----*/
+
+caption {
+	color:#222;
+	font-size: 1.5em;
+	margin-bottom:0px;
+	text-transform:capitalize;
+	text-align: left;
+	margin-left: 2px;
+}
+
+.grid{ width: 100%;	line-height: normal; color: #333; background-color: inherit; }
+.grid td, .grid th{ margin: 2px;	padding: 3px;}
+.grid th a{ color: #000;	text-decoration: underline; background: transparent; }
+.grid th[scope='row']{ text-align: left; border-bottom: 1px solid #eee; border-right: 2px solid #ccc; padding: 5px }
+.grid tr:nth-child(even) {background: #fafafa;}
+.grid td{ padding: 5px; border-bottom: 1px solid #eee;}
+.grid tr:hover{	background: #eee;}
+.grid th{
+	background: #eee;
+	padding-top: 5px;
+	font-weight: bold;
+	border-bottom: 2px solid #ccc;
+	height: 20px;
+	text-align: center;
+	vertical-align: top;
+	color: #000;
+}
+
+.clear{ border:0px; border-bottom: 1px solid #666; padding: 5px; }
+.clear th{ background: transparent; border-bottom: 1px solid #666; }
+.clear td{ padding: 5px; border-bottom: 1px solid #fafafa; }
+.clear tr:nth-child(even) {background: transparent;}
+.clear tr:hover{	background: #eee; }
+
+.content-main .smaller{	font-size: 0.917em; }
+.content-main .larger{	font-size: 1.333em; }
+
+/*---------------------------------------------------GLOBAL COLUMN SECTION----*/
+.global-col2-1{ width: 48%; float: left; }
+.global-col2-2{	width: 48%;	float: right; }
+
+.global-col3-1{	width: 32%;	float: left; }
+.global-col3-2{	width: 32%;	float: left; margin: 0% 2%; }
+.global-col3-3{	width: 32%;	float: right; }
+
+/*---------------------------------------------------HEADER SECTION----*/
+#header_container{
+	background: url(../images/header-bg.png) repeat-x;
+	background-position: 0px -20px;
+	height: 80px;	
+	padding-top: 20px;
+}
+
+#header{ 	width: 960px; height: auto; margin: auto; }
+#title{		width: 310px; height: 50px; margin: 0px; float: left; padding: 0px;	}
+
+/*---------------------------------------------------MAIN NAV SECTION----*/
+#navigation{
+	float: right;	
+	clear: right;
+	margin: 3px 0px 0px 0px;
+	padding: 0px;
+	width: auto;
+}
+
+#navigation li{
+	display: inline;
+	color: #fff;
+	background-color: transparent; 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.25em;
+	font-weight: bold;
+	letter-spacing: -1px;	
+	margin: 0px;
+	position: relative;
+	z-index: 999;
+}
+
+#navigation li a{
+	padding: 8px 8px;
+	line-height: 50px;
+	color: #fff;
+	margin: 0px;
+	border-bottom: 5px solid #333;
+	background: #242424;
+	text-decoration: none;
+	position: relative;
+}
+#navigation li a:hover{
+	background: #333;
+	border-bottom: 5px solid #c90;
+}
+
+/* --------------------------------------------------------- UNDER-TITLE NAV --- */
+#nav_container{
+	background: #eee url('../images/bgs/barbar.png') repeat-x 0px -56px;
+	height: 40px;
+	clear: both;
+	border-bottom: 2px solid #aaa;
+}
+
+#nav_container:empty{
+	height: 10px;
+}
+
+#nav-under{
+	width: 970px;
+	height: 40px;
+	margin: auto;
+	padding-left: 10px;
+}
+
+#nav-under li{
+	display: inline;
+	margin: 0px;
+	padding: 0px;
+}
+
+#nav-under li a{
+	color: #333;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.085em;
+	font-weight: bold;
+	padding: 12px 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+#nav-under li a:hover{
+	background: #fff url('../images/bgs/barbar.png') repeat-x;
+	color: #000;
+}
+
+
+/*---------------------------------------------------CONTENT SECTION----*/
+.shadow{ height: 0px; background: none; margin-bottom: 0px; } /*used in the majority of custom themes*/
+
+#content_container{
+	background: #eee url(https://assets.sdes.ucf.edu/images/content-bg.png) repeat-x;	
+	min-height: 450px;
+	padding-top: 15px;
+}
+
+#slate_container{
+	background: url(https://assets.sdes.ucf.edu/images/slate_bg.png) no-repeat;
+	font-size: 1.333em;
+	width: 980px;
+	height: 290px;	
+	margin: auto;
+	margin-bottom: 15px;
+}
+
+#slate{
+	margin: 0px 12px;
+	padding-top: 9px;
+}
+
+#slider {
+	position:relative;
+	width: 956px;
+	height: 266px;
+	background: url("https://assets.sdes.ucf.edu/images/ajax-loader.gif") no-repeat center center #fff;
+}
+
+#slider a img, #slider img{	
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+
+#slider a{
+	display: block;	
+	border: 0;
+}
+
+.nivo-controlNav a {
+	display: inline-block;
+	width: 10px;
+	height: 20px;
+	background: url('https://assets.sdes.ucf.edu/images/bullets.png') no-repeat;
+	text-indent: -9999px;
+	border: 0;
+	margin-right: 3px;
+}
+
+.nivo-controlNav a.active {
+	background-position:-10px 0;
+}
+
+.nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background: transparent url('https://assets.sdes.ucf.edu/images/arrows.png') no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+
+a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+
+a.nivo-prevNav {
+	left:15px;
+}
+
+.content-main-top{
+	width: 970px;
+	height: 11px;
+	margin: 0px auto;
+	padding: 0px;	
+	background: url(https://assets.sdes.ucf.edu/images/content-main-top.png) no-repeat;
+}
+
+.content-main-bottom{
+	width: 970px;
+	height: 30px;
+	margin: 0px auto;
+	padding: 0px;	
+	background: url(https://assets.sdes.ucf.edu/images/content-main-bottom.png) no-repeat;
+	clear: both;
+}
+
+.content-main-body{
+	width: 970px;
+	margin: 0px auto;
+	background: url(https://assets.sdes.ucf.edu/images/content-main-repeat.png) repeat-y;
+	position: relative;
+	padding: 0px;
+}
+
+.content-main{
+	padding: 5px 30px;
+	color: #444;
+	background: transparent;
+}
+
+.content-main img{ 			padding: 5px; border: 1px solid #ddd; }
+.content-main img.clean{ 	padding: 0px; border: 0px; }
+.content-main table tr td{		vertical-align: top; text-align: left;}
+
+.content-main-links{
+	float: right;	
+	margin-top: 24px;
+	padding: 0px;
+	width: auto;
+}
+
+.content-main-links li{
+	background: url('../images/links-off.png') right center no-repeat;
+	display: inline;
+	font-size: 1.25em;
+	line-height: 30px;
+	margin: 0px 0px 0px 6px;
+	padding: 0px 10px;
+}
+
+.content-main-links li:hover{
+	background: url('../images/links-on.png') right center  no-repeat;
+}
+
+.content-main-links a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+}
+
+.content-main-links img{
+	padding: 0px;
+	margin-left: 3px;
+}
+
+.content-main-links a:hover img{
+	border-color: #aaa;
+}
+
+.content-main h1,.content-main h2,.content-main h3,.content-main h4,.content-main h5,.content-main h6{ 
+	background-color: transparent; 
+	color: #333;
+}
+
+.story h2, .story h3, .story h4{ margin: 0px; }
+
+.content-main h1{ 	margin: 10px 0px;		font-size: 3.0em; 	}
+.content-main h2{	margin-bottom: 10px;	font-size: 2.333em; }
+.content-main h3{	margin-bottom: 8px;		font-size: 1.833em;	}
+.content-main h4{	margin-bottom: 5px;		font-size: 1.333em;	}
+
+.content-main div.top{
+	border-bottom: 1px solid #ddd;	
+	padding-top: 0px;
+	margin-bottom: 20px;
+	clear: both;
+}
+
+.content-main div.top-b{
+	border-bottom: 1px solid #ddd;	
+	padding-top: 0px;
+	margin-bottom: 4px;
+	clear: both;
+}
+
+.content-main div.breadcrumbs{
+	padding-top: 0px;
+	margin-bottom: 25px;
+	font-size: 0.833em;
+}
+
+.content-main div.hr{
+	height: 1px;
+	background: none;
+	border-bottom: 1px solid #ddd;	
+	padding-top: 15px;
+	margin-bottom: 20px;
+	clear: both;
+}
+
+.content-main div.hr.noclear{
+	height: 1px;
+	background: none;
+	border-bottom: 1px solid #ddd;	
+	padding-top: 15px;
+	margin-bottom: 20px;
+	clear: none;
+	width: auto;
+}
+
+.content-main div.hr-blank{
+	height: 0px;
+	background: none;
+	padding-top: 15px;
+	margin-bottom: 20px;
+	clear: both;
+}
+
+.content-main div.hr-clear{
+	clear: both;
+	padding-bottom: 1px;
+}
+
+.content-main .mzero h1, .content-main .mzero h2, .content-main .mzero h3, .content-main .mzero h4, .content-main .mzero h5, .content-main .mzero h6{
+	margin: 0px;
+}
+
+.content-main .icon{
+	float: left;
+	margin: 0px 1px;	
+	padding: 2px;
+	border: #ccc 1px solid;
+}
+
+.content-main .icon:hover{
+	border: #999 1px solid;
+}
+
+.content-end{
+	padding: 5px 30px;	
+	height: 20px;
+	color: #333;
+	background: transparent;
+	font-size: 1.167em;
+}
+
+.content-end ul{
+	padding: 2px 0px;
+	margin: 0px;
+}
+
+.content-end ul li{
+	display: inline;
+	padding: 0px 20px 0px 0px;	
+}
+
+.content-end ul li a{
+	text-decoration: none;
+	font-weight: bold;
+	color: #555;
+	background: transparent;
+}
+
+.content-end ul li a:hover{
+	border-bottom: 2px #ccc solid;
+	color: #333;
+	background: transparent;
+}
+
+.content-end .icon{
+	float: right;
+	margin: 0px 3px;	
+	border: #ccc 1px solid;
+}
+
+/*---------------------------------------------------TWO (2) COLUMN SEPARATED SECTION----*/
+
+.content-2col-sep{
+	width: 970px;
+	margin: auto;
+}
+
+.content-2col-sep-1, .content-2col-sep-2{
+	width: 475px;
+	height: auto;
+	color: #555;
+	background-color: transparent; 
+}
+
+.content-2col-sep-1 h1, .content-2col-sep-2 h1{
+	font-size: 2.0em;
+	color: #444;
+	border-bottom: 1px #ccc solid;
+	margin-top: 0px;
+	padding-bottom: 10px;
+	background-color: transparent; 
+}
+
+.content-2col-sep-1{
+	margin: 0px 10px 0px 0px;
+	float: left;
+}
+.content-2col-sep-2{
+	margin: 0px 0px 0px 10px;
+	float: right;
+}
+
+.content-2col-sep-top{
+	width: 475px;
+	height: 11px;
+	background: url(https://assets.sdes.ucf.edu/images/2col-sep-top.png) no-repeat;
+}
+
+.content-2col-sep-body{
+	width: 475px;
+	background: url(https://assets.sdes.ucf.edu/images/2col-sep-body.png) repeat-y;
+}
+
+.content-2col-sep-bottom{
+	width: 475px;
+	height: 30px;
+	background: url(https://assets.sdes.ucf.edu/images/2col-sep-bottom.png) no-repeat;
+}
+
+.content-2col-sep-main{
+	padding: 10px 30px;	
+	height: 250px;
+}
+
+/*---------------------------------------------------THREE (3) COLUMN SEPARATED SECTION----*/
+
+.content-3col-sep{
+	width: 970px;
+	margin: auto;
+}
+
+.content-3col-sep-1, .content-3col-sep-2, .content-3col-sep-3{
+	width: 316px;
+	color: #555;
+	background-color: transparent; 
+}
+
+.content-3col-sep-1 h1, .content-3col-sep-2 h1, .content-3col-sep-3 h1{
+	font-size: 2.0em;
+	color: #444;
+	border-bottom: 1px #ccc solid;
+	margin-top: 0px;
+	padding-bottom: 10px;
+	background-color: transparent; 
+}
+
+.content-3col-sep-1{
+	margin: 0px;
+	float: left;
+}
+.content-3col-sep-2{
+	margin: 0px 11px;
+	float: left;
+}
+.content-3col-sep-3{
+	float: right;
+	margin: 0px;
+}
+
+.content-3col-sep-top{
+	width: 316px;
+	height: 11px;
+	background: url(https://assets.sdes.ucf.edu/images/3col-sep-top.png) no-repeat;
+}
+
+.content-3col-sep-body{
+	width: 316px;
+	background: url(https://assets.sdes.ucf.edu/images/3col-sep-body.png) repeat-y;
+}
+
+.content-3col-sep-bottom{
+	width: 316px;
+	height: 30px;
+	background: url(https://assets.sdes.ucf.edu/images/3col-sep-bottom.png) no-repeat;
+}
+
+.content-3col-sep-main{
+	padding: 10px 30px;	
+	height: 225px;
+}
+
+/*---------------------------------------------------TWO (2) COLUMN JOINED SECTION----*/
+
+.content-2col-join-1, .content-2col-join-2{
+	width: 430px;
+	height: auto;
+	color: #555;
+	padding-bottom: 10px;
+	background: transparent;
+}
+
+.content-2col-join-1 h1, .content-2col-join-2 h1{
+	font-size: 2.0em;
+	color: #444;
+	margin-top: 0px;
+	background: transparent;
+}
+
+.content-2col-join-1 h1, .content-2col-join-1 h2, .content-2col-join-1 h3, 
+.content-2col-join-2 h1, .content-2col-join-2 h2, .content-2col-join-2 h3{
+	padding-top: 0px;
+	margin-top: 0px;	
+}
+
+.content-2col-join-1{
+	padding-top: 10px;
+	padding-right: 25px;
+	border-right: 1px #ccc solid;
+	float: left;
+}
+.content-2col-join-2{
+	padding-top: 10px;
+	float: right;
+}
+
+/*---------------------------------------------------THREE (3) COLUMN JOINED SECTION----*/
+
+.content-3col-join-1, .content-3col-join-2, .content-3col-join-3{
+	width: 280px;
+	height: auto;
+	color: #555;
+	padding-bottom: 10px;
+	background-color: transparent; 
+}
+
+.content-3col-join-1 h1, .content-3col-join-2 h1, .content-3col-join-3 h1{
+	font-size: 2.0em;
+	color: #444;
+	margin-top: 0px;
+	background-color: transparent; 
+}
+
+.content-3col-join-1{
+	padding-top: 10px;
+	margin: 0px;
+	float: left;
+}
+.content-3col-join-2{
+	padding-left: 16px;
+	padding-right: 20px;
+	margin: 10px 10px 0px 16px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	float: left;
+}
+.content-3col-join-3{
+	padding-top: 10px;
+	float: right;
+	margin: 0px;
+}
+
+/*------------------------------------------------SIDE MENU SECTION----*/
+
+.sidemenu{
+	width: 280px;
+	margin: 0px 0px 20px 20px;
+	float: right;
+	background: #fafafa;	
+	border: #eee 5px solid;
+	border-radius: 5px;
+}
+
+.sidemenu h1, .sidemenu h2{
+	color: #555;
+	background: #eee;
+	margin-top: 0px;
+	font-size: 2.0em;
+	padding: 2px 0px 5px 10px;
+}
+
+.sidemenu ul{
+	list-style: none;
+	padding: 0px;
+	margin: 0px 0px 10px 0px;
+}
+
+.sidemenu li{
+	font-size: 1.667em;
+	border-bottom: 1px solid #eee;
+	padding: 4px 0px 4px 10px;
+}
+.sidemenu li:hover{
+	border-bottom: 1px solid #ddd;
+	background: #eee;
+}
+.sidemenu li a{
+	text-decoration: none;
+	color: #555;	
+}
+.sidemenu li a:hover{
+	color: #111;	
+}
+
+.sidemenu p{
+	padding: 0px 10px;
+}
+
+.sidemenu ul ul{
+	background: none;	
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+
+.sidemenu ul ul li{
+	border-bottom: 0px;
+	background: none;	
+	font-size: 0.667em;
+}
+
+.sidemenu ul ul li:hover{
+	background: #fff;	
+	border-bottom: 0px;
+}
+
+.sidebar-right{			width: 280px;	margin: 0px 0px 20px 10px;	float: right; 	}
+.sidebar-left{			width: 280px;	margin: 0px 10px 20px 0px;	float: left;	}
+
+.content-main .right{	width: 600px;	margin-bottom: 10px; float: right;	}
+.content-main .left{		width: 600px;	margin-bottom: 10px; float: left;	}
+
+/*---------------------------------------------------FOOTER SECTION----*/
+#footer_container{
+	height: 225px;
+	background: url(https://assets.sdes.ucf.edu/images/footer-bg.png) repeat-x;
+}
+
+#footer{ width: 960px; margin: auto; padding: 25px 0px 0px 0px; }
+#footer a, #sub_footer a{ text-decoration: none; color: #ccc; background-color: transparent;  }
+#footer a:hover, #sub_footer a:hover{ color: #fff; background-color: transparent; }
+
+#footer h1, #footer div.h1{
+	font-size: 2.0em;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	margin: 0px 0px 5px 0px;	
+}
+
+#footer h1, #footer h1 a, #footer div.h1, #footer div.h1 a{
+	background-color: transparent; 
+	color: #eee;
+}
+
+#footer p{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #ccc;	
+	background-color: transparent; 
+	padding: 7px 0px 0px 0px;
+	margin: 0px;
+	line-height: 15px;
+	text-align: left;
+}
+
+#footer ul{
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #ccc;	
+	background-color: transparent; 
+	list-style: none;
+	padding: 0px;
+	margin: 10px 0px;	
+	line-height: 15px;
+}
+
+#footer div.hr{
+	height: 2px;
+	background: #444;
+	border-bottom: 2px solid #111;	
+	margin: 0px;
+}
+
+#footer #search{
+	width: 312px;
+	height: 42px;
+	background: url(https://assets.sdes.ucf.edu/images/footer-search.png) no-repeat;
+	margin-bottom: 10px;
+}
+
+#footer #search #input{
+	width: 248px;
+	height: 18px;
+	background: transparent;
+	margin: 8px 0px 0px 8px;
+	border: 0px;
+	font-size: 1.5em;
+	color: #000;
+}
+
+#footer #search #input:focus{
+	background: #ccc;
+}
+
+#footer #search #submit{
+	margin: 8px 0px 0px 5px;
+}
+
+#footer fieldset{
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*--------------------------------------------------- FOOTER COLUMNS (3) ----*/
+#footer .col3-1, #footer .col3-2, #footer .col3-3{
+	width: 312px; 
+}
+
+#footer .col3-1{ float: left; margin-right: 12px; }
+#footer .col3-2{ float: left; }
+
+#footer .col3-1-1, #footer .col3-1-2 { width: 150px; }
+#footer .col3-1-1{ 	float: left; }
+#footer .col3-1-2{ 	float: left; margin-left: 12px; margin-right: 12px; }
+
+#footer .col3-2-1, #footer .col3-2-2 { width: 150px; }
+#footer .col3-2-1{ 	float: left; }
+#footer .col3-2-2{ 	float: left; margin-left: 12px; }
+
+#footer .col3-3{		float: right; margin-left: 12px; }
+
+#footer li{ 			border-bottom: 1px #3c3c3c solid; }
+#footer li:hover{ 	background: #3a3a3a; background-color: transparent; }
+#footer strong{ 		color: #fff; background-color: transparent; }
+
+#footer a[href$='.pdf']{ padding-left: 0px; background: none; }
+
+/*---------------------------------------------------SUB FOOTER SECTION----*/
+#sub_footer_container{
+	height: 50px;
+	background: #161616 url(../images/sub-footer-bg.png) repeat-x;
+}
+
+#sub_footer{
+	width: 960px;
+	margin: auto;
+	color: #aaa;	
+	padding-top: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#w3c{
+	float: right;
+}
+
+#fifty{
+	vertical-align: middle;
+	padding: 2px 3px 0px 3px;
+}
+
+#pegasus{
+	vertical-align: middle;
+	padding-left: 3px;
+}
+
+/* JBOX STYLES */
+/* -------------------------------------------------------------------------- */
+
+.jbox{
+	width: 284px;
+	height: 190px;
+	padding: 8px;
+	color: #fff;
+	background: transparent url('../images/jbox-shadow.png') no-repeat;
+	display: inline-block;
+	margin: 0px 0px 0px 3px;
+	position: relative;
+	float: left;
+}
+
+.jbox-inner{
+	border: 2px solid #fff;
+	width: 280px;
+	height: 180px;
+	overflow: hidden;
+	position: relative;
+	color: #fff;
+	background: transparent;
+}
+
+.jbox-title{
+	position: absolute;
+	width: 280px;
+	bottom: 0; left: 0px;
+	color: #000;
+	background: #fff;
+	font-size: 1.25em;
+	text-align: center;
+	height: 20px;
+	padding: 10px 0px;
+	margin-top: 2px;
+	text-transform: uppercase;
+	font-family: Georgia, serif;
+	z-index: 50;
+	border-top: 5px #eee solid;
+}
+
+.jbox-title a{ color: #000; 	background: transparent; }
+
+.jbox a[href$=".pdf"]{
+	background: none;
+	padding: 0px;
+}
+
+.content-main .jbox img{
+	position: absolute;	
+	top: 0;
+	left: 0;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	z-index: 25;
+}
+.jbox div.jbox-content{
+	position: absolute;
+	color: #000;
+	background: transparent;
+	top: 0px;
+	left: 0px;
+	height: 120px;
+	width: 260px;
+	padding: 10px;
+	font-size: 1.083em;
+	font-weight: bold;
+	z-index: 0;
+}
+
+.jbox.ipad{
+	height: auto;
+}
+
+.jbox.ipad .outer-content{
+	color: #000;
+	background: transparent;
+	position: relative;
+	font-weight: normal;
+	font-style: italic;
+	padding: 5px;
+	width: 270px;
+	height: 100px;
+	margin-top: 10px;	
+}
+
+.jbox .flag{
+	position: absolute; top: 5px; left: 5px;
+	z-index: 100;
+	width: 71px;
+	height: 75px;
+	background: url('../images/jbox-flag.png') no-repeat;
+}
+
+
+/* ALTERNATE FORM STYLE */
+/* -------------------------------------------------------------------------- */
+.gray label {
+	float:left;
+	width:350px; 
+	color: #222;
+	background: #eee;
+	font-weight: bold;
+	padding: 10px 0px 0px 10px;
+	border-bottom: 0px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	height: 30px;
+	clear: both;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.gray label:hover{
+	background: #ddd;	
+}
+
+.gray label.error{
+	display: inline;
+	background: none;
+	color: #f00;
+	float: none;
+	font-weight: bold;
+	font-style:italic;
+	padding: 0px 0px 0px 5px;
+	margin-left: 5px;
+	border: 0px;
+	height: auto;
+	width: auto;
+}
+
+.gray label.none, .gray label.none:hover{
+	width: auto;
+	background: none;	
+	height: auto;
+	padding: 5px;
+	font-weight: normal;
+}
+
+.gray input, .gray select{
+	padding: 5px 0px 3px 3px;
+	margin: 6px 0px;
+	width: 250px;
+}	
+
+.gray input + label{
+	float: none;
+	width: auto; 
+	color: #222;
+	background: none;
+	font-weight: bold;
+	padding: 0px;
+	border-bottom: 0px;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	height: auto;
+	clear: none;
+}
+.gray input+label:hover{
+	background: none;
+}
+.gray input[type="image"]{
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.gray input[type="file"] {
+	width: 500px;
+}
+
+.gray input[type="submit"]{
+    width: 150px;
+	height: 35px;
+	font-weight: bold;
+}
+
+.gray input[type="radio"], .gray input[type="checkbox"]{
+	width: auto;
+	height: auto;
+}
+
+.gray input[type="radio"].resize, .gray input[type="checkbox"].resize{
+	width: auto;
+	height: auto;
+}
+.gray span.i, .gray span.f{
+	background: #ccc;
+	display: block;
+	float: right;
+	height: 40px;
+	padding: 0px 5px 0px 10px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.gray span.t{
+	background: #ccc;
+	display: block;
+	float: right;
+	width: 535px;
+	height: auto;
+	padding: 4px 0px 5px 10px;
+	margin-bottom: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.gray span.i{
+	width: 530px;
+}
+.gray span.f{
+	width: 444px;
+}
+
+.gray .reverse label{
+	float: none;
+	background: none;
+}
+
+.gray textarea{
+	border-radius: 5px;
+	border: 1px #ccc solid;	
+}
+
+
+/* FIELDSET FORM STYLE */
+/* -------------------------------------------------------------------------- */
+
+.fieldset fieldset{
+	background: #f3f3f3;
+	border: 1px solid #f3f3f3;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding: 10px;
+	-moz-box-shadow: 0px 1px 3px #cccccc;
+	box-shadow: 0px 1px 3px #ccc;
+}
+
+.fieldset legend{
+	background: #666;
+	color: #fff;
+	padding: 5px 10px;
+	border: 0px;
+	font-weight: bold;
+	box-shadow: 0px 2px 3px #aaa;
+}
+
+.fieldset legend.collapse:hover{
+	cursor: pointer;
+	background: #c90;
+	border: 1px #999 solid;
+}
+
+.fieldset label{
+	display: block;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bold;
+	padding-left: 10px;
+	margin-top: 15px;
+	text-transform: capitalize;
+}
+
+.fieldset .shift-left label, .fieldset .shift-right label{
+	display: block;
+}
+
+.alt label{
+	float: left;
+	width: 200px;
+	text-transform: capitalize;
+	font-family: Verdana, Geneva, sans-serif;
+	margin-top: 0px;
+	font-weight: bold;
+	clear: both;
+}
+
+.fieldset label.error, span.field-validation-error{
+	display: block;
+	background: none;
+	color: #f00;
+	float: none;
+	font-weight: bold;
+	font-style:italic;
+	padding: 0px 0px 0px 5px;
+	margin: 0px 0px 0px 5px;
+	border: 0px;
+	width: auto;
+}
+
+.fieldset input,.fieldset select {
+	width:500px; 
+	font-size: 1.333em;
+	padding: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.alt input, .alt select {
+	width:500px; 
+	float: left;
+	font-size: 1.333em;
+	padding: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.fieldset select{
+	border: 1px #aaa solid;
+}
+
+.half input, .half select {
+	width:390px; 
+	font-size: 1.333em;
+	padding: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.half fieldset{
+	margin-top: 5px;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+
+.fieldset input[type='image'], .half input[type='image']{	width: auto; padding: 0px; }
+.fieldset input + img{ padding: 2px; border: 0px; }
+
+.fieldset .tiny{		width: 60px;	}
+.fieldset .small{	width: 150px;	}
+.fieldset .medium{ 	width: 300px;	}
+.fieldset .large{ 	width: 650px;	}
+.fieldset .col3{ 	width: 250px;	}
+.fieldset .global-col2-1 input, .fieldset .global-col2-2 input, .fieldset .global-col2-1 select, .fieldset .global-col2-2 select{
+	width: 225px;
+}
+.fieldset .global-col3-1 input, .fieldset .global-col3-2 input, .fieldset .global-col3-3 input,
+.fieldset .global-col3-1 select, .fieldset .global-col3-2  select, .fieldset .global-col3-3  select{
+	width: 150px;
+}
+
+.fieldset .hidden{
+	display: none;
+	background: #ddd;
+	padding: 3px 0px 5px 10px;
+	margin: 15px 5px;
+	border: 1px #ccc solid;
+}
+
+.fieldset input[type="image"]{
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+.fieldset input[type="submit"]{
+	width: auto;
+	height: 35px;
+	font-weight: bold;
+	padding: 0px 10px;
+}
+
+.fieldset input[type="radio"], 
+.fieldset input[type="checkbox"]{
+	width: auto;
+	height: auto;
+}
+
+.fieldset input[type="radio"] + label, 
+.fieldset input[type="checkbox"] + label, 
+.fieldset label.inline{
+	display: inline;
+	margin: 0px;
+	font-weight: normal;
+	padding: 0px 10px 0px 0px;
+}
+
+.fieldset label.sentence{
+	text-transform: none;
+}
+
+.fieldset textarea{ border: 1px #ccc solid;	}
+
+.alt textarea{
+	border: 1px #ccc solid;	
+	float: left;
+}
+
+.fieldset .grid{
+	background: #fff;
+	margin: 10px 0px;
+}
+
+.fieldset .grid th{	background: #ddd;}
+.fieldset .space-left h2, .fieldset .space-right h2{	margin-top: 10px;}
+.fieldset .space-left{
+	float: left;
+	width: 38%;
+}
+.fieldset .shift-right{
+	width: 58%;
+	border-left: 4px solid #ddd;
+	padding-left: 10px;
+	padding-bottom: 20px;
+	float: right;
+	position: relative;
+}
+.fieldset .space-right{
+	float: right;
+	width: 38%;
+}
+.fieldset .shift-left{
+	width: 58%;
+	border-right: 4px solid #ccc;
+	padding-right: 10px;
+	padding-bottom: 20px;
+	float: left;
+}
+.fieldset .shift-right table, 
+.fieldset .shift-right tr, 
+.fieldset .shift-right td, 
+.fieldset .shift-left table,
+.fieldset .shift-left tr, 
+.fieldset .shift-left td{
+	border-spacing: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.fieldset table input, 
+.fieldset table select{
+	margin-right: 5px;
+}
+
+/* SMALL EXCEPTION FOR JQUERY UI BUTTONS */
+	.fieldset input[type="radio"] + label.ui-button, .fieldset button{
+		display: inline-block;
+		min-width: 100px;
+		padding: 0px;
+		margin-top: 2px;
+		margin-right: 5px;
+	}
+	
+	.fieldset .ui-button .ui-button-text{
+		font-family: Arial, Verdana, sans-serif;
+	}
+	
+	.fieldset .ui-datepicker-trigger{
+		width: auto;
+		min-width: 0px;
+		margin-left: 4px;
+		margin-top: 0px;
+		padding: 3px;
+		border: 1px solid #aaa;
+	}
+	
+	.fieldset .ui-datepicker-trigger img{
+		padding: 0px;
+		border: 0px;
+	}
+
+	#ui-datepicker-div{
+		display: none;
+	}
+	
+/* BUTTON STYLE TAKEN FROM THE CPD */
+	input[type="submit"].submit-large{
+		width: 100%;
+		margin-top: 10px;
+		height: 50px;
+		background: #FDEDAC;
+		border: 0px;
+		border-bottom: 2px solid #ccc;
+		font-family: Tahoma, Geneva, sans-serif;
+		font-weight: bold;
+		font-size: 2.0em;
+		color: #c90;
+		clear: both;
+	}
+	input[type="submit"].submit-large:hover{
+		background: #efefef; color: #666;
+	}
+	
+	/*---------------------------------------------- UCF EVENTS CALENDAR ----*/
+
+.event-title{
+	background: #f9f2de; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y5ZjJkZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZGYwYjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #f9f2de 0%, #fdf0b6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f2de), color-stop(100%,#fdf0b6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f9f2de 0%,#fdf0b6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f9f2de 0%,#fdf0b6 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f9f2de 0%,#fdf0b6 100%); /* IE10+ */
+	background: linear-gradient(top,  #f9f2de 0%,#fdf0b6 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f2de', endColorstr='#fdf0b6',GradientType=0 ); /* IE6-8 */
+	height: 25px;
+	width: 280px;
+	margin: 0px;
+	padding: 13px 5px 5px 5px;
+	text-align: center;
+	border-bottom: 3px solid #fff;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-shadow: 0px 1px 1px #fff;
+	font-family: Arial, sans-serif;
+	text-transform: capitalize;
+	color: #666;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.events {
+	padding: 5px 5px 15px 15px;
+	margin: 0px;
+	list-style-type: none;
+	background: #f2f2f2; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyZjJmMiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjgwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+	background: -moz-linear-gradient(top,  #f2f2f2 0%, #ffffff 80%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(80%,#ffffff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f2f2f2 0%,#ffffff 80%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f2f2f2 0%,#ffffff 80%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f2f2f2 0%,#ffffff 80%); /* IE10+ */
+	background: linear-gradient(top,  #f2f2f2 0%,#ffffff 80%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
+	width: 270px;
+	float: right;
+}
+
+.events.short{
+	padding: 5px;
+	width: 280px;
+}
+
+.events ul.side{
+	list-style: none;
+	padding: 0px;
+	margin: 0px 5px 10px 0px;
+}
+
+.events ul.side li {
+	font-size: 1.667em;
+	padding: 4px 0px;
+}
+
+.events ul.side li a{
+	color: #555;
+	text-decoration: none;
+}
+
+.events ul.side li a:hover{
+	color: #222;
+}
+
+.events ul.side ul{
+	background: none;	
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	list-style-type: none;
+	padding-left: 5px;
+}
+
+.events ul.side ul li{
+	border-bottom: 0px;
+	background: none;	
+	font-size: 0.667em;
+	padding: 4px 0px 4px 10px;
+}
+
+.events ul.side ul li:hover{
+	background: #fff;	
+}
+
+.events > li.event {
+	clear: left;
+	padding-top: 20px;
+	list-style-type: none;
+	margin: 6px 5px 6px 0;
+}
+
+.events > li.event:first-child {
+	padding-top: 5px;
+}
+
+.events .date {
+	background-color: #FDF0B6;
+	float: left;
+	color: #333;
+	width: 50px;
+	padding: 5px 0;
+	box-shadow: 0px 0px 6px #666;
+	-webkit-box-shadow: 0px 0px 6px #666;
+}
+
+.events > li > .date > span {
+	display: block;
+	text-align: center;
+	font-size: 120%;
+}
+
+.events > li.event > a{
+	font-size: .8em;
+	display: block;
+	position: relative;
+	margin-left: 70px;
+	margin-top: 3px;
+}
+
+.content-main .events li.event a{
+	color: #555;
+}
+
+.content-main .events li.event a:hover{
+	color: #222;
+}
+
+.events li.event .title{
+	font-size: 1.2em;
+}

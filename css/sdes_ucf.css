@@ -1,0 +1,282 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------*/
+/*------------- UCF THEME ----------------------------------------------*/
+/*----------------------------------------------------------------------*/
+/*----------------------------------------------------------------------*/
+
+body{
+	font-family: Georgia, serif;
+	color: #515050;
+}
+
+.shadow{
+	background: url('../images/shadow.png') repeat-x 0px -6px;
+	height: 10px;
+	margin-bottom: 10px;
+}
+
+/* ------------------------------------------------------------- HEADER */
+#header, .content-main-top, .content-main-bottom, .content-main-body{
+	width: 960px;
+}
+
+#header{
+	position: relative;
+	height: 4em;
+}
+
+#header_container{
+	background: #fff url('../images/bgs/ucf.png') repeat-x 0px -30px;
+	height: 75px;
+}
+
+#title, #subtitle{
+	width: auto;
+	padding: 0px;
+	font-family: Georgia, serif;
+}
+
+#title{
+	float: none;
+	font-size: 4em;
+	letter-spacing: -2px;
+	text-shadow: 1px 1px #ddd;
+	position: absolute;
+	bottom: 0px; left: 0px;
+	height: 1em;
+}
+
+#title a{
+	color: #222;
+	text-decoration: none;
+}
+
+#title a:hover{
+	color: #333;
+	text-decoration: none;
+	background-color: inherit;
+}
+
+#subtitle{
+	font-size: 1.5em;
+	letter-spacing: -1px;
+	text-align: right;
+	position: absolute;
+	bottom: 0px; right: 0px;
+	line-height: 1.1em;
+}
+
+#subtitle a{
+	color: #333;
+	text-decoration: none;
+	background-color: inherit;
+}
+
+#subtitle a:hover{
+	color: #555;
+	text-decoration: none;
+	background-color: inherit;
+}
+
+.header-title, .header-title:hover{
+	color: #222;
+}
+
+.content-main div.hr, .content-main div.top, .content-main div.top-b, .content-main .header{
+	border-bottom: 1px dotted #888;
+}
+
+.content-main div.hr, .content-main div.top{
+	margin-bottom: 30px;
+}
+
+
+/* --------------------------------------------------------- NAVIGATION */
+#nav_container{
+	background: #fdf0b6;
+	border: 0px;
+}
+
+#nav-under li a:hover{
+	background: #fff;
+	color: #000;
+}
+
+#nav-under li a.drop{
+	background-position: 98%;
+}
+
+/*---------------------------------------------------MAIN NAV SECTION----*/
+#navigation{
+	position: absolute;
+	bottom: 0px; right: 0px;
+}
+
+#navigation li{
+	display: inline;
+	color: #fff;
+	background-color: inherit;
+	font-family: inherit;
+	font-size: 1.25em;
+	font-weight: normal;
+	letter-spacing: 0px;	
+	margin: 0px;
+	z-index: 999;
+}
+
+#navigation li a{
+	padding: 0px;
+	line-height: 1.2em;
+	color: #222;
+	margin: 0px 0px 0px 16px;
+	border-bottom: 0px;
+	background: none;
+}
+#navigation li a:hover{
+	background: none;
+	border-bottom: 0px;
+	color: #666;
+}
+
+#header_container + #content_container > .shadow{
+	background: #fff;
+	width: 960px;
+	margin: auto;
+	margin-bottom: 10px;
+	border-top: 1px dotted #888;
+}
+
+
+/* -------------------------------------------------------------- SLATE */
+
+#slate_container {
+	background: url(https://assets.sdes.ucf.edu/images/template/slate-ucf.png) -5px 0px no-repeat;
+	font-size: 1.333em;
+	width: 970px;
+	height: 290px;
+	margin: auto;
+	margin-bottom: 15px;
+}
+
+#slate{
+	margin: 0px 7px;
+}
+
+/* ------------------------------------------------------------ CONTENT */
+
+#content_container{
+	background: #fff;
+	padding: 0px 0px 10px 0px;
+}
+
+.content-main img{ padding: 0px; border: 3px solid #eee; }
+
+.content-main{
+	font-size: 13px;
+	padding: 0px 3px;
+}
+
+.content-main-top, .content-main-bottom, .content-main-body{
+	background: none;
+}
+
+.content-main .left, .content-main .right, .content-main .storyleft, .content-main .storyright{
+	width: 625px;
+}
+
+.content-main h1,.content-main h2,.content-main h3,.content-main h4{
+	font-weight: normal;
+}
+
+.content-main p{
+	font-size: 1.1em;
+	line-height: 1.333em;
+}
+
+.content-main p a, .content-main li a{
+	color: #600;
+}
+
+.content-main ul.link-list li a, .content-main .content-main-links a{
+	color: #666;
+}
+.content-main ul.link-list li a:hover, .content-main .content-main-links a:hover{
+	color: #333;
+	background-color: transparent;
+}
+
+.content-main p a:hover, .content-main li a:hover{
+	color: #E50606;
+}
+
+.content-main .jbox{
+	margin: 0px 9px;
+}
+
+.content-main-links{
+	margin-top: 16px;
+}
+
+.content-main .sidebar-right{
+	width: 290px;
+}
+
+.content-3col-join-1, .content-3col-join-2, .content-3col-join-3 {
+	width: 295px;
+	height: auto;
+	color: #555;
+	background-color: inherit;
+	padding-bottom: 10px;
+}
+
+.content-end{
+	background: #fafafa;
+	padding: 20px 25px;
+}
+
+.hidden{
+	background: #ddd;
+}
+
+.jbox.ipad .outer-content {
+	height: 115px;
+}
+
+/*========================== FORM STUFF =============================*/
+
+.fieldset label {
+    font-family: inherit;
+}
+
+.fieldset .submitbox{
+	min-height: 50px;
+	padding: 20px;
+	border: 0px;
+	background: #FFFBEC;
+	clear: both;
+	margin: 10px 0px;
+	text-align: right;
+}
+
+.fieldset .submitbox input[type="submit"] {
+	min-width: 200px;
+	height: 35px;
+	font-weight: bold;
+}
+
+.fieldset label.error{
+	font-family: Verdana, Arial, sans-serif;
+}
+
+.fieldset input[type="radio"] + label, .fieldset input[type="checkbox"] + label, .fieldset label.inline {
+    text-transform: none;
+}
+
+.fieldset fieldset.contact{
+	margin-top: 0px; 
+	border: 5px #eee solid; 
+	background: #fafafa;
+}
