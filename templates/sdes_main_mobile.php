@@ -19,8 +19,7 @@
 	<!-- /CUSTOM UCF MARKETING HEADER -->
 
 	<!-- STYLES -->
-	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_main.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_ucf.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_main_ucf.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_mobile.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_print.css" type="text/css" media="print" />
 	<link rel="shortcut icon" href="http://assets.sdes.ucf.edu/images/favicon_black.png" type="text/css" />
