@@ -24,7 +24,9 @@
     padding: 1em 1em 0 1em;
   }
 
-  .content-main, #footer_container, #sub_footer_container{
+  .content-main,
+  #footer_container,
+  #sub_footer_container{
     padding: 0 1em 1em 1em; 
   }
 
@@ -238,7 +240,12 @@
     font-size: 0.75em;
   }
 
-  .content-main .fieldset fieldset, .content-main .fieldset .submitbox {
+  .content-main .grid.mobile{
+    font-size: inherit;
+  }
+
+  .content-main .fieldset fieldset,
+  .content-main .fieldset .submitbox {
     margin: 3em 0 0 0;
     padding: 1em;
     text-align: left;
@@ -294,14 +301,16 @@
     float: none;
   }
 
-  .content-main .staff img, .content-main .news img{
+  .content-main .staff img,
+  .content-main .news img{
     float: none;
     max-width: 125px;
     width: auto;
     margin: 0;
   }
 
-  .content-main .staff .staff-content, .content-main .news .news-content{
+  .content-main .staff .staff-content,
+  .content-main .news .news-content{
     margin: 0;
   }
 

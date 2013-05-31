@@ -1270,7 +1270,7 @@ class TemplateData{
 		){
 
 			//start block code
-			$output .= '<table class="grid smaller">'."\n";
+			$output .= '<table class="grid smaller mobile">'."\n";
 
 			//if hours of operation are set
 			if($this->site_hours != NULL){
