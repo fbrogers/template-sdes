@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+/* UCF MAIN ADMIN THEME */
+/* Created by Jordan Rogers, June 2013 */
+/* Requires previous load of sdes_main_ucf.css */
+
+body{
+	font-family: Arial, Verdana, sans-serif;
+}
+
+#header_container{
+	background: #333 url('../images/backgroundw.jpg') no-repeat center top;
+}
+
+#title, #subtitle{
+	text-shadow: 0px 2px 3px #111;
+}
+
+#title a,
+#subtitle a{
+	color: #fff;
+	text-decoration: none;
+}
+
+#title a:hover,
+#subtitle a:hover{
+	color: #ccc;
+}
+
+#nav_container{
+	background: #fff;
+}
+
+#nav-under li a{
+	color: #333;
+}
+
+#nav-under li a:hover{
+	background: #eee;
+	color: #000;
+}
+
+#content_container{
+	background: #333 url('../images/backgroundw.jpg') no-repeat center -115px;
+	padding: 0 0 2em 0;
+	min-height: 600px;
+}
+
+.shadow{
+	background: url('../images/shadow.png') repeat-x;
+	background-position: 0 -2px;
+	height: 10px;
+	margin-bottom: 15px;
+}
+
+.content-main-top, .content-main-bottom{
+	display: none;
+}
+
+.content-main-body{
+	background: white;
+	padding: 1em 2em;
+	margin: 2em auto;
+	box-shadow: 0px 3px 5px 1px #333;
+}
+
+.content-main .grid a{
+	color: #426e8f;
+}
+
+.content-main .grid a:hover{
+	color: #333;
+}
+
+#footer_container{
+	background: none;
+	height: 3px;
+}
+
+#sub_footer_container{
+	background-position: 0px -4px;
+}
+
+/* RESPONSIVE CSS TWEAKS */
+/* ------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 945px){
+	body{
+		background: #333 url('../images/backgroundw.jpg') no-repeat center top;
+	}
+
+	.content-main-body{
+		padding: 2em 0;
+	}
+}

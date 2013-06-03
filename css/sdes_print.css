@@ -1,11 +1,16 @@
 @charset "utf-8";
-/* CSS Document */
 
-/* Large Blocking Elements Removal */
-/* -------------------------------------------------------------------------- */
-
-#UCFHBHeader, #header_container, #nav_container, #slate_container, .content-main-top, .content-end,
-#footer_container, #sub_footer_container, iframe, .shadow, .noprint{
+#UCFHBHeader,
+#header_container,
+#nav_container,
+#slate_container,
+.content-main-top,
+.content-end,
+#footer_container,
+#sub_footer_container,
+iframe,
+.shadow,
+.noprint{
 	display: none;
 }
 
@@ -13,7 +18,6 @@
 	border-bottom: 1px solid #333;
 }
 
-/*---------------------------------------------------GLOBAL SECTION----*/
 body{
 	margin:0px;
 	font-family: Georgia, "Times New Roman", Times, serif;
@@ -55,13 +59,15 @@ a{
 	width: 100%;
 }
 
-/*---------------------------------------------------CONTENT SECTION----*/
 #content_container{
 	background: none;	
 	font-size: 12px;
 }
 
-.content-main-body, .content-main-bottom, .content-2col-sep, .content-3col-sep{
+.content-main-body,
+.content-main-bottom,
+.content-2col-sep,
+.content-3col-sep{
 	width: 100%;
 	background: none;
 	margin: 0px;
@@ -74,15 +80,32 @@ a{
 	background-color: #fff;
 }
 
-.content-main h1,.content-main h2, .content-main h3,.content-main h4{
+.content-main h1,
+.content-main h2,
+.content-main h3,
+.content-main h4{
 	font-size: 100%;
 	font-weight: bold;	
 }
 
-.content-3col-join-1, .content-3col-join-2, .content-3col-join-3,
-.content-2col-join-1, .content-2col-join-2, 
-.content-3col-sep-1, .content-3col-sep-2, .content-3col-sep-3, .content-3col-sep-main,.content-3col-sep-top,.content-3col-sep-bottom,.content-3col-sep-body,
-.content-2col-sep-1, .content-2col-sep-2, .content-2col-sep-main, .content-2col-sep-top, .content-2col-sep-bottom, .content-2col-sep-body{
+.content-3col-join-1,
+.content-3col-join-2,
+.content-3col-join-3,
+.content-2col-join-1,
+.content-2col-join-2, 
+.content-3col-sep-1,
+.content-3col-sep-2,
+.content-3col-sep-3,
+.content-3col-sep-main,
+.content-3col-sep-top,
+.content-3col-sep-bottom,
+.content-3col-sep-body,
+.content-2col-sep-1,
+.content-2col-sep-2,
+.content-2col-sep-main,
+.content-2col-sep-top,
+.content-2col-sep-bottom,
+.content-2col-sep-body{
 	width: 100%;
 	font-size: 12px;
 	margin: 0px;
@@ -91,9 +114,12 @@ a{
 	float: none;
 }
 
-.content-3col-join-1 h1, .content-3col-join-2 h1, .content-3col-join-3 h1,
-.content-3col-sep-1 h1, .content-3col-sep-2 h1, .content-3col-sep-3 h1{
+.content-3col-join-1 h1,
+.content-3col-join-2 h1,
+.content-3col-join-3 h1,
+.content-3col-sep-1 h1,
+.content-3col-sep-2 h1,
+.content-3col-sep-3 h1{
 	font-size: 12px;
 	font-weight: bold;
 }
-
