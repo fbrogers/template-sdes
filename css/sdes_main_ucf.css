@@ -2335,22 +2335,17 @@ input[type="submit"].submit-large:hover{
     float: none;
   }
 
-  #footer p {
+  #footer p, #footer li{
     font-size: 1.2em;
-    line-height: normal;
   }
 
-  #footer ul{
+  #footer p, #footer ul {
     line-height: normal;
   }
 
   #footer li{
     border: 0;
-    font-size: 1.2em;
-  }
-
-  #footer li a{
-    padding: 0.5em 0;
+    padding: 0.1em 0;
   }
 
   #footer #search {
