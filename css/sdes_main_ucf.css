@@ -2020,7 +2020,7 @@ input[type="submit"].submit-large:hover{
 
   #subtitle {
     font-size: 1.5em; 
-    margin-bottom: 1em;
+    padding-bottom: 1em;
   }
 
   #nav_container {

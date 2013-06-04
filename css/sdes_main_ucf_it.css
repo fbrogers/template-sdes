@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+/* UCF MAIN IT THEME */
+/* Created by Jordan Rogers, June 2013 */
+
+#header_container{
+	background: url('../images/bgs/it.jpg') #333 center top repeat;
+}
+
+#title, #subtitle{
+	font-family: 'Cambria', Georgia, serif;
+	text-shadow: 0px 2px 3px #111;
+}
+
+#title a, #subtitle a{
+	color: #fff;
+}
+
+#title a:hover, #subtitle a:hover{
+	color: #ddd;
+}
+
+#content_container{
+	background: #333 url('../images/bgs/it.jpg') center -125px repeat;
+}
+
+#nav_container{
+	background: #fff url('../images/bgs/barbar.png') repeat-x;
+}
+
+.shadow{
+	background-position: 0 -2px;
+}
+
+.content-main-top, .content-main-bottom{
+	display: none;
+}
+
+.content-main-body{
+	background: white;
+	padding: 1em 2em;
+	margin: 2em auto 4em auto;
+	box-shadow: 0px 3px 5px 1px #333;
+	font-family: Arial, Verdana, sans-serif;
+}
+
+.content-main div.hr,
+.content-main div.top,
+.content-main div.top-b,
+.content-main .header{
+	border-color: #aaa;
+}
+
+.content-end{
+	padding: 0.5em 0;
+	background: none;
+}
+
+@media only screen and (max-width: 945px){
+	#nav_container{
+		background: #eee;
+	}
+}

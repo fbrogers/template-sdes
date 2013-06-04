@@ -1,15 +1,15 @@
 @charset "utf-8";
+@import url("sdes_main_ucf.css");
 
 /* UCF MAIN ADMIN THEME */
 /* Created by Jordan Rogers, June 2013 */
-/* Requires previous load of sdes_main_ucf.css */
 
 body{
 	font-family: Arial, Verdana, sans-serif;
 }
 
 #header_container{
-	background: #333 url('../images/backgroundw.jpg') no-repeat center top;
+	background: #28599c url('../images/backgroundw.jpg') no-repeat center top;
 }
 
 #title, #subtitle{
@@ -41,7 +41,7 @@ body{
 }
 
 #content_container{
-	background: #333 url('../images/backgroundw.jpg') no-repeat center -115px;
+	background: #28599c url('../images/backgroundw.jpg') no-repeat center -115px;
 	padding: 0 0 2em 0;
 	min-height: 600px;
 }
@@ -59,7 +59,7 @@ body{
 
 .content-main-body{
 	background: white;
-	padding: 1em 2em;
+	padding: 1em 1.25em;
 	margin: 2em auto;
 	box-shadow: 0px 3px 5px 1px #333;
 }
