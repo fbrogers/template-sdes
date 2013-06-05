@@ -3,7 +3,8 @@
 /* UCF MAIN IT THEME */
 /* Created by Jordan Rogers, June 2013 */
 
-#header_container{
+#header_container,
+#content_container{
 	background: url('../images/bgs/it.jpg') #333 center top repeat;
 }
 
@@ -21,7 +22,7 @@
 }
 
 #content_container{
-	background: #333 url('../images/bgs/it.jpg') center -125px repeat;
+	background-position: center -125px;
 }
 
 #nav_container{
@@ -59,5 +60,14 @@
 @media only screen and (max-width: 945px){
 	#nav_container{
 		background: #eee;
+	}
+
+	.content-main-body{
+		padding: 0;
+	}
+
+	.content-main,
+	.content-end{
+		padding: 1.5em;
 	}
 }
