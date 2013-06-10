@@ -2210,6 +2210,22 @@ input[type="submit"].submit-large:hover{
     font-size: inherit;
   }
 
+  .content-main blockquote.quote,
+  .content-main blockquote.bio{
+  	font-size: 1.333em;
+  	letter-spacing: normal;
+  	line-height: normal;
+  	margin: 0.75em;
+  	padding: 0 1.25em;
+  }
+
+  .content-main blockquote.bio p,
+  .content-main blockquote.quote p{
+  	font-size: 1em;
+  	background: none;
+  	padding: 1em;
+  }
+
   .content-main .fieldset fieldset,
   .content-main .fieldset .submitbox {
     margin: 3em 0 0 0;
