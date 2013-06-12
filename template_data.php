@@ -1454,7 +1454,6 @@ class TemplateData{
 				foreach($collections as $time => $days){
 
 					foreach($days as $piece){
-
 						$temp[] = count($piece) == 1 ? $names[$piece[0]] : $names[$piece[0]].'-'.$names[end($piece)];
 					}
 
@@ -1473,7 +1472,6 @@ class TemplateData{
 
 	//social getter
 	public function html_social_uri($network = NULL){
-		//init
 		$output = NULL;
 
 		if(!($this->site_social == NULL)){
@@ -1489,8 +1487,21 @@ class TemplateData{
 			}				
 		}	
 		
-		//output
 		return $output;	
+	}
+
+	//twitter API v1.1 feed
+	public function html_twitter_feed($handle){
+		$output = null;
+
+		$script = "
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\"://platform.twitter.com/widgets.js\";fjs.parentNode.insertBefore(js,fjs);}}(document,\"script\",\"twitter-wjs\");</script>
+		";
+
+		$static = '<a class="twitter-timeline" height="500" data-dnt="true" href="https://twitter.com/'.$handle.'" data-link-color="#600" data-chrome="nofooter" data-widget-id="344864229813268480" data-screen-name="'.$handle.'">Tweets</a>';
+
+		$output = $static.$script;
+		return $output;
 	}
 }
 

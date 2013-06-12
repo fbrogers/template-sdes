@@ -23,7 +23,7 @@ a{
 }
 
 a:hover{
-	color: #111;	
+	color: #111;
 }
 
 a.drop{
@@ -1963,8 +1963,13 @@ input[type="submit"].submit-large:hover{
     background-size: 100% 139px;
   }
 
+  embed, iframe{
+  	min-width: 100%;
+  	max-width: 100%;
+  }
+
   img{
-    max-width: 100%;  
+    max-width: 100%;
   }
 
   /* gutters */
