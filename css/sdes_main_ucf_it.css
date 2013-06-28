@@ -6,6 +6,7 @@
 #header_container,
 #content_container{
 	background: url('../images/bgs/it.jpg') #333 center top repeat;
+	background-size: 1920px 2200px;
 }
 
 #title, #subtitle{
@@ -39,7 +40,7 @@
 
 .content-main-body{
 	background: white;
-	padding: 1em 2em;
+	padding: 1em 1.8em;
 	margin: 2em auto 4em auto;
 	box-shadow: 0px 3px 5px 1px #333;
 	font-family: Arial, Verdana, sans-serif;

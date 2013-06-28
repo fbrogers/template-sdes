@@ -1276,27 +1276,27 @@ a[href$='.flv']{
 	color: #000;
 }
 
-.clear{
+table.clear{
 	border:0px;
 	border-bottom: 1px solid #666;
 	padding: 5px;
 }
 
-.clear th{
+table.clear th{
 	background: transparent;
 	border-bottom: 1px solid #666;
 }
 
-.clear td{
+table.clear td{
 	padding: 5px;
 	border-bottom: 1px solid #fafafa;
 }
 
-.clear tr:nth-child(even){
+table.clear tr:nth-child(even){
 	background: transparent;
 }
 
-.clear tr:hover{
+table.clear tr:hover{
 	background: #eee;
 }
 
@@ -2111,9 +2111,8 @@ input[type="submit"].submit-large:hover{
   }
 
   .content-main .header{
-    border: 0px;  
-    padding: 0px;
-    margin-bottom: 5px;
+    padding: 0 0 0.333em 0;
+    margin: 1.5em 0 1em 0;
   }
 
   .content-main h2{
@@ -2237,15 +2236,14 @@ input[type="submit"].submit-large:hover{
 
   .content-main .staff img,
   .content-main .news img{
-    float: none;
-    max-width: 125px;
+    max-width: 15%;
     width: auto;
     margin: 0;
   }
 
   .content-main .staff .staff-content,
   .content-main .news .news-content{
-    margin: 0;
+    margin: 0 0 0 20%;
   }
 
   .content-main ul.link-list.bullets{
