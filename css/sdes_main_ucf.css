@@ -1886,6 +1886,39 @@ input[type="submit"].submit-large:hover{
 }
 
 
+/* ALERT BAR CSS */
+/* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------- */
+
+.alertbar,
+.cautionbar{
+	border: 2px solid #cd0a0a;
+	border-radius: 5px;
+	height: auto;
+	background: #fef1ec;
+	box-shadow: 0px 1px 5px #aaa;
+	padding: 1em 1.5em;
+}
+
+.cautionbar{
+	border-color: #fdf0b6;
+	background: #fafafa;	
+}
+
+.alertbar strong,
+.cautionbar strong{
+	margin-right: 0.5em; 
+	text-transform: uppercase;
+}
+
+.alertbar p,
+.cautionbar p{
+	margin: 0;
+	padding: 0;
+}
+
+
 /* RESPONSIVE CSS */
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
