@@ -11,26 +11,16 @@
 	<?= $data->html_site_base(); ?>
 	<meta name="viewport" content="width=device-width, initial-scale=0.75" />
 	<title><?= $data->html_page_title().$data->html_site_title() ?> &raquo; UCF</title>
-
-	<!-- CUSTOM UCF MARKETING HEADER -->
 	<script type="text/javascript" src="http://assets.sdes.ucf.edu/scripts/jquery.min.js"></script>
 	<script type="text/javascript" src="http://assets.sdes.ucf.edu/scripts/ucf.simplebar.js"></script>
-	<link rel="stylesheet" type="text/css" href="http://assets.sdes.ucf.edu/css/ucf.simplebar.css" />
-	<!-- /CUSTOM UCF MARKETING HEADER -->
 
 	<!-- STYLES -->
+	<link rel="stylesheet" type="text/css" href="http://assets.sdes.ucf.edu/css/ucf.simplebar.css" />
 	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_main_ucf_admin.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_print.css" type="text/css" media="print" />
 	<link rel="shortcut icon" href="http://assets.sdes.ucf.edu/images/favicon_black.png" type="text/css" />
 	<?= $data->html_site_css(); ?>
 	<!-- /STYLES -->
-
-	<!-- JAVASCRIPT -->
-	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/scrollsaver.js"></script>
-	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/jquery.validate.js"></script>
-	<?= $data->html_site_js(); ?>
-	<?= $data->html_site_js_raw(); ?>
-	<!-- /JAVASCRIPT -->
 </head>
 <body>
 	<!-- HEADER -->
@@ -93,7 +83,7 @@
 			<div id="w3c">
 				<a href="#">Valid HTML 5</a> &bull;
 				<a href="#">Valid CSS 3</a> &bull;
-				<a href="http://www.ucf.edu/"><img src="http://assets.sdes.ucf.edu/images/sub-footer-pegasus.png" id="pegasus" alt="Pegasus" /></a>
+				<a href="http://www.ucf.edu/"><img src="https://assets.sdes.ucf.edu/images/sub-footer-pegasus.png" id="pegasus" alt="Pegasus" /></a>
 			</div>
 			<span>
 				Copyright &copy; <?= date('Y'); ?> <a href="http://www.sdes.ucf.edu/">Student Development and Enrollment Services</a> &bull;
@@ -102,5 +92,13 @@
 		</div>
 	</div>
 	<!-- /SUB FOOTER -->
+
+	<!-- JAVASCRIPT -->
+	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/scrollsaver.js"></script>
+	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/jquery.validate.js"></script>
+	<?= $data->html_site_js(); ?>
+	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/sdes_main_ucf.js"></script>
+	<?= $data->html_site_js_raw(); ?>
+	<!-- /JAVASCRIPT -->
 </body>
 </html>

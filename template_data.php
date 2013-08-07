@@ -1396,77 +1396,77 @@ class TemplateData{
 		//value-to-day conversion array
 		$names = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
 		
-		//check for null, add to output
-		if(!empty($this->site_hours)){
-			
-			//loop through each day
-			foreach($this->site_hours as $day => $hours){
+		if(empty($this->site_hours)){
+			$output = "Mon-Sun: Closed";
+			return $output;
+		}
 
-				//if the day has hours set
-				if($hours[0] != NULL and $hours[1] != NULL){
+		//loop through each day
+		foreach($this->site_hours as $day => $hours){
 
-					//grab each piece of the time
-					$seconds_open = explode(':', $hours[0]);
-					$seconds_close = explode(':', $hours[1]);
+			//if the day has hours set
+			if($hours[0] != NULL and $hours[1] != NULL){
 
-					//set the time stamp
-					$open_format = $seconds_open[1] == '00' ? 'ga' : 'g:ia';
-					$close_format = $seconds_close[1] == '00' ? 'ga' : 'g:ia';
+				//grab each piece of the time
+				$seconds_open = explode(':', $hours[0]);
+				$seconds_close = explode(':', $hours[1]);
 
-					//save the times out as clean times (8:00am)
-					$open = date($open_format, strtotime('1985-10-22 ' . $hours[0]));
-					$close = date($close_format, strtotime('1985-10-22 ' . $hours[1]));
-					$both = $open.' - '.$close;
+				//set the time stamp
+				$open_format = $seconds_open[1] == '00' ? 'ga' : 'g:ia';
+				$close_format = $seconds_close[1] == '00' ? 'ga' : 'g:ia';
 
-					//if this range exists, capture it
-					$collections[$both][] = $day;
-				}
-			}
+				//save the times out as clean times (8:00am)
+				$open = date($open_format, strtotime('1985-10-22 ' . $hours[0]));
+				$close = date($close_format, strtotime('1985-10-22 ' . $hours[1]));
+				$both = $open.' - '.$close;
 
-			//if there are results
-			if(!empty($collections)){
-
-				$blocks = NULL;
-				$block = NULL;
-
-				//separate them by sequential order
-				foreach($collections as $time => $days){
-
-					//for each day in the collection
-					foreach($days as $index => $day){
-
-						//set the current day to the current block
-						$block[] = $day;
-
-						//save and start a new block if the next day isn't sequential or is the last element
-						if($day == end($days) or (isset($days[$index + 1]) and $day + 1 != $days[$index + 1])){
-							$blocks[] = $block;
-							$block = NULL;
-						}
-					}
-
-					//save out blocks, reset
-					$collections[$time] = $blocks;
-					$blocks = NULL;
-				}
-
-				//echo time
-				foreach($collections as $time => $days){
-
-					foreach($days as $piece){
-						$temp[] = count($piece) == 1 ? $names[$piece[0]] : $names[$piece[0]].'-'.$names[end($piece)];
-					}
-
-					$final[] = implode(', ', $temp).': '.$time;
-					$temp = NULL;
-				}
-
-				//save to output string
-				$output .= implode("<br />\n", $final);
+				//if this range exists, capture it
+				$collections[$both][] = $day;
 			}
 		}
+		if(empty($collections)){
+			$output = "Mon-Sun: Closed";
+			return $output;
+		}
+
+		$blocks = NULL;
+		$block = NULL;
+
+		//separate them by sequential order
+		foreach($collections as $time => $days){
+
+			//for each day in the collection
+			foreach($days as $index => $day){
+
+				//set the current day to the current block
+				$block[] = $day;
+
+				//save and start a new block if the next day isn't sequential or is the last element
+				if($day == end($days) or (isset($days[$index + 1]) and $day + 1 != $days[$index + 1])){
+					$blocks[] = $block;
+					$block = NULL;
+				}
+			}
+
+			//save out blocks, reset
+			$collections[$time] = $blocks;
+			$blocks = NULL;
+		}
+
+		//echo time
+		foreach($collections as $time => $days){
+
+			foreach($days as $piece){
+				$temp[] = count($piece) == 1 ? $names[$piece[0]] : $names[$piece[0]].'-'.$names[end($piece)];
+			}
+
+			$final[] = implode(', ', $temp).': '.$time;
+			$temp = NULL;
+		}
+
+		//save to output string
+		$output .= implode("<br />\n", $final);
 		
-		//output html
 		return $output;
 	}
 

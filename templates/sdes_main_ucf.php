@@ -11,37 +11,20 @@
 	<?= $data->html_site_base(); ?>
 	<meta name="viewport" content="width=device-width, initial-scale=0.75" />
 	<title><?= $data->html_page_title().$data->html_site_title() ?> &raquo; UCF</title>
-
-	<!-- CUSTOM UCF MARKETING HEADER -->
-	<script type="text/javascript" src="http://assets.sdes.ucf.edu/scripts/jquery.min.js"></script>
-	<script type="text/javascript" src="http://assets.sdes.ucf.edu/scripts/ucf.simplebar.js"></script>
-	<link rel="stylesheet" type="text/css" href="http://assets.sdes.ucf.edu/css/ucf.simplebar.css" />
-	<!-- /CUSTOM UCF MARKETING HEADER -->
+	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/ucf.simplebar.js"></script>
 
 	<!-- STYLES -->
-	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_main_ucf.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="http://assets.sdes.ucf.edu/css/sdes_print.css" type="text/css" media="print" />
-	<link rel="shortcut icon" href="http://assets.sdes.ucf.edu/images/favicon_black.png" type="text/css" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://assets.sdes.ucf.edu/images/icons/ios-144.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://assets.sdes.ucf.edu/images/icons/ios-114.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://assets.sdes.ucf.edu/images/icons/ios-72.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="http://assets.sdes.ucf.edu/images/icons/ios-57.png" />
+	<link rel="stylesheet" href="https://assets.sdes.ucf.edu/css/ucf.simplebar.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="https://assets.sdes.ucf.edu/css/sdes_main_ucf.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="https://assets.sdes.ucf.edu/css/sdes_print.css" type="text/css" media="print" />
+	<link rel="shortcut icon" href="https://assets.sdes.ucf.edu/images/favicon_black.png" type="text/css" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://assets.sdes.ucf.edu/images/icons/ios-144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://assets.sdes.ucf.edu/images/icons/ios-114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://assets.sdes.ucf.edu/images/icons/ios-72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://assets.sdes.ucf.edu/images/icons/ios-57.png" />
 	<?= $data->html_site_css(); ?>
 	<!-- /STYLES -->
-
-	<!-- JAVASCRIPT -->
-	<?= $data->html_site_js(); ?>
-	<?= $data->html_site_js_raw(); ?>
-	<script type="text/javascript">
-		$(function(){ 
-			if(self != top){ top.location = self.location; }
-			$("a.external").click(function(e){
-				window.open(this.href);
-				e.preventDefault();
-			});
-		});
-	</script>
-	<!-- /JAVASCRIPT -->
 
 	<?= $data->html_billboard_includes() ?>
 	<?= $data->html_site_gaid() ?>	
@@ -102,7 +85,7 @@
 		<div class="content-main-body">
 			<div class="content-end">
 				<a href="http://get.adobe.com/reader/">
-					<img src="http://assets.sdes.ucf.edu/images/content-end-pdf.jpg" class="icon" alt="icon" title="Get Adobe Reader" />
+					<img src="https://assets.sdes.ucf.edu/images/content-end-pdf.jpg" class="icon" alt="icon" title="Get Adobe Reader" />
 				</a>
 				<?= $data->html_site_social_bottom() ?>
 				<?= $data->html_site_navigation_bottom() ?>
@@ -118,13 +101,9 @@
 	<!-- FOOTER -->
 	<div id="footer_container">
 		<div id="footer">
-			<!-- FOOTER COLUMN 1 -->
+			<!-- FOOTER COLUMN 1 and 2 -->
 			<?= $data->html_site_footer(1); ?>
-			<!-- /FOOTER COLUMN 1 -->
-
-			<!-- FOOTER COLUMN 2 -->
 			<?= $data->html_site_footer(2); ?>
-			<!-- /FOOTER COLUMN 2 -->
 
 			<!-- SEARCH AND CONTACT -->
 			<div class="col3-3">
@@ -145,8 +124,6 @@
 				<div class="hr"></div>
 				<?= $data->html_site_footer_contact() ?>
 			</div>
-			<!-- /SEARCH AND CONTACT -->
-
 		</div>  
 	</div>
 	<!-- /FOOTER -->
@@ -157,8 +134,8 @@
 			<div id="w3c">
 				<a href="http://validator.w3.org/check?uri=referer">Valid HTML 5</a> &bull;
 				<a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">Valid CSS 3</a> &bull;
-				<a href="http://50.cms.smca.ucf.edu/"><img src="http://assets.sdes.ucf.edu/images/50.png" id="fifty" alt="UCF 50 Years" /></a> &bull;			
-				<a href="<?= $data->html_site_footer_ucf_icon() ?>"><img src="http://assets.sdes.ucf.edu/images/sub-footer-pegasus.png" id="pegasus" alt="Pegasus" /></a>
+				<a href="http://50.cms.smca.ucf.edu/"><img src="https://assets.sdes.ucf.edu/images/50.png" id="fifty" alt="UCF 50 Years" /></a> &bull;			
+				<a href="<?= $data->html_site_footer_ucf_icon() ?>"><img src="https://assets.sdes.ucf.edu/images/sub-footer-pegasus.png" id="pegasus" alt="Pegasus" /></a>
 			</div>
 			<span>
 				Copyright &copy; <?= date('Y'); ?> <a href="http://www.sdes.ucf.edu/">Student Development and Enrollment Services</a> &bull;
@@ -167,5 +144,11 @@
 		</div>
 	</div>
 	<!-- /SUB FOOTER -->
+
+	<!-- JAVASCRIPT -->
+	<?= $data->html_site_js(); ?>
+	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/sdes_main_ucf.js"></script>
+	<?= $data->html_site_js_raw(); ?>
+	<!-- /JAVASCRIPT -->
 </body>
 </html>
