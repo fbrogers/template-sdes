@@ -118,29 +118,44 @@ ul{
 /* ------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- */
 
-.global-col2-1{
+.global-col2-1,
+.global-col2-2{
 	width: 48%;
+}
+
+.global-col2-1{
 	float: left;
 }
 
 .global-col2-2{
-	width: 48%;
 	float: right;
 }
 
-.global-col3-1{
+.global-col3-1,
+.global-col3-2,
+.global-col3-3{
 	width: 32%;
+}
+
+.global-col3-1{
 	float: left;
 }
 
 .global-col3-2{
-	width: 32%;
-	float: left; margin: 0% 2%;
+	float: left;
+	margin: 0% 2%;
 }
 
 .global-col3-3{
-	width: 32%;
 	float: right;
+}
+
+.global-col2-1 p,
+.global-col2-2 p,
+.global-col3-1 p,
+.global-col3-2 p,
+.global-col3-3 p{
+	text-align: left;
 }
 
 .message,
@@ -613,6 +628,11 @@ a.nivo-prevNav {
 .content-main .sidebar-right,
 .content-main .sidebar-left{
 	width: 290px;
+}
+
+.content-main .sidebar-right p,
+.content-main .sidebar-left p{
+	text-align: left;
 }
 
 .content-main .sidebar-right{
@@ -1762,7 +1782,6 @@ input[type="submit"].submit-large:hover{
 	background: linear-gradient(top,  #f9f2de 0%,#fdf0b6 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f2de', endColorstr='#fdf0b6',GradientType=0 ); /* IE6-8 */
 	height: 25px;
-	width: 280px;
 	margin: 0;
 	padding: 13px 5px 5px 5px;
 	text-align: center;
