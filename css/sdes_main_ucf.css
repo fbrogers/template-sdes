@@ -9,7 +9,7 @@
 /* ------------------------------------------------------------------------- */
 
 body{
-	margin:0px;
+	margin: 0;
 	font-family: Georgia, serif;
 	font-size: 75%;
 	color: #515050;
@@ -35,7 +35,7 @@ a.up{
 }
 
 address{
-	font-style:normal;
+	font-style: normal;
 }
 
 blockquote.pull{
@@ -2059,35 +2059,16 @@ input[type="submit"].submit-large:hover{
     display: block;
   }
 
-  #nav-under {
-    width: auto;
-    height: auto;
-    display: none;
-    padding: 0;
-  }
-  
-  #nav-under li {
-    display: block;
-    padding: 0;   
+  #nav-under{
+    width: 100%;
+    padding-left: 0;
   }
 
-  #nav-under li a {
-    display: block;
-    float: none;
-    padding: 0.5em 1em;
-    text-transform: none;
-  }
-
-  #nav_container .nav-menu-button {
-    width: auto;
-    float: right;
-    display: block;
-    background-color: white;
-    cursor: pointer;
-    padding: 0.5em 1.5em;
-    margin: 0.5em 0;
-    text-align: center;
-    box-shadow: 0 2px 3px #ccc;
+  #nav-under li a{
+    font-size: 1em;
+    font-weight: bold;
+    padding: 1em 0.6em;
+    text-transform: uppercase;
   }
 
   #nav_container .clear {
@@ -2391,5 +2372,37 @@ input[type="submit"].submit-large:hover{
 
   #w3c{
     float: none;  
+  }  
+}
+
+@media only screen and (max-width: 768px){
+  #nav-under {
+    width: auto;
+    height: auto;
+    display: none;
+  }
+  
+  #nav-under li {
+    display: block;
+    padding: 0;   
+  }
+
+  #nav-under li a {
+    display: block;
+    float: none;
+    padding: 0.5em 1em;
+    text-transform: none;
+  }	
+
+  #nav_container .nav-menu-button {
+    width: auto;
+    float: right;
+    display: block;
+    background-color: white;
+    cursor: pointer;
+    padding: 0.5em 1.5em;
+    margin: 0.5em 0;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
   }  
 }
