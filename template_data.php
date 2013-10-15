@@ -724,8 +724,8 @@ class TemplateData{
 				case 'nivo_slider':
 					$output = 
 	'<!-- NIVO-SLIDER -->
-	<link rel="stylesheet" href="https://assets.sdes.ucf.edu/plugins/nivoslider/jquery.nivo.slider.css" type="text/css" media="screen" />
-	<script type="text/javascript" src="https://assets.sdes.ucf.edu/plugins/nivoslider/jquery.nivo.slider.js"></script>
+	<link rel="stylesheet" href="//assets.sdes.ucf.edu/plugins/nivoslider/jquery.nivo.slider.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="//assets.sdes.ucf.edu/plugins/nivoslider/jquery.nivo.slider.js"></script>
 	<script type="text/javascript">
 		$(window).load(function() {
 			$("#slider").nivoSlider({

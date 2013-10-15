@@ -11,18 +11,17 @@
 	<?= $data->html_site_base(); ?>
 	<meta name="viewport" content="width=device-width, initial-scale=0.75" />
 	<title><?= $data->html_page_title().$data->html_site_title() ?> &raquo; UCF</title>
-	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/jquery.min.js"></script>
-	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/ucf.simplebar.js"></script>
+	<script type="text/javascript" src="//assets.sdes.ucf.edu/scripts/jquery.min.js"></script>
+	<script type="text/javascript" id="ucfhb-script" src="//universityheader.ucf.edu/bar/js/university-header.js"></script>
 
 	<!-- STYLES -->
-	<link rel="stylesheet" href="https://assets.sdes.ucf.edu/css/ucf.simplebar.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="https://assets.sdes.ucf.edu/css/sdes_main_ucf.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="https://assets.sdes.ucf.edu/css/sdes_print.css" type="text/css" media="print" />
-	<link rel="shortcut icon" href="https://assets.sdes.ucf.edu/images/favicon_black.png" type="text/css" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://assets.sdes.ucf.edu/images/icons/ios-144.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://assets.sdes.ucf.edu/images/icons/ios-114.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://assets.sdes.ucf.edu/images/icons/ios-72.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://assets.sdes.ucf.edu/images/icons/ios-57.png" />
+	<link rel="stylesheet" href="//assets.sdes.ucf.edu/css/sdes_main_ucf.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="//assets.sdes.ucf.edu/css/sdes_print.css" type="text/css" media="print" />
+	<link rel="shortcut icon" href="//assets.sdes.ucf.edu/images/favicon_black.png" type="text/css" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="//assets.sdes.ucf.edu/images/icons/ios-144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="//assets.sdes.ucf.edu/images/icons/ios-114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="//assets.sdes.ucf.edu/images/icons/ios-72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="//assets.sdes.ucf.edu/images/icons/ios-57.png" />
 	<?= $data->html_site_css(); ?>
 	<!-- /STYLES -->
 
@@ -147,7 +146,7 @@
 
 	<!-- JAVASCRIPT -->
 	<?= $data->html_site_js(); ?>
-	<script type="text/javascript" src="https://assets.sdes.ucf.edu/scripts/sdes_main_ucf.js"></script>
+	<script type="text/javascript" src="//assets.sdes.ucf.edu/scripts/sdes_main_ucf.js"></script>
 	<?= $data->html_site_js_raw(); ?>
 	<!-- /JAVASCRIPT -->
 </body>
