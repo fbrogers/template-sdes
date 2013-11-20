@@ -100,12 +100,12 @@ of operation, phone number, fax number, email address, and location. Any
 element not set in the data object will be skipped automatically.
 
 example usage:
-<div class="sidemenu">
+<div class="menu">
 	<?= $data->html_block_contact() ?>
 </div>
 
 renders:
-<div class="sidemenu">
+<div class="menu">
 	<table class="grid smaller">
 		<tbody>
 			<tr>
