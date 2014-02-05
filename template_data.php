@@ -723,8 +723,7 @@ class TemplateData{
 			switch($this->site_billboard_dynamic_type){
 				case 'nivo_slider':
 					$output = 
-	'<!-- NIVO-SLIDER -->
-	<link rel="stylesheet" href="//assets.sdes.ucf.edu/plugins/nivoslider/jquery.nivo.slider.css" type="text/css" media="screen" />
+	'<link rel="stylesheet" href="//assets.sdes.ucf.edu/plugins/nivoslider/jquery.nivo.slider.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="//assets.sdes.ucf.edu/plugins/nivoslider/jquery.nivo.slider.js"></script>
 	<script type="text/javascript">
 		$(window).load(function() {
@@ -735,8 +734,7 @@ class TemplateData{
 				captionOpacity: 0.7
 			});	
 		});	
-	</script>
-	<!-- /NIVO-SLIDER -->';
+	</script>';
 					break;
 			}			
 		}
@@ -754,18 +752,15 @@ class TemplateData{
 		if($this->site_gaid != NULL){
 
 			$output = 
-	'<!-- GA-ASYNC -->
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push([\'_setAccount\', \''.$this->site_gaid.'\']);
-		_gaq.push([\'_trackPageview\']);
-		(function() { 
-			var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;
-			ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';
-			(document.getElementsByTagName(\'head\')[0] || document.getElementsByTagName(\'body\')[0]).appendChild(ga);
-		})();
-	</script>
-	<!-- /GA-ASYNC -->';
+	'<script>
+	  (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');
+
+	  ga(\'create\', \''.$this->site_gaid.'\', \'ucf.edu\');
+	  ga(\'send\', \'pageview\');
+	</script>';
 
 		}
 

@@ -133,7 +133,6 @@
 			<div id="w3c">
 				<a href="http://validator.w3.org/check?uri=referer">Valid HTML 5</a> &bull;
 				<a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">Valid CSS 3</a> &bull;
-				<a href="http://50.cms.smca.ucf.edu/"><img src="https://assets.sdes.ucf.edu/images/50.png" id="fifty" alt="UCF 50 Years" /></a> &bull;			
 				<a href="<?= $data->html_site_footer_ucf_icon() ?>"><img src="https://assets.sdes.ucf.edu/images/sub-footer-pegasus.png" id="pegasus" alt="Pegasus" /></a>
 			</div>
 			<span>

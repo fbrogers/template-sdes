@@ -5,8 +5,8 @@
 
 #header_container,
 #content_container{
-	background: url('../images/bgs/itb.jpg') #333 center top repeat;
-	background-size: 2000px 4937px;
+	background: url('../images/bgs/it.jpg') #333 center top repeat;
+	background-size: 1920px 2200px;
 }
 
 #title, #subtitle{
