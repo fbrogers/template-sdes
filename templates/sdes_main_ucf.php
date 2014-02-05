@@ -69,6 +69,7 @@
 		<div class="content-main-top"></div>
 		<div class="content-main-body">
 			<div class="content-main">
+				<?= $data->html_site_alert() ?>
 				<?= $data->html_page_content_links() ?>
 				<?= $data->html_page_content_title() ?>
 				<?= $data->html_page_content() ?>

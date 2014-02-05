@@ -81,6 +81,17 @@ class TemplateData{
 	//social networking array
 	private $site_social = array();
 
+	//DirectoryHelper object slot
+	private $site_directoryhelper;
+
+	//site-wide alert properties
+	private $site_alert_title;
+	private $site_alert_message;
+	private $site_alert_url;
+	private $site_alert_isPlanned;
+	private $site_alert_isSiteWide;
+	private $site_alert_allowed_pages = array();
+
 	//defaults
 	private $site_footer_col1_default = [
 		'SDES Home' => 'http://www.sdes.ucf.edu/',
@@ -104,9 +115,10 @@ class TemplateData{
 		$this->site_subtitle_length = $config['SUBTITLE_LIMIT'];
 		$this->site_footer_column_limit = $config['FOOTER_COLS_LIMIT'];
 	
-		//included functions, formProcessor class
+		//included functions, formProcessor class, DirectoryHelper class
 		require_once($this->template_include_path.'template_functions_generic.php');
 		require_once($this->template_include_path.'..\formprocessor\forms.php');
+		require_once($this->template_include_path.'..\directoryhelper\helper.inc.php');
 
 		//include path for data
 		$this->data_include_path = $config['DEFAULT_INCLUDE_PATH'];
@@ -136,6 +148,9 @@ class TemplateData{
 		$this->site_footer(1, 'Site Hosted by SDES', $this->site_footer_col1_default);
 		$this->site_footer(2, 'UCF Today News', parse_rss_template());
 		$this->site_footer_ucf_icon = $config['DEFAULT_FOOTER_ICON_HREF'];
+
+		//alerts
+		$this->site_alert_allowed_pages = ['home', 'contact'];		
 	}
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -397,8 +412,12 @@ class TemplateData{
 		
 			//check to see if the billboard file exists
 			if(is_file($this->get_data_include_path().$content_file)){		
-				//set various fields
-				$this->site_billboard = file_get_contents($this->get_data_include_path().$content_file);
+				ob_start();
+				ob_implicit_flush(0);
+				include_once(realpath($this->get_data_include_path().$content_file));
+				$this->site_billboard = ob_get_contents();
+				ob_end_clean();
+
 				$this->site_billboard_exists = true;
 				$this->site_billboard_dynamic = true;
 
@@ -500,6 +519,39 @@ class TemplateData{
 		$this->site_footer_ucf_icon = $href;
 	}
 
+	//create a DirectoryHelper object, store
+	public function site_directory_helper($slug){
+		if($slug instanceof DirectoryHelper){
+			$this->directory_helper = $slug;
+		}
+		else{
+			$this->directory_helper = new DirectoryHelper($slug);
+		}
+
+		//seed alert
+		$alerts = $this->directory_helper->GetAlerts();
+		if(isset($alerts[0])){
+			$alert = $alerts[0]->GetAlert();
+			$this->site_alert($alert[0], $alert[1], $alert[2], $alert[3], $alert[4]);
+		}		
+	}
+
+	//create site-wide alert
+	public function site_alert($title, $message, $url = null, $isPlanned = true, $isSiteWide = false){
+
+		//type check
+		if(!is_bool($isPlanned) || !is_bool($isSiteWide)){
+			throw new Exception("isPlanned and isSideWide must be boolean values.", 1);			
+		}
+
+		//set properties
+		$this->site_alert_title         = strip_tags($title);
+		$this->site_alert_message       = strip_tags($message);
+		$this->site_alert_url           = strip_tags($url);
+		$this->site_alert_isPlanned     = $isPlanned;
+		$this->site_alert_isSiteWide    = $isSiteWide;
+	}
+
 /*-------------------------------------------------------------------------------------------------------------------*/
 /*--- PAGE DATA INPUT METHODS (MUTATORS / SETTERS) ------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -581,6 +633,10 @@ class TemplateData{
 
 	public function get_site_template(){
 		return $this->site_template;
+	}
+
+	public function get_directory_helper(){
+		return $this->directory_helper;
 	}
 
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -1245,6 +1301,31 @@ class TemplateData{
 		
 		//output html
 		return $output;	
+	}
+
+	//site-wide alert
+	public function html_site_alert(){
+		$output = null;
+
+		if($this->site_alert_title == null){
+			return $output;
+		}
+
+		if($this->site_alert_isSiteWide || in_array($this->page, $this->site_alert_allowed_pages)){
+			$output .= $this->site_alert_isPlanned ? '<div class="cautionbar">' : '<div class="alertbar">';
+			$output .= '<p><strong>'.$this->site_alert_title.':</strong>';
+
+			if($this->site_alert_url != null){
+				$output .= '<a href="'.$this->site_alert_url.'" class="external">'.$this->site_alert_message.'</a>';
+			} else {
+				$output .= $this->site_alert_message;
+			}
+
+			$output .= '</p></div>';
+			$output .= '<div class="hr-blank"></div>';
+		}
+
+		return $output;
 	}
 
 /*-------------------------------------------------------------------------------------------------------------------*/
