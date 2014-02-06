@@ -522,4 +522,55 @@ $data->site_social([
 ]);
 ---------------------------------------------------------------------------- */
 $data->site_social(load_social_from_directory($dir));
+
+
+/* ----------------------------------------------------------------------------
+	SDES DIRECTORY CMS HELPER WRAPPER
+------------------------------------------------------------------------------- 
+description:
+setter for $site_directory_helper, which will automatically, given a slug,
+go to the SDES Directory, download a JSON feed of the given site, and catalog
+it away in the TemplateData object as a full DirectoryHelper object. The
+object is then accessible from within any page using it's direct getter,
+$data->get_directory_helper(). It will automatically populate, if available,
+the site_alert() properties and will set its own billboard data (which can
+be overriden with site_billboard()).
+
+For more information on the DirectoryHelper
+class, please see its documentation on GitHub.
+
+constraints:
+- must be of type string and is required
+
+default: no default value
+
+example usage:
+$data->site_directory_helper('asf');
+---------------------------------------------------------------------------- */
+$data->site_directory_helper('asf');
+
+
+/* ----------------------------------------------------------------------------
+	SITE ALERTS
+------------------------------------------------------------------------------- 
+description:
+setter for site alert properties. using $data->html_site_alert(), displays an
+alert, given certain conditions. If isPlanned is false, the alert will be
+bolder and brighter. If isSiteWide is true, the alert will appear on each page;
+otherwise, it will only appear on $data->site_alert_allowed_pages();
+
+constraints:
+- parameter 1 must be a string
+- parameter 2 must be a string
+- parameter 3 must be a valid URI or null
+- parameters 4 and 5 must be valid bools
+
+parameters: $title,   $message, $url, $isPlanned, $isSiteWide
+default:    required, required, null, true,       false
+
+example usage:
+$data->site_alert("Title", "This is a sample alert message");
+$data->site_alert("Title", "This is a sample alert message", "https://twitter.com/");
+$data->site_alert("Title", "This is a sample alert message", null, false, true);
+---------------------------------------------------------------------------- */
 ?>

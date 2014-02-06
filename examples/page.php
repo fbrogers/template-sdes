@@ -13,7 +13,6 @@ example usage:
 $title = 'Welcome!'
 $title = 'Welcome to the <em>Site</em>!'
 ---------------------------------------------------------------------------- */
-$title = 'About Us';
 
 
 /* ----------------------------------------------------------------------------
@@ -24,18 +23,23 @@ setter for $page_links. takes in an array of values that should be formed
 as a key/value pair, with the value representing the href of the navigation
 link and the key representing the text to place within the anchor. if
 constraints are passed, each element of the passed array will be set to
-$site_navigation as a key/value pair.
+$site_navigation as a key/value pair. also takes a raw string of HTML.
 
 default: null
 
 example usage:
-$links = ['About' => 'about', 'Services' => 'services'];
----------------------------------------------------------------------------- */
 $links = [
 	'Vision and Mission' => 'mission',
 	'Testimonials' => 'Testimonials',
 	'Staff' => 'contact'
 ];
+
+$links = '
+	<ul class="content-main-links">
+		<li><a href="http://firstbornrogers.com/">firstbornrogers.com</a><li>
+	</ul>
+';
+---------------------------------------------------------------------------- */
 
 
 /* ----------------------------------------------------------------------------
@@ -60,7 +64,6 @@ $above =
 </div>
 <div class="content-main-bottom"></div>';
 ---------------------------------------------------------------------------- */
-//$above = NULL;
 
 
 /* ----------------------------------------------------------------------------
@@ -85,12 +88,8 @@ $below =
 </div>
 <div class="content-main-bottom"></div>';
 ---------------------------------------------------------------------------- */
-//$below = NULL;
-
-?>
 
 
-<?php 
 /* ----------------------------------------------------------------------------
 	PAGE CONTENT: DIRECTORY INFORMATION BLOCK
 ------------------------------------------------------------------------------- 
@@ -132,14 +131,8 @@ renders:
 	</table>
 </div>
 ---------------------------------------------------------------------------- */
-?>
-
-<div class="sidemenu">
-	<?= $data->html_block_contact() ?>
-</div>
 
 
-<?php 
 /* ----------------------------------------------------------------------------
 	PAGE CONTENT: BASIC DIRECTORY INFORMATION
 ------------------------------------------------------------------------------- 
@@ -162,19 +155,46 @@ Mon-Fri: 8am - 5pm
 <a href="mailto:sdestech@ucf.edu">sdestech@ucf.edu</a>
 <a href="http://map.ucf.edu/?show=7b">Ferrell Commons 132</a>
 ---------------------------------------------------------------------------- */
+
+
+/* ----------------------------------------------------------------------------
+	PAGE CONTENT: DIRECTORY HELPER METHODS
+------------------------------------------------------------------------------- 
+description:
+extension methods for the DirectoryHelper CMS. All methods are documented in
+that library's documentation.
+
+example usage:
+
+prints the first alert
+<?= $data->get_directory_helper()->PrintAlert(); ?>
+
+prints all alerts
+<?= $data->get_directory_helper()->PrintAlerts(); ?>
+
+prints an alert only if isSideWide is true
+<?= $data->get_directory_helper()->PrintSiteAlert(); ?>
+
+prints a document with slug matching string
+<?= $data->get_directory_helper()->PrintDocument('service-catalog'); ?>
+
+prints all news article summaries
+<?= $data->get_directory_helper()->PrintNews(); ?>
+
+prints all news article summaries, including billboard stories
+<?= $data->get_directory_helper()->PrintNews(true); ?>
+
+prints all billboard stories as billboards
+<?= $data->get_directory_helper()->PrintBillboard(); ?>
+
+prints all staff without role headings
+<?= $data->get_directory_helper()->PrintStaff(); ?>
+
+prints all staff with role headings
+<?= $data->get_directory_helper()->PrintStaff(true); ?>
+
+prints all staff within a single identified role
+<?= $data->get_directory_helper()->PrintRole('ASSA Staff'); ?>
+---------------------------------------------------------------------------- */
+
 ?>
-
-<div class="left">
-	<p>Welcome to SDES Information Technology! We empower SDES to achieve by combining
-	advanced, reliable, and effective technology with diverse technical services including
-	forecasting, consulting, research, purchasing, installation, configuration, and ongoing
-	support for applications, clients, peripherals, and infrastructure devices for
-	supported SDES staff.</p>
-
-	<ul class="link-list bullets">
-		<li><a href="https://portal.sdes.ucf.edu/technology/callticket/staff_submit.aspx">Submit a Call Ticket</a></li>
-		<li><a href="teams">Learn More About Our Teams</a></li>
-		<li><a href="services">Our Provided Services</a></li>
-	</ul>
-</div>
-<div class="hr-blank"></div>
