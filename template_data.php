@@ -533,7 +533,15 @@ class TemplateData{
 		if(isset($alerts[0])){
 			$alert = $alerts[0]->GetAlert();
 			$this->site_alert($alert[0], $alert[1], $alert[2], $alert[3], $alert[4]);
-		}		
+		}
+
+		//seed billboards
+		$billboards = $this->directory_helper->PrintBillboard();
+		if($billboards != null){
+			$this->site_billboard = $billboards;
+			$this->site_billboard_exists = true;
+			$this->site_billboard_dynamic = true;
+		}
 	}
 
 	//create site-wide alert
