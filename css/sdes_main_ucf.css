@@ -803,6 +803,10 @@ a.nivo-prevNav {
 	overflow: hidden;
 }
 
+.staff .staff-details p{
+	text-align: left;
+}
+
 .staff .staff-more{
 	font-size: 0.75em;
 }
