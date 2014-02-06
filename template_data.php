@@ -82,7 +82,7 @@ class TemplateData{
 	private $site_social = array();
 
 	//DirectoryHelper object slot
-	private $site_directoryhelper;
+	private $site_directory_helper;
 
 	//site-wide alert properties
 	private $site_alert_title;
@@ -522,21 +522,21 @@ class TemplateData{
 	//create a DirectoryHelper object, store
 	public function site_directory_helper($slug){
 		if($slug instanceof DirectoryHelper){
-			$this->directory_helper = $slug;
+			$this->site_directory_helper = $slug;
 		}
 		else{
-			$this->directory_helper = new DirectoryHelper($slug);
+			$this->site_directory_helper = new DirectoryHelper($slug);
 		}
 
 		//seed alert
-		$alerts = $this->directory_helper->GetAlerts();
+		$alerts = $this->site_directory_helper->GetAlerts();
 		if(isset($alerts[0])){
 			$alert = $alerts[0]->GetAlert();
 			$this->site_alert($alert[0], $alert[1], $alert[2], $alert[3], $alert[4]);
 		}
 
 		//seed billboards
-		$billboards = $this->directory_helper->PrintBillboard();
+		$billboards = $this->site_directory_helper->PrintBillboard();
 		if($billboards != null){
 			$this->site_billboard = $billboards;
 			$this->site_billboard_exists = true;
@@ -644,7 +644,7 @@ class TemplateData{
 	}
 
 	public function get_directory_helper(){
-		return $this->directory_helper;
+		return $this->site_directory_helper;
 	}
 
 /*-------------------------------------------------------------------------------------------------------------------*/
