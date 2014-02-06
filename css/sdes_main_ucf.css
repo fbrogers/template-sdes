@@ -96,6 +96,10 @@ img{
 	border: 0;
 }
 
+li:empty{
+	display: none;
+}
+
 p{
 	text-align: justify;
 }
