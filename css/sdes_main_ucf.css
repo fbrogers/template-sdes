@@ -746,6 +746,10 @@ a.nivo-prevNav {
 	margin-left: 95px;
 }
 
+.news-content p{
+	text-align: left;
+}
+
 .news .news-title{
 	font-size: 1.833em;
 }
