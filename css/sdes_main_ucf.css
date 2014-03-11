@@ -1699,6 +1699,19 @@ span.field-validation-error{
 	width: 225px;
 }
 
+.fieldset .global-col2-1 input[type="radio"], 
+.fieldset .global-col2-1 input[type="checkbox"],
+.fieldset .global-col2-2 input[type="radio"], 
+.fieldset .global-col2-2 input[type="checkbox"],
+.fieldset .global-col3-1 input[type="radio"],
+.fieldset .global-col3-1 input[type="checkbox"],
+.fieldset .global-col3-2 input[type="radio"],
+.fieldset .global-col3-2 input[type="checkbox"],
+.fieldset .global-col3-3 input[type="radio"],
+.fieldset .global-col3-3 input[type="checkbox"]{
+	width: auto;
+}
+
 .fieldset .global-col3-1 input,
 .fieldset .global-col3-2 input,
 .fieldset .global-col3-3 input,
