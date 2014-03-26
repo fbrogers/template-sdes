@@ -91,6 +91,10 @@ hr{
 	display: none;
 }
 
+iframe[src="about:blank"]{
+	display:none; /* recaptcha iframe fix */
+}
+
 img{
 	margin: 0;	
 	border: 0;
@@ -1040,7 +1044,7 @@ a.nivo-prevNav {
 
 #footer_container{
 	height: 225px;
-	background: url('https://assets.sdes.ucf.edu/images/footer-bg.png') repeat-x;
+	background: #222 url('../images/footer-bg.png') repeat-x;
 	background-size: 100% 225px;
 }
 
@@ -1048,6 +1052,12 @@ a.nivo-prevNav {
 	width: 960px;
 	margin: auto;
 	padding: 25px 0 0 0;
+}
+
+#footer div.h1,
+#footer ul,
+#footer p{
+    font-family: Arial, Verdana, sans-serif;
 }
 
 #footer a,
@@ -1060,78 +1070,64 @@ a.nivo-prevNav {
 #footer a:hover,
 #sub_footer a:hover{
 	color: #fff;
-	background-color: transparent;
 }
 
 #footer div.h1{
 	font-size: 2.0em;
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-weight: normal;
 	margin: 0 0 5px 0;	
 }
 
 #footer div.h1,
 #footer div.h1 a{
-	background-color: transparent; 
 	color: #eee;
 }
 
-#footer p{
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+#footer p, #footer ul{
 	color: #ccc;	
-	background-color: transparent; 
+	line-height: 15px;
+}
+
+#footer p{
 	padding: 7px 0 0 0;
 	margin: 0;
-	line-height: 15px;
-	text-align: left;
 }
 
 #footer ul{
-	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-	color: #ccc;	
-	background-color: transparent; 
 	list-style: none;
 	padding: 0;
 	margin: 10px 0;	
-	line-height: 15px;
 }
 
 #footer div.hr{
 	height: 2px;
-	background: #444;
-	border-bottom: 2px solid #111;	
+	background: #555;
 	margin: 0;
 }
 
 #footer #search{
-	width: 312px;
-	height: 42px;
-	background: url(https://assets.sdes.ucf.edu/images/footer-search.png) no-repeat;
-	margin-bottom: 10px;
+	margin-bottom: 1.9em;
 }
 
 #footer #search #input{
-	width: 248px;
-	height: 18px;
-	background: transparent;
-	margin: 8px 0 0 8px;
+	background: #555;
 	border: 0;
-	font-size: 1.5em;
-	color: #000;
+	color: #fff;
+	padding: 0.25em 0.5em;
+	font-size: 1.25em;
+	height: 1.5em;
+	width: 255px;
 }
 
-#footer #search #input:focus{
-	background: #ccc;
-}
-
-#footer #search #submit{
-	margin: 8px 0 0 5px;
+#footer #search #sdes-submit{
+	background: #777;
+	float: right;
+	padding: 6px;
 }
 
 #footer fieldset{
 	border: 0;
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 
 #footer .col3-1,
@@ -1184,7 +1180,8 @@ a.nivo-prevNav {
 }
 
 #footer li{
-	border-bottom: 1px #3c3c3c solid;
+    border: 0;
+    margin-bottom: 1px;
 }
 
 #footer li:hover{
@@ -1203,25 +1200,20 @@ a.nivo-prevNav {
 }
 
 #sub_footer_container{
-	height: 50px;
-	background: #161616 url(../images/sub-footer-bg.png) repeat-x;
+	background: #161616 url('../images/sub-footer-bg.png') repeat-x;
+	background-position: 0px -8px;
 }
 
 #sub_footer{
 	width: 960px;
 	margin: auto;
 	color: #aaa;	
-	padding-top: 18px;
+	padding: 1.5em 0;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 #w3c{
 	float: right;
-}
-
-#fifty{
-	vertical-align: middle;
-	padding: 2px 3px 0 3px;
 }
 
 #pegasus{
@@ -2439,15 +2431,17 @@ input[type="submit"].submit-large:hover{
   }
 
   #footer #search #input {
-    margin: 0 0.5em 0 0;
-    padding: 0.333em 0 0.333em 1em;
     background: #fff;
     border: inherit;
+    color: #000;
+    font-size: 1.5em;
+    width: 70%;
   }
 
-  #footer #search input[type='image'] {
-    padding: 0.333em;
+  #footer #search #sdes-submit{
     background: #777;
+    padding: 0.1em 0.25em;
+    float: none;
   }
 
   #sub_footer_container{
@@ -2457,7 +2451,8 @@ input[type="submit"].submit-large:hover{
   }
 
   #w3c{
-    float: none;  
+    float: none;
+    margin-bottom: 1em;
   }  
 }
 
