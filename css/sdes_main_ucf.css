@@ -57,7 +57,6 @@ blockquote.quote{
 
 blockquote.quote p{
     background: transparent url('../images/pull.png') right 80% no-repeat;
-    text-align: left;
 	padding-right: 20px;
 	padding-bottom: 10px;
 }
@@ -102,10 +101,6 @@ img{
 
 li:empty{
 	display: none;
-}
-
-p{
-	text-align: justify;
 }
 
 strong{
@@ -158,16 +153,7 @@ ul{
 	float: right;
 }
 
-.global-col2-1 p,
-.global-col2-2 p,
-.global-col3-1 p,
-.global-col3-2 p,
-.global-col3-3 p{
-	text-align: left;
-}
-
-.message,
-.validation-summary-errors li{
+.message, .validation-summary-errors li{
 	color: #e00;
 	font-size: 1.333em;
 	padding: 2px;
@@ -339,7 +325,7 @@ ul{
 /* ------------------------------------------------------------------------- */
 
 #slate_container{
-	background: url('https://assets.sdes.ucf.edu/images/template/slate-ucf.png') -5px 0 no-repeat;
+	background: url('../images/template/slate-ucf.png') -5px 0 no-repeat;
 	font-size: 1.333em;
 	width: 970px;
 	height: 290px;	
@@ -356,7 +342,7 @@ ul{
 	position: relative;
 	width: 956px;
 	height: 266px;
-	background: url("https://assets.sdes.ucf.edu/images/ajax-loader.gif") no-repeat center center #fff;
+	background: url("../images/ajax-loader.gif") no-repeat center center #fff;
 }
 
 #slider a img,
@@ -376,7 +362,7 @@ ul{
 	display: inline-block;
 	width: 10px;
 	height: 20px;
-	background: url('https://assets.sdes.ucf.edu/images/bullets.png') no-repeat;
+	background: url('../images/bullets.png') no-repeat;
 	text-indent: -9999px;
 	border: 0;
 	margin-right: 3px;
@@ -390,7 +376,7 @@ ul{
 	display:block;
 	width:30px;
 	height:30px;
-	background: transparent url('https://assets.sdes.ucf.edu/images/arrows.png') no-repeat;
+	background: transparent url('../images/arrows.png') no-repeat;
 	text-indent:-9999px;
 	border:0;
 }
@@ -433,7 +419,7 @@ a.nivo-prevNav {
 
 .shadow{
 	height: 10px;
-	background: url('https://assets.sdes.ucf.edu/images/shadow.png') repeat-x 0 -6px;
+	background: url('../images/shadow.png') repeat-x 0 -6px;
 	margin-bottom: 10px;
 }
 
@@ -638,11 +624,6 @@ a.nivo-prevNav {
 	width: 290px;
 }
 
-.content-main .sidebar-right p,
-.content-main .sidebar-left p{
-	text-align: left;
-}
-
 .content-main .sidebar-right{
 	margin: 0 0 20px 10px;
 	float: right;
@@ -750,10 +731,6 @@ a.nivo-prevNav {
 	margin-left: 95px;
 }
 
-.news-content p{
-	text-align: left;
-}
-
 .news .news-title{
 	font-size: 1.833em;
 }
@@ -809,10 +786,6 @@ a.nivo-prevNav {
 .staff .staff-details{
 	margin-top: 1em;
 	overflow: hidden;
-}
-
-.staff .staff-details p{
-	text-align: left;
 }
 
 .staff .staff-more{
@@ -907,7 +880,7 @@ a.nivo-prevNav {
 .bullets,
 .news-content .bullets{ 
 	padding-left: 15px; 
-	background: url('https://assets.sdes.ucf.edu/images/3bul.png') no-repeat center left;	
+	background: url('../images/3bul.png') no-repeat center left;	
 }
 
 .content-main ul.link-list.bullets,
@@ -920,7 +893,7 @@ a.nivo-prevNav {
 .content-main ul.link-list.bullets li,
 .content-main ul.link-list.bullets li:hover{
 	padding-left: 15px;
-	background: url('https://assets.sdes.ucf.edu/images/3bul.png') no-repeat center left;	
+	background: url('../images/3bul.png') no-repeat center left;	
 }
 
 .content-main ul.normal{
@@ -1230,7 +1203,7 @@ a.nivo-prevNav {
 a.external{
 	padding-right: 20px;
 	padding-left: 0;
-	background: url('https://assets.sdes.ucf.edu/images/icons/ex-link.png') right center no-repeat;
+	background: url('../images/icons/ex-link.png') right center no-repeat;
 }
 
 a[href$='.pdf'].noicon,
@@ -1247,7 +1220,7 @@ a[href$='.ppsx'].noicon{
 
 a[href$='.pdf']{
 	padding: 1px 0 0 20px;
-	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_acrobat.png') left center no-repeat;
+	background: url('../images/icons/fff_page_white_acrobat.png') left center no-repeat;
 }
 
 h1 a[href$='.pdf'],
@@ -1255,21 +1228,21 @@ h2 a[href$='.pdf'],
 h3 a[href$='.pdf']{
 	padding-right: 20px;
 	padding-left: 0;
-	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_acrobat.png') right center no-repeat;
+	background: url('../images/icons/fff_page_white_acrobat.png') right center no-repeat;
 }
 
 a[href$='.doc'],
 a[href$='.docx'],
 a[href$='.rtf']{
 	padding: 1px 0 0 20px;
-	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_word.png') left center no-repeat;
+	background: url('../images/icons/fff_page_white_word.png') left center no-repeat;
 }
 
 a[href$='.xls'],
 a[href$='.xlsx'],
 a[href$='.xlsm']{
 	padding: 1px 0 0 20px;
-	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_excel.png') left center no-repeat;
+	background: url('../images/icons/fff_page_white_excel.png') left center no-repeat;
 }
 
 h1 a[href$='.xlsx'],
@@ -1277,14 +1250,14 @@ h2 a[href$='.xlsx'],
 h3 a[href$='.xlsx']{
 	padding-right: 20px;
 	padding-left: 0;
-	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_excel.png') right center no-repeat;
+	background: url('../images/icons/fff_page_white_excel.png') right center no-repeat;
 }
 
 a[href$='.ppt'],
 a[href$='.pptx'],
 a[href$='.ppsx']{
 	padding: 1px 0 0 20px;
-	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_powerpoint.png') left center no-repeat;
+	background: url('../images/icons/fff_page_white_powerpoint.png') left center no-repeat;
 }
 
 h1 a[href$='.ppt'],
@@ -1295,13 +1268,13 @@ h2 a[href$='.pptx'],
 h3 a[href$='.pptx']{
 	padding-right: 20px;
 	padding-left: 0;
-	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_powerpoint.png') right center no-repeat;
+	background: url('../images/icons/fff_page_white_powerpoint.png') right center no-repeat;
 }
 
 a[href$='.swf'],
 a[href$='.flv']{
 	padding: 1px 0 0 20px;
-	background: url('https://assets.sdes.ucf.edu/images/icons/fff_page_white_flash.png') left center no-repeat;
+	background: url('../images/icons/fff_page_white_flash.png') left center no-repeat;
 }
 
 
@@ -1850,34 +1823,24 @@ input[type="submit"].submit-large:hover{
 /* ------------------------------------------------------------------------- */
 
 .event-title{
-	background: #f9f2de; /* Old browsers */
-	background: -moz-linear-gradient(top,  #f9f2de 0%, #fdf0b6 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f2de), color-stop(100%,#fdf0b6)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #f9f2de 0%,#fdf0b6 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #f9f2de 0%,#fdf0b6 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #f9f2de 0%,#fdf0b6 100%); /* IE10+ */
-	background: linear-gradient(top,  #f9f2de 0%,#fdf0b6 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f2de', endColorstr='#fdf0b6',GradientType=0 ); /* IE6-8 */
+	background: #fdf0c3;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom: 3px solid #fff;
+	color: #666;
+	font-family: Arial, sans-serif;
+	font-size: 1.2em;
+	font-weight: bold;
 	height: 25px;
 	margin: 0;
 	padding: 13px 5px 5px 5px;
 	text-align: center;
-	border-bottom: 3px solid #fff;
-	font-size: 1.2em;
-	font-weight: bold;
 	text-shadow: 0 1px 1px #fff;
-	font-family: Arial, sans-serif;
 	text-transform: capitalize;
-	color: #666;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
 }
 
 .events {
-	padding: 5px 5px 15px 15px;
-	margin: 0;
-	list-style-type: none;
-	background: #f2f2f2; /* Old browsers */
+	background: #f2f2f2;
 	background: -moz-linear-gradient(top,  #f2f2f2 0%, #ffffff 80%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(80%,#ffffff)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  #f2f2f2 0%,#ffffff 80%); /* Chrome10+,Safari5.1+ */
@@ -1885,8 +1848,11 @@ input[type="submit"].submit-large:hover{
 	background: -ms-linear-gradient(top,  #f2f2f2 0%,#ffffff 80%); /* IE10+ */
 	background: linear-gradient(top,  #f2f2f2 0%,#ffffff 80%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#ffffff',GradientType=0 ); /* IE6-8 */
-	width: 270px;
 	float: right;
+	list-style-type: none;
+	margin: 0;
+	padding: 5px 5px 15px 15px;
+	width: 270px;
 }
 
 .events.short{
@@ -2012,7 +1978,6 @@ input[type="submit"].submit-large:hover{
 .cautionbar p{
 	margin: 0;
 	padding: 0;
-	text-align: left;
 }
 
 
@@ -2250,10 +2215,6 @@ input[type="submit"].submit-large:hover{
     height: auto;
     margin: 0 0 1.3em 0;
     float: none;
-  }
-
-  .content-main p{
-    text-align: left;
   }
 
   .content-main .jbox {
