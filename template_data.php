@@ -578,7 +578,18 @@ class TemplateData{
 	//set up the social networking presences for the site
 	public function site_social(array $collection){
 		//possible values for $type
-		$allowed = ['facebook', 'flickr', 'picasa', 'pinterest', 'skype', 'tumblr', 'twitter', 'wordpress', 'youtube'];
+		$allowed = [
+			'facebook',
+			'flickr',
+			'instagram',
+			'picasa',
+			'pinterest',
+			'skype',
+			'tumblr',
+			'twitter',
+			'wordpress',
+			'youtube'
+		];
 
 		//loop
 		foreach($collection as $type => $val){
@@ -1042,6 +1053,9 @@ class TemplateData{
 						break;
 					case 'flickr':
 						$output .= '<img src="'.$this->template_icon_path.'/flickr.png" class="icon" alt="icon" title="Flickr" />';
+						break;
+					case 'instagram':
+						$output .= '<img src="'.$this->template_icon_path.'/instagram.png" class="icon" alt="icon" title="Instagram" />';
 						break;
 					case 'picasa':
 						$output .= '<img src="'.$this->template_icon_path.'/picasa.png" class="icon" alt="icon" title="Google Picasa" />';
@@ -1568,6 +1582,25 @@ class TemplateData{
 			//add to output
 			elseif(isset($this->site_social[$network])){
 				$output .= $this->site_social[$network];
+			}				
+		}	
+		
+		return $output;	
+	}
+
+	//social button getter
+	public function html_social_button($network = null){
+		$output = null;
+
+		if($network == null){
+			return null;
+		}
+
+		if(!($this->site_social == null)){
+			if(isset($this->site_social[$network])){
+				$output .= '<a href="'.$this->site_social[$network].'">';
+				$output .= '<img src="//assets.sdes.ucf.edu/images/'.$network.'.gif" class="clean" alt="button" />';
+				$output .= '</a>&nbsp;';
 			}				
 		}	
 		
