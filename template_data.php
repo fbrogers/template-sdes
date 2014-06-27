@@ -581,6 +581,7 @@ class TemplateData{
 		$allowed = [
 			'facebook',
 			'flickr',
+			'googleplus',
 			'instagram',
 			'picasa',
 			'pinterest',
@@ -1054,6 +1055,9 @@ class TemplateData{
 					case 'flickr':
 						$output .= '<img src="'.$this->template_icon_path.'/flickr.png" class="icon" alt="icon" title="Flickr" />';
 						break;
+					case 'googleplus':
+						$output .= '<img src="'.$this->template_icon_path.'/googleplus.png" class="icon" alt="icon" title="Google +" />';
+						break;
 					case 'instagram':
 						$output .= '<img src="'.$this->template_icon_path.'/instagram.png" class="icon" alt="icon" title="Instagram" />';
 						break;
@@ -1065,6 +1069,9 @@ class TemplateData{
 						break;
 					case 'skype':
 						$output .= '<img src="'.$this->template_icon_path.'/skype.png" class="icon" alt="icon" title="Skype" />';
+						break;
+					case 'tumblr':
+						$output .= '<img src="'.$this->template_icon_path.'/tumblr.png" class="icon" alt="icon" title="Tumblr" />';
 						break;
 					case 'twitter':
 						$output .= '<img src="'.$this->template_icon_path.'/twitter.png" class="icon" alt="icon" title="Twitter" />';

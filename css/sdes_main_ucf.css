@@ -952,17 +952,18 @@ a.nivo-prevNav {
 
 .menu ul ul{
 	background: none;
-	margin: 1em 1em 1em 0;
+	margin: 0.5em 0.5em 0.5em 0;
+	padding: 0 0.5em 0 1em;
 }
 
 .menu ul ul li{
 	border-bottom: 0;
 	background: none;	
-	font-size: 0.75em;
+	font-size: 0.825em;
+	padding: 0.25em;
 }
 
 .menu ul ul li:hover{
-	background: #fff;	
 	border-bottom: 0;
 }
 
